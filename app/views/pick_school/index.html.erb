@@ -1,0 +1,18 @@
+<% if is_paid(current_user.id.to_s) %>
+	Schools remaining: <%= current_user.num_of_tokens - @schoolsselected %>
+	<br />
+<% end %>
+
+Selected Schools:
+<% current_user.schools.each do |item| %>
+	<%= item.name %><td><%= link_to 'Destroy', item, method: :delete_school_relation %></td><br />
+<% end %>
+
+<% if current_user.schools.length >= @maxnum %>
+	<p>Sorry, you've exceeded the amount of schools, please <% link_to "Purchase More", :controller => "subscription", :action => "new" %></p>
+<% else %>
+	<%= form_tag url_for(:controller => 'pick_school', :action => 'new') do %>
+		<%= collection_select(:user, :school_id, School.all, :id, :name) %>
+		<%= submit_tag("Pick") %>
+	<% end %>
+<% end %>

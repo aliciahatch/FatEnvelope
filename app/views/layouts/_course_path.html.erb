@@ -1,0 +1,13 @@
+<ul class="breadcrumb">
+	
+	<% program.steps.each_with_index do |step,index| %>
+		<% if currentStep.id != step.id %>
+		<li><%=link_to step.name, :controller => "program", :action => "index", :id => step.id, :progId => @program.id %></li>
+		<% else %>
+			<li class="active"><%= step.name %></li>
+		<% end %>
+		<% if index < program.steps.count-1 %>
+			<span class="divider">/</span>
+		<% end %>
+	<% end %>	
+</ul>

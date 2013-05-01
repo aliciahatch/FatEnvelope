@@ -1,0 +1,39 @@
+<h1>Listing steps</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+
+    <th>Video mp4</th>
+    <th>Video webm</th>
+    <th>Video poster</th>
+    <th>Writing area</th>
+    <th>Points</th>
+    <th>Sortorder</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @steps.each do |step| %>
+  <tr>
+    <td><%= step.name %></td>
+    <td><%= step.step_type_id %></td>
+
+    <td><%= step.video_mp4 %></td>
+    <td><%= step.video_webm %></td>
+    <td><%= step.video_poster %></td>
+    <td><%= step.writing_area %></td>
+    <td><%= step.points %></td>
+    <td><%= step.sortorder %></td>
+    <td><%= link_to 'Show', step %></td>
+    <td><%= link_to 'Edit', edit_step_path(step) %></td>
+    <td><%= link_to 'Destroy', step, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Step', new_step_path %>

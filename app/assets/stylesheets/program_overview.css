@@ -1,0 +1,19 @@
+.step-details a{
+	padding:20px;
+	background:#f9f9f9;
+	border:1px solid white;
+	width:580px;
+	margin:0 0 20px 0;
+	display:block;
+	border-left:3px solid #aaa;
+	text-decoration: none;
+	font-size: 22px;
+	display: block;
+}
+.step-details a small{
+	font-size: 12px;
+	color:#aaa;
+	margin-right:10px;
+	position: relative;
+	top:-8px
+}

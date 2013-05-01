@@ -1,0 +1,29 @@
+<%= form_for(@school) do |f| %>
+  <% if @school.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
+
+      <ul>
+      <% @school.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :program_id, :value => 1 %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "typeahead", :autocomplete => "off", :data =>{ :provide=>"typeahead"} %>
+  </div>
+  <div class="field">
+    <%= f.label :admission_deadline %>
+    <%= f.date_select :admission_deadline,  :order => [:day, :month, :year]  %>
+  </div>
+  <div class="field">
+    <label>Essay Prompt:</label>
+    <%= f.text_field :essayprompt %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

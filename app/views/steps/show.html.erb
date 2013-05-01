@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @step.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @step.step_type_id %>
+</p>
+
+
+<p>
+  <b>Video mp4:</b>
+  <%= @step.video_mp4 %>
+</p>
+
+<p>
+  <b>Video webm:</b>
+  <%= @step.video_webm %>
+</p>
+
+<p>
+  <b>Writing area:</b>
+  <%= @step.writing_area %>
+</p>
+
+<p>
+  <b>Points:</b>
+  <%= @step.points %>
+</p>
+
+
+<%= link_to 'Edit', edit_step_path(@step) %> |
+<%= link_to 'Back', steps_path %>

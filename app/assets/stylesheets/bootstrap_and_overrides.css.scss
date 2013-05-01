@@ -1,0 +1,48 @@
+// Set the correct sprite paths
+$iconSpritePath: asset-url('glyphicons-halflings.png', image);
+$iconWhiteSpritePath: asset-url('glyphicons-halflings-white.png', image);
+@import "bootstrap";
+h3{line-height: 25px;}
+.navbar .nav {
+  > li {
+    margin-right: 15px;
+    > a {
+      font-family: "Eurofurencebolditalic", sans-serif;
+      font-size: 11px;
+      color: #1b1d4f;
+      text-transform: uppercase;
+      padding: 4px 20px;
+      letter-spacing: 3px;
+      text-shadow: none;
+      font-weight: bold;           
+    }
+    
+    > a:hover {      
+      color: #fff;      
+    }      
+  }
+  
+  > li:first-child {
+    margin-left: 190px;
+  }    
+}
+
+ul.nav.tan,
+ul.nav.red {
+  > li {
+    background: #c4b88c;
+  }        
+}
+
+ul.nav.skyblue {
+  > li {
+    background: #9dc6e5;
+  }
+}
+
+ul.nav.green,
+ul.nav.blue {
+  > li {
+    background: #627886;
+  }
+}

@@ -1,0 +1,37 @@
+<div class="row-fluid">
+<%= @ssoToken %>
+<div class="span8">
+	<% @program.steps.each do |step| %>
+		<div class="step-details">
+		<%=link_to  :controller => "program", :action => "index", :id => step.id, :schoolId => @school.id do  %>
+		<%=step.name %>
+		<% if step.isComplete(@school) %>
+			<small>Complete</small>
+		<% end %>
+		<%end%>
+		</div>
+	<% end %>
+</div>
+<!--End span8-->
+
+
+<div class="span4 well">
+	<div class="btn-group pull-right editbtn">
+		<%= link_to "<i class='icon-cog' data-original-title='Edit School'></i>".html_safe, edit_school_path(@school) %>
+	</div>
+	<h3><%= @school.name %></h3>
+	<h5><%= @school.essayprompt %></h5>
+	Due Date: <%= @school.admission_deadline.strftime('%B %d, %Y') %><br />
+	<% if @school.timeTill.past? || @school.timeTill.nil? %>
+		Due In: <span class="label label-warning">Overdue</span><br />
+	<% else %>
+		Due In: <%= time_ago_in_words(@school.timeTill) %><br />
+	<% end %>
+	Complete: <%= @school.program.percentComplete(@school) %>%
+	<div class="progress progress-success">
+	  <div class="bar" style="width: <%= @school.program.percentComplete(@school) %>%;"></div>
+	</div>
+</div>
+
+
+</div><!--End Row-->

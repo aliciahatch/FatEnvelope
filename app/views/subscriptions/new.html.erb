@@ -1,0 +1,90 @@
+
+<div class="span7">
+	<%= form_for @subscription do |f| %>
+		  <% if @subscription.errors.any? %>
+		    <div class="error_messages">
+		      <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+		      <ul>
+		      <% @subscription.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+	  
+	
+	  
+	<% current_user.subscription.to_s %>
+	  <%= f.hidden_field :user_id, :value => @user_id %>
+	  
+		
+		<% if !current_user.stripetoken.nil? %>
+
+			<%= f.hidden_field :stripe_customer_token, :value => current_user.stripetoken %>
+			<h4>Current Card:</h4>
+			<p>We kept your credit card ending with <%=current_user.last4 %> on file. If you need to use a different credit card to add additonal credits, please email <a href="mailto:billing@fatenvelope.com">billing@fatenvelope.com</a>. </p>
+
+			
+			<h4>Add More Schools:</h4>
+			<div class="field">
+			<%= label_tag :number_of_schools, "Number of Schools" %>
+			<%= select_tag(:number_of_schools, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],1), :class => 'number_of_schools' )%>		
+			</div>
+		  <div>
+		  	<label>Total Price</label>
+		  	<h4 class="price">$200.00</h4>
+		  </div>
+		  <div class="actions"><%= f.submit "Subscribe" %></div>
+
+		  <br />
+		  <%= link_to 'Questions?', 'mailto:billing@fatenvelope.com' %>
+	
+		<% else %>
+		  <%= f.hidden_field :user_id, :value => @user_id %>
+		  <%= f.hidden_field :stripe_card_token %>
+
+			<div class="field">
+			<%= label_tag :number_of_schools, "Number of Schools" %>
+			<%= select_tag(:number_of_schools, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],1), :class => 'number_of_schools' )%>		
+			</div>
+		
+		  <div class="field">
+		      <%= label_tag :card_number, "Credit Card Number " %>
+		      <%= text_field_tag :card_number, nil, name: nil %>
+		  </div>
+		  <div class="field">
+		      <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+		      <%= text_field_tag :card_code, nil, name: nil %>
+		  </div>
+		  <div class="field">
+		    <%= label_tag :card_month, "Card Expiration" %>
+		    <%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%>
+		    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%>
+		  </div>
+		  <div id="stripe_error">
+		    <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+		  </div>
+		  <div>
+		  	<label>Total Price</label>
+		  	<h4 class="price">$200.00</h4>
+		  </div>
+		  <div class="actions"><%= f.submit "Subscribe" %></div>
+	  <% end %>
+	<% end %>
+	
+	</div>
+	<div class="span4 last">
+	<div class="well">
+		<h3>Current Credits</h3>
+		<p>Schools Available: <%=current_user.num_of_tokens%></p>
+		<p>Schools Used: <%=current_user.schools.count%></p>
+	</div>
+	<div class="well">
+		<h3>Sample Visa Number</h3>
+		<code>4242424242424242</code>
+		<h3>Sample CVV</h3>
+		<code>222</code>
+		<h3>Sample Expiration</h3>
+		<code>Jan 2013</code>
+	</div>
+	</div>

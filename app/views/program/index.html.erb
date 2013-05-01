@@ -1,0 +1,50 @@
+<div class="row programrow">
+	<div class="span12">
+		<%= render :partial => "layouts/course_path", :locals => { :program => @program, :currentStep => @step } %> 
+	</div>
+	<%if @step.sidebarcontentbool %>
+	<div class="span8">
+	<%else%>
+	<div class="span12"%>
+	<%end%>
+		<h2><%= @step.name %></h2>
+		<% if !@step.instructions.empty? %>
+			<div><%=@step.instructions.html_safe%></div>
+		<% end %>
+		<% if !@step.video_mp4.empty? %>
+			<video src="<%=@step.video_mp4 %>" controls="true" poster="<%=@step.video_poster%>"></video>
+		<% end %>
+		<%if !@step.sidebarcontentbool %>
+			<% if @isCompleted %>
+				<p>
+				<%= link_to 'Completed', {:controller => 'program', :action => 'addCompletedStep', :id => @step.id, :schoolId => @school.id},:class => 'complete btn btn-success disabled', :'data-remote' => true %>
+				</p>
+			<% else %>
+				<p>
+				<%= link_to 'Complete and Schedule', {:controller => 'program', :action => 'addCompletedStep', :id => @step.id, :schoolId => @school.id},:class => 'complete btn-large btn btn-primary', :'data-remote' => true %>
+				</p> 
+			<% end %>
+		<%end%>
+	</div>
+	
+	<%if @step.sidebarcontentbool %>
+	<div class="span4">
+	<a href="https://panameducation.com/app/sso/login?email=demouser@example.com&token=<%= session[:sso_token] %>">Link</a>
+		<div class="well" id="statbar" data-spy="affix" data-offset-top="67">
+			<h4>Essay Prompt:</h4>
+			<p><%=@school.essayprompt%></p>
+			<%=@step.sidebarcontent.html_safe%>
+			<% if @isCompleted %>
+				<p>
+				<%= link_to 'Completed', {:controller => 'program', :action => 'addCompletedStep', :id => @step.id, :schoolId => @school.id},:class => 'complete btn btn-success disabled', :'data-remote' => true %>
+				</p>
+			<% else %>
+				<p>
+				<%= link_to 'Complete and Schedule', {:controller => 'program', :action => 'addCompletedStep', :id => @step.id, :schoolId => @school.id},:class => 'complete btn-large btn btn-primary', :'data-remote' => true %>
+				</p> 
+			<% end %>
+		</div>
+
+	</div>
+	<%end%>
+</div>

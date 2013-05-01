@@ -1,0 +1,40 @@
+<%= form_for(@program, :html => { :class => "form-horizontal"} ) do |f| %>
+  <% if @program.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@program.errors.count, "error") %> prohibited this program from being saved:</h2>
+
+      <ul>
+      <% @program.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field control-group">
+    <%= f.label :name, :class => "control-label" %>
+    <div class="controls">
+    	<%= f.text_field :name %>
+    </div>
+  </div>
+  
+      <div class="control-group">
+    <div class="controls">
+
+  <% Step.all.each do |step| %>
+
+	    <label class="checkbox">
+	      <%= check_box_tag :step_ids, step.id, @program.steps.include?(step), :name => 'program[step_ids][]' %>
+	      <%= step.name %>
+	    </label>
+
+  <% end %>
+      </div>
+  </div>
+  
+  <div class="actions control-group">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,7 @@
+<h1>New school</h1>
+<% if current_user.num_of_tokens - current_user.schools.length > 0 %>
+<%= render 'form' %>
+<%else%>
+	<p>You currently have the max amount of schools allowed. If you need more schools, please purchase the appropriate plan from the <%=link_to "plans", {:controller => "subscriptions", :action => "new"} %> page.</p>
+	<p>If you have any questions, please email <a href="mailto:help@fatenvelope.com">Help@fatenvelope.com</a></p>
+<%end%>

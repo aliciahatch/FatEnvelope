@@ -1,0 +1,12 @@
+
+.span3 .editbtn{
+	opacity:0.4;
+	 -webkit-transition: opacity 0.3s ease;
+	  -moz-transition: opacity 0.3s ease;
+	  -o-transition: opacity 0.3s ease;
+	  transition: opacity 0.3s ease;
+}
+.span3:hover .editbtn{
+
+	opacity: 0.7
+}

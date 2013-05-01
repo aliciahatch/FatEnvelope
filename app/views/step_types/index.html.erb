@@ -1,0 +1,23 @@
+<h1>Listing step_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @step_types.each do |step_type| %>
+  <tr>
+    <td><%= step_type.name %></td>
+    <td><%= link_to 'Show', step_type %></td>
+    <td><%= link_to 'Edit', edit_step_type_path(step_type) %></td>
+    <td><%= link_to 'Destroy', step_type, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Step type', new_step_type_path %>

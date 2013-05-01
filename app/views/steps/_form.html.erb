@@ -1,0 +1,63 @@
+<%= form_for(@step) do |f| %>
+  <% if @step.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@step.errors.count, "error") %> prohibited this step from being saved:</h2>
+
+      <ul>
+      <% @step.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :step_type_id %>
+    <%= collection_select(:step, :step_type_id, StepType.all, :id, :name, :prompt => true) %>
+  </div>
+  <div class="field">
+    <%= f.label :instructions %>
+    <%= f.cktext_area :instructions, :toolbar => 'Easy', :width => 800, :height => 400 %>
+  </div>
+    <div class="field">
+	<label class="checkbox">
+    <%= f.check_box :sidebarcontentbool %>
+    Include Sidebar?
+    </label>
+  </div>
+    <div class="field">
+    <%= f.label :sidebarcontent %>
+    <%= f.cktext_area :sidebarcontent, :toolbar => 'Easy', :width => 800, :height => 400 %>
+  </div>
+  <div class="field">
+    <%= f.label :video_mp4 %>
+    <%= f.text_field :video_mp4 %>
+  </div>
+  <div class="field">
+    <%= f.label :video_webm %>
+    <%= f.text_field :video_webm %>
+  </div>
+  <div class="field">
+    <%= f.label :video_poster %>
+    <%= f.text_field :video_poster %>
+  </div>
+  <div class="field">
+    <%= f.label :writing_area %>
+    <%= f.check_box :writing_area %>
+  </div>
+  <div class="field">
+    <%= f.label :points %>
+    <%= f.number_field :points %>
+  </div>
+    <div class="field">
+    <%= f.label :sortorder %>
+    <%= f.number_field :sortorder %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

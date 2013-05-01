@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @school.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @school.address %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @school.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @school.zip %>
+</p>
+
+<p>
+  <b>Admission deadline:</b>
+  <%= @school.admission_deadline %>
+</p>
+
+<p>
+  <b>Ranking:</b>
+  <%= @school.ranking %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%= @school.image %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_school_path(@school) %> |
+<%= link_to 'Back', schools_path %>

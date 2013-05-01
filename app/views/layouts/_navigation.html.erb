@@ -1,0 +1,114 @@
+<div class="slider-controls">
+    <ul>
+        <li></li>
+        <li></li>
+        <li class="active"></li>
+        <li></li>
+    </ul>
+</div>
+
+<div class="home" id="home">
+  <div class="video-player1">
+    <%= video_tag "sample.mp4", :controls => true %>
+  </div>
+  
+  <div class="video-player2">
+    
+  </div>
+  
+  <div>
+      <ul class="color_picker">
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+      </ul>
+  </div>
+  
+  <% if !session[:current_school].nil?%>
+  	<%= link_to "Fat Envelope", url_for(:controller => :program_overview, :action => :index, :id => session[:current_school]), :class => 'brand' %>
+  <% else %>
+  	<%= link_to "Fat Envelope", root_path, :class => 'brand' %>
+  <% end %>
+  <ul class="nav tan">
+    <% if !user_signed_in? %>
+      <li>
+        <%= link_to "Home", "#home" %>
+      </li>
+    	<li>
+    		<%= link_to "Essay System", "#essay-system" %>
+    	</li>
+    	<li>
+    		<%= link_to "About Us", '#about-us' %>
+    	</li>
+    	<li>
+    		<%= link_to "Programs & Pricing", '#pricing' %>
+    	</li>
+    	<li>
+    		<%= link_to "Bootcamp", "#bootcamp" %>
+    	</li>    	
+      <li>
+      <%= link_to 'FAQ', '#faq' %>
+      </li>
+      <li class="login-link">
+      <%= link_to 'Login', new_user_session_path %>        
+      </li>  	
+  
+    <% end %>
+    <% if user_signed_in? %>
+  
+    <% end %> 
+  </ul>
+  
+  
+  <% if user_signed_in? %>
+    <ul class="nav tan pull-right">
+    		<%if !@school.nil? && current_user.schools.count >= 1%>
+    			<li class="dropdown">
+  	  			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= @school.name %> <b class="caret"></b></a>
+    				<ul class="dropdown-menu">
+  					<% current_user.schools.each do |school| %>
+  							<li><%=link_to school.name, :controller => :program_overview, :action => :index, :id => school.id %></li>
+  					<% end %>
+  
+  					<li class="divider"></li>
+  					<li><%= link_to "View All Schools", dashboard_path %></li>
+  					<li><%= link_to "Add Schools", new_school_path %></li>
+    				</ul>
+    		
+    			</li>
+    		<% end %>	
+  	  	<li class="dropdown">
+  				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %> <b class="caret"></b></a>
+  		  		<ul class="dropdown-menu">
+  		  			<% if is_paid(current_user.id.to_s) %>
+  						<li>
+  							<%= link_to new_subscription_path do %>
+  								Current Plan: <span class="badge badge-success">Paid</span>
+  							<% end %>	
+  						</li>
+  						<% else %>
+  							<li>
+  								<% link_to new_subscription_path, :title => "Some link" do %>
+  									Current Plan: <span class="badge badge-info">Free</span>
+  								<% end %>	
+  								
+  							</li>
+  						<% end %>
+  				    <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
+  				    <li><%= link_to 'Edit account', edit_user_registration_path %></li>				
+  		    		<% if current_user.has_role? :admin %>
+  				  		<li><%= link_to "Schools", schools_path %> </li>
+  				  		<li><%= link_to "Programs", programs_path %></li>
+  				  		<li><%= link_to "Steps", steps_path %></li>
+  				  		<li><%= link_to "Users", users_path %></li>
+  
+  		    		<% end %>
+  		  		</ul>
+  	  	</li>
+    </ul>
+  <% end %>
+      
+      
+  

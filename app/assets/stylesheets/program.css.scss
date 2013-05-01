@@ -1,0 +1,14 @@
+// Place all the styles related to the program controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#statbar{
+	width:262px;
+}
+#statbar.affix {
+    position: fixed;
+    top: 55px;
+}
+.programrow{
+	margin-bottom:200px
+}

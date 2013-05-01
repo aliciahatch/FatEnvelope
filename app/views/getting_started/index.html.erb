@@ -1,0 +1,75 @@
+<div class="container">
+<div class="row">
+
+		<% if is_paid(current_user.id.to_s) %>
+	  <div class="span4">
+			<div class="hero-unit">
+			  <h2>Plan</h2>
+			  
+			  <p>Number of Schools: <%= current_user.num_of_tokens %> <br /></p>
+			  <p><%= link_to "Add More", new_subscription_path, :class => "btn btn-primary btn-large" %></p>
+			</div>
+	  </div>
+		<% end %>
+		<% if !is_paid(current_user.id.to_s) %>
+	  <div class="span4">
+			<div class="hero-unit">
+			  <h2>Select a Plan</h2>
+			  <p>How many schools are you applying to? Select a package to get started! <br /></p>
+	
+			  <p>
+			      <%= link_to 'Select a Plan', {:controller => "subscriptions", :action => "new"}, :class => "btn btn-primary btn-large" %>
+			  </p>
+			</div>
+	  </div>
+		<% end %>
+		
+		<% if current_user.schools.any? %>
+		  <div class="span4">
+			<div class="hero-unit">
+			  <h2>School</h2>
+			  <p>Schools Selected:</p>
+			  <ul>
+			  <% current_user.schools.each do |school| %>
+			  	<li><%= school.name %></li>
+			  <% end %>
+			  </ul>
+			  
+			  <p><%= link_to 'Add More Schools', new_school_path, :class => "btn btn-primary btn-large" %></p>
+			</div>
+	  </div>
+		<% end %>
+		<% if !current_user.schools.any? %>
+	  <div class="span4">
+			<div class="hero-unit">
+			  <h2>Add a School</h2>
+			  <p>Please add a school to get started<br /> <br /> <br /></p>
+				<% if !is_paid(current_user.id.to_s) %>
+			  	<p><%= link_to 'Add a School', "#", :class => "btn btn-primary btn-large disabled" %></p>
+			  <% else %>
+				  <p><%= link_to 'Add a School', new_school_path, :class => "btn btn-primary btn-large" %></p>
+			  <% end %>
+			</div>
+	  </div>
+		<% end %>
+		
+	  
+	
+	   <!-- <div class="span4">
+			<div class="hero-unit">
+			  <h2>Go!</h2>
+			  <p>Get Started <br /> <br /></p>
+			  
+			  <p>
+			  	<% if !is_paid(current_user.id.to_s) %>
+			  		<%= link_to "Get Started",  dashboard_path, :class => "btn btn-primary btn-large disabled" %>
+			  	<% else %>
+			  		<%= link_to "Get Started",  dashboard_path, :class => "btn btn-primary btn-large" %>
+			  	<% end %>
+			  </p>
+			</div>
+		</div>-->
+</div>
+</div>	    
+	
+	

@@ -1,0 +1,132 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ *= require bootstrap-datepicker
+*/
+
+.app #main{
+	padding-top:30px;
+}
+
+.content {
+  padding: 20px;
+  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+  -webkit-border-radius: 0 0 6px 6px;
+  -moz-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+.login-link {
+  position: relative;
+  top: -47px;
+  left: 60px;
+}
+
+.slider-controls {
+  ul {
+    position: relative;
+    top: 690px;
+    left: 75%;
+    > li {
+      background: url(slider-inactive.png) no-repeat;
+      display: inline-block;
+      width: 24px;
+      height: 26px;
+      margin-right: 5px;
+    }
+    
+    > li.active {
+      background: url(slider-active.png) no-repeat;
+      width: 33px;
+      height: 33px;
+      position: relative;
+      top: 3px;
+    }
+  }
+}
+
+ul.color_picker {
+  display: block;
+  list-style-type: none;
+  float: right;
+  position: relative;
+  top: -115px;
+  li {
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  li:first-child {
+    background: #d0b261;
+  }
+  
+  li:nth-child(2) {
+    background: #9dc6e5;
+  }
+  
+  li:nth-child(3) {
+    background: #627886;
+  }
+  
+  li:nth-child(4) {
+    background: #d52d3f;
+  }
+  
+  li:last-child {
+    background: #1b1d4f;
+  }
+}
+
+.navbar {
+  margin-top: 125px;
+}
+
+.navbar .navbar-inner{
+	background:transparent;
+	border: 0;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border: none;
+	margin: 0 auto;
+}
+.navbar .navbar-inner a.brand{
+	background-image:url(logo.png); 
+	background-position: 10px;
+	background-repeat: no-repeat;
+	width:150px;
+	height:25px;
+	overflow: hidden;
+	text-indent: -999em;
+	margin-left: 155px;
+}
+
+footer{
+	background:#f8f7f2;
+	padding:30px 0;
+	border-top:1px solid #ebebeb;
+}
+
+footer ul li{
+	float:left;
+	list-style-type: none;
+}
+
+footer ul li a{
+	padding:5px 30px;
+	display: block;
+}

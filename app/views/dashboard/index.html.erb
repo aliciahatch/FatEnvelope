@@ -1,0 +1,36 @@
+<h3>Welcome Back <%=@users.first.name%></h3>
+
+
+<div class="row-fluid">
+
+<% current_user.schools.each_with_index do |school, i| %>
+	<% if i%4 == 0 %>
+	</div><div class="row-fluid">
+	<% end %>
+		<div class="span3">
+			<div class="btn-group pull-right editbtn">
+				<%= link_to "<i class='icon-cog' data-original-title='Edit School'></i>".html_safe, edit_school_path(school) %>
+
+			</div>
+			
+			<%=link_to school.name, :controller => :program_overview, :action => :index, :id => school.id %><br />
+			Due Date: <%= school.admission_deadline.strftime('%B %d, %Y') %><br />
+			<% if school.timeTill.past? || school.timeTill.nil? %>
+				Due In: <span class="label label-warning">Overdue</span><br />
+			<% else %>
+				Due In: <%= time_ago_in_words(school.timeTill) %><br />
+			<% end %>
+			Complete: <%= school.program.percentComplete(school) %>%
+			<div class="progress progress-success">
+			  <div class="bar" style="width: <%= school.program.percentComplete(school) %>%;"></div>
+			</div>
+		</div>		
+<% end %>
+	<div class="span3">
+		<%= link_to "Add School", new_school_path %>	
+	</div>
+
+	</div>
+</ul>
+</div>
+

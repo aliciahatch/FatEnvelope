@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Step:</b>
+  <%= @program_manifest.step_id %>
+</p>
+
+<p>
+  <b>Program:</b>
+  <%= @program_manifest.program_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_program_manifest_path(@program_manifest) %> |
+<%= link_to 'Back', program_manifests_path %>

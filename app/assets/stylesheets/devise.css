@@ -1,0 +1,14 @@
+body{
+	/*background:url(sign-up-bg.jpg) no-repeat*/
+}
+body.app{
+	background:white
+}
+
+.signup{
+	margin-top:40px;
+	padding:30px;
+	background:#FEFEFE;
+	border-radius: 20px;
+	
+}
