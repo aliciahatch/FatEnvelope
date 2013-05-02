@@ -1,1 +1,1 @@
-web: bundle exec rails s -e development -p 80
+web: bundle exec rails s thin -e development -p 80
