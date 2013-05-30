@@ -8,9 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-    
-
+    <%= stylesheet_link_tag    "application", :media => "all" %>        
     <%= javascript_include_tag "https://js.stripe.com/v1/", "application" %>
     
     <%= csrf_meta_tags %>
@@ -21,20 +19,22 @@
 
   </head>
   <body class="<%if user_signed_in? %>app<%end%>">
-
+    <% if controller.controller_name == 'marketing' %>
     <header class="navbar tan">
       <nav class="navbar-inner">
         <div class="container">
           <%= render 'layouts/navigation' %>
         </div>
       </nav>
-    </header>
+    </header>    
+    <% end %>
 
     <div id="main" role="main">
-
+      
+      
       <% if @current_controller != "marketing" %>
-      	<div class="container tan">
-      <%end%>
+      	<div>
+      <%end%>       
 
               <%= render 'layouts/messages' %>
               <%= yield %>
@@ -52,5 +52,7 @@
        </div> <!--! end of .container --> <%end%>              
     </div> <!--! end of #main -->
   </body>
-
+  
+  <%= javascript_include_tag "http://code.jquery.com/jquery-1.9.1.min.js" %>
+  <%= javascript_include_tag    "application", :media => "all" %>
 </html>

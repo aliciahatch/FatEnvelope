@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require_tree .
-//= require bootstrap-datepicker
 //= require ckeditor/init
+//= require_self
 

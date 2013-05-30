@@ -106,7 +106,8 @@ p.price {
 
 .essay h2, .pricing h2, .faq h2, .bootcamp h2, .about-us h2 {
   font-size: 12px;  
-  font-family: 'Karla Bold', sans-serif;  
+  font-family: 'Karla', sans-serif;
+  font-weight: bold;  
   margin-top: 28px;
   margin-bottom: 0px;
 }
@@ -115,20 +116,21 @@ p.price {
   margin-top: 0px;
 }
 
-.essay p, .pricing p, .faq p, .bootcamp p, .about-us p {
+.essay p, .pricing p, .faq p, .bootcamp p, .about-us p,
+.essay li, .pricing li, .faq li, .bootcamp p, .about-us li {
   font-size: 10px;  
-  font-family: 'Karla Bold', sans-serif;
+  font-family: 'Calibri', sans-serif;
 }
-
 .pricing p {  
   font-size: 12px;
 }
 
 .contact-info {
   color: #fff;
-  font-family: 'Karla Bold', sans-serif;
+  font-family: 'Karla', sans-serif;
   margin-top: 180px;
   font-weight: bold;
+  font-size: 12px;
 }
 
 header.navbar {	
@@ -143,28 +145,28 @@ header.tan {
   background-image: url(background-tan.jpg);
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 
 header.green {
   background-image: url(background-green.jpg);
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 
 header.blue {
-  background-image: url(background-green.jpg);
+  background-image: url(background-blue.jpg);
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 
 header.red {
   background-image: url(background-red.jpg);
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 
 .banner .container{
@@ -206,6 +208,18 @@ header.red {
 	position: absolute;
 	top:20px;
 	right:0;
+}
+
+video#video-green {
+  position:relative;
+  left: 33%;
+  top: 115px;
+}
+  
+video#video-blue {
+  position: relative;
+  left: 5%;
+  top: 115px;
 }
 
 .marketing .banner a{
@@ -264,16 +278,16 @@ header.red {
 	color:#444;
 	padding:60px 0 20px 0;
 	text-align: center;
-	font-family: "Helvetica Nueue", "Helvetica", arial, sans-serif;
+	font-family: "Karla", "Helvetica", arial, sans-serif;
 	font-size: 28px;
-	font-weight: normal;
+	font-weight: bold;
 }
 .marketing h4{
 	color:#444;
 	padding:0 0 20px 0;
-	font-family: "Helvetica Nueue", "Helvetica", arial, sans-serif;
+	font-family: "Karla", "Helvetica", arial, sans-serif;
 	font-size: 18px;
-	font-weight: normal;
+	font-weight: bold;
 }
 .marketing .arrow_divider{
 	height:40px;
@@ -486,7 +500,8 @@ p.price {
 
 .essay h2, .pricing h2, .faq h2, .bootcamp h2, .about-us h2 {
   font-size: 12px;  
-  font-family: 'Karla Bold', sans-serif;  
+  font-family: 'Karla', sans-serif;  
+  font-weight: bold;
   margin-top: 28px;
   margin-bottom: 0px;
 }
@@ -497,7 +512,7 @@ p.price {
 
 .essay p, .pricing p, .faq p, .bootcamp p, .about-us p {
   font-size: 10px;  
-  font-family: 'Karla Bold', sans-serif;
+  font-family: 'Calibri', sans-serif;
 }
 
 .pricing p {  
@@ -506,7 +521,7 @@ p.price {
 
 .contact-info {
   color: #fff;
-  font-family: 'Karla Bold', sans-serif;
+  font-family: 'Karla', sans-serif;
   margin-top: 180px;
   font-weight: bold;
 }
@@ -517,34 +532,6 @@ header.navbar {
   margin-top: 0;
   padding-top: 125px;
   margin-bottom: 0
-}
-
-header.tan {
-  background-image: url(background-tan.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-}
-
-header.green {
-  background-image: url(background-green.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-}
-
-header.blue {
-  background-image: url(background-green.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-}
-
-header.red {
-  background-image: url(background-red.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
 }
 
 .banner .container{
@@ -758,3 +745,51 @@ section.essay .note, .note{
   padding-top:18px;
 }
 
+
+@media (max-width: 767px) {
+  a.brand {
+    margin-left: 0px !important;
+  }
+  
+  header {
+    background-size: initial !important;
+  }
+  
+  .essay {
+    margin-left: 10px;
+  }
+  
+  .bootcamp {
+    margin-left: 10px;
+  }
+  
+  .faq {
+    margin-left: 10px;
+  }
+  
+  .about-us {
+    margin-left: 10px;    
+  }  
+  
+  .contact-info {
+    margin-left: 10px;
+    margin-top: 35px;
+    text-align: center;
+  }
+  
+  .pricing-col {
+    width: 100%;
+    display: block;
+    margin-top: 5px;
+  }
+  
+  .pricing-heading {
+    margin-left: 10px;
+  }
+  
+  video {
+    left: 0% !important;
+    max-width: 100% !important;
+    top: 20px !important;
+  }
+}

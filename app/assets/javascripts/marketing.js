@@ -1,7 +1,9 @@
-(function() {
+// (function() {
   var Slider = {
     sliders: ['tan', 'green', 'red', 'blue'],
     active_slider: 'tan',
+    
+    pause: false,
     
     el_slider: {
       body: null,
@@ -13,7 +15,8 @@
     },
     
     intervals: {
-      background: null
+      background: null,
+      pause: null
     },
     
     init: function() {
@@ -23,6 +26,38 @@
       _this.el_slider.body = $('header');
       _this.el_slider.nav = $('.nav');
       _this.el.slider_controls = $('.slider-controls');
+      
+      $('header').css({
+        minHeight: $(window).height()
+      });
+      
+      $('window').resize(function() {
+        $('header').css({
+          minHeight: $(window.top).height()
+        });  
+      });
+      
+      $('video, ember').click(function() {
+        _this.pause = true;
+      });
+      
+      $('video').bind('ended', function() {
+        _this.pause = false; 
+      });
+      
+      $('video').bind('play', function() {
+        if (_this.intervals.pause !== null) {
+          window.clearTimeout(_this.intervals.pause);
+        }
+        
+        _this.pause = true;
+      });
+      
+      $('video').bind('pause', function() {
+        _this.intervals.pause = window.setTimeout(function() {
+          _this.pause = false;
+        }, 6000);
+      });
       
       // Smooth scroll to section
       $(window).bind('hashchange', function(e) {
@@ -40,13 +75,15 @@
       });
       
       // Set interval for slider
-      this.intervals.background = window.setInterval(function() {                        
-        var index = $.inArray(_this.active_slider, _this.sliders) + 1;
-        
-        if (index < _this.sliders.length) {
-          _this.set_background(_this.sliders[index]);
-        } else {
-          _this.set_background(_this.sliders[0]);
+      this.intervals.background = window.setInterval(function() {    
+        if (_this.pause === false) {                             
+          var index = $.inArray(_this.active_slider, _this.sliders) + 1;
+          
+          if (index < _this.sliders.length) {
+            _this.set_background(_this.sliders[index]);
+          } else {
+            _this.set_background(_this.sliders[0]);
+          }
         }
       }, 6000);
     },
@@ -80,6 +117,20 @@
         _this.el_slider[i].fadeOut(200).removeClass(_this.sliders.join(" ")).addClass(background).fadeIn(250);
       }
       
+      switch (background) {
+        case 'blue':
+          $('#video-blue').show();
+        break;
+        
+        case 'green':
+          $('#video-green').show();
+        break;
+        
+        default:
+          $('video').hide();
+        break;
+      }
+      
       this.set_slider_controls();
     }
   }
@@ -89,4 +140,4 @@
     
     Slider.init();
   });
-})();
+// })();
