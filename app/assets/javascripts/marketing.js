@@ -33,7 +33,7 @@
       
       $('window').resize(function() {
         $('header').css({
-          minHeight: $(window.top).height()
+          minHeight: window.innerHeight
         });  
       });
       
