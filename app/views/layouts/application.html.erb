@@ -20,7 +20,14 @@
   </head>
   <body class="<%if user_signed_in? %>app<%end%>">
     <% if controller.controller_name == 'marketing' %>
-    <header class="navbar tan">
+    <header class="navbar">
+      <div class="background-images">
+        <%= image_tag 'background-red.jpg' %>
+        <%= image_tag 'background-tan.jpg' %>
+        <%= image_tag 'background-green.jpg' %>
+        <%= image_tag 'background-blue.jpg' %>    
+      </div>
+      
       <nav class="navbar-inner">
         <div class="container">
           <%= render 'layouts/navigation' %>
@@ -33,7 +40,7 @@
       
       
       <% if @current_controller != "marketing" %>
-      	<div>
+      	<div class="page_container">
       <%end%>       
 
               <%= render 'layouts/messages' %>

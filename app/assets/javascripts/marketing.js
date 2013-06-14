@@ -2,6 +2,7 @@
   var Slider = {
     sliders: ['tan', 'green', 'red', 'blue'],
     active_slider: 'tan',
+    intTime: 0,
     
     pause: false,
     
@@ -25,17 +26,7 @@
       // Preload some elements
       _this.el_slider.body = $('header');
       _this.el_slider.nav = $('.nav');
-      _this.el.slider_controls = $('.slider-controls');
-      
-      $('header').css({
-        minHeight: $(window).height()
-      });
-      
-      $('window').resize(function() {
-        $('header').css({
-          minHeight: window.innerHeight
-        });  
-      });
+      _this.el.slider_controls = $('.slider-controls');            
       
       $('video, ember').click(function() {
         _this.pause = true;
@@ -111,25 +102,16 @@
       var _this = this;
         
       if ($.inArray(background, this.sliders) === -1) return false; 
+                 
+      this.active_slider = background;
+            
+      this.intTime -= document.body.clientWidth;
+    
+      if (this.intTime <= (document.body.clientWidth * -4)) this.intTime = 0;
       
-      this.active_slider = background;      
-      for (var i in this.el_slider) {                          
-        _this.el_slider[i].fadeOut(200).removeClass(_this.sliders.join(" ")).addClass(background).fadeIn(250);
-      }
-      
-      switch (background) {
-        case 'blue':
-          $('#video-blue').show();
-        break;
-        
-        case 'green':
-          $('#video-green').show();
-        break;
-        
-        default:
-          $('video').hide();
-        break;
-      }
+      $('header > .background-images > img').animate({
+        left: _this.intTime
+      }, 1000);      
       
       this.set_slider_controls();
     }

@@ -127,11 +127,7 @@ ul.color_picker {
   li:last-child {
     background: #1b1d4f;
   }
-}
-
-.navbar {
-  margin-top: 125px;
-}
+} 
 
 .navbar .navbar-inner{
 	background:transparent;
@@ -142,12 +138,12 @@ ul.color_picker {
 	border: none;
 	margin: 0 auto;
 }
-.navbar .navbar-inner a.brand{
+a.brand{
 	background-image:url(logo.png); 
 	background-position: 10px;
 	background-repeat: no-repeat;
-	width:150px;
-	height:25px;
+	width:170px;
+	height:50px;
 	overflow: hidden;
 	text-indent: -999em;
 	margin-left: 155px;

@@ -6,6 +6,17 @@ $iconWhiteSpritePath: asset-url('glyphicons-halflings-white.png', image);
 @import "bootstrap";
 @import "bootstrap-responsive";
 @import url(http://fonts.googleapis.com/css?family=Karla);
+@import url(http://fonts.googleapis.com/css?family=Tenor+Sans|Open+Sans:400italic,400,700);
+
+* {
+  box-sizing: border-box;
+}
+
+#main {
+  height: 100%;
+  min-height: 100%;
+}
+
 h3{line-height: 25px;}
 .navbar .nav {
   > li {
@@ -113,13 +124,6 @@ p.price {
   padding: 15px;
   min-height: 478px;
   background: #afd0ea;
-  background: -moz-linear-gradient(top,  #afd0ea 0%, #80a1bb 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#afd0ea), color-stop(100%,#80a1bb));
-  background: -webkit-linear-gradient(top,  #afd0ea 0%,#80a1bb 100%);
-  background: -o-linear-gradient(top,  #afd0ea 0%,#80a1bb 100%);
-  background: -ms-linear-gradient(top,  #afd0ea 0%,#80a1bb 100%);
-  background: linear-gradient(to bottom,  #afd0ea 0%,#80a1bb 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#afd0ea', endColorstr='#80a1bb',GradientType=0 );
   opacity: 0.9;
 }
 
@@ -147,7 +151,7 @@ p.price {
   font-size: 44px;
   color: #fff;
   margin-top: 45px;
-  font-family: 'Eurofurencebolditalic', sans-serif;
+  font-family: 'Tenor Sans', sans-serif;
 }
 
 .pricing-heading h1 {
@@ -157,8 +161,8 @@ p.price {
 }
 
 .essay h2, .pricing h2, .faq h2, .bootcamp h2, .about-us h2 {
-  font-size: 12px;  
-  font-family: 'Karla Bold', sans-serif;  
+  font-size: 22px;  
+  font-family: 'Tenor Sans', sans-serif;  
   margin-top: 28px;
   margin-bottom: 0px;
 }
@@ -184,40 +188,47 @@ p.price {
   font-weight: bold;
 }
 
-header.navbar { 
-  width:100%;
-  min-height:915px; 
-  margin-top: 0;
-  padding-top: 25px;
-  margin-bottom: 0
+body,html {
+  min-height: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-header.tan {
-  background-image: url(background-tan.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: contain;
+.page_container {
+  min-height: 100%;
 }
 
-header.green {
-  background-image: url(background-green.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: contain;
+.page_container .nav {
+  margin-top: 50px;
 }
 
-header.blue {
-  background-image: url(background-green.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: contain;
+header {
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  position:relative;
+  overflow-x: hidden !important;
+  padding: 0 !important;
 }
 
-header.red {
-  background-image: url(background-red.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: contain;
+header > .background-images {
+  height: 100%;
+  width: 400%;
+  position: absolute;
+  z-index: -1;
+  overflow-x: hidden;
+}
+
+header > .background-images > img { 
+  position: relative;
+  width: 24.95%;
+  height: 100%;
+}
+
+header > .background-images > img:first-child {
+  display: inline;
 }
 
 .banner .container{
@@ -464,29 +475,39 @@ p.price {
   background: #091851 url(essay-bg.png) bottom right no-repeat;
   background-position-x: -15%;
   padding-bottom: 100px; 
+  height: 100%;
+  min-height: 100%;
 }
 
 .pricing-container {
   background: #9dc6e6 url(pricing-bg.png) bottom left no-repeat;  
   padding-bottom: 100px;
+  height: 100%;
+  min-height: 100%;
 }
 
 .faq-container {
   background: #627886 url(faq-bg.png) top left no-repeat;
   background-position-y: 25%;
   padding-bottom: 100px;
+  height: 100%;
+  min-height: 100%;
 }
 
 .about-us-container {
   background: #CEB161 url(about-us-bg.png) bottom right no-repeat;
   background-position-x: 85%;
   padding-bottom: 100px;
+  height: 100%;
+  min-height: 100%;
 }
 
 .bootcamp-container {
   background: #d52e3f url(boot-camp-bg.png) top left no-repeat;
   background-position-y: 25%;
   padding-bottom: 100px;
+  height: 100%;
+  min-height: 100%;
 }
 
 .pricing {
@@ -494,13 +515,6 @@ p.price {
   padding: 15px;
   min-height: 478px;
   background: #afd0ea;
-  background: -moz-linear-gradient(top,  #afd0ea 0%, #80a1bb 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#afd0ea), color-stop(100%,#80a1bb));
-  background: -webkit-linear-gradient(top,  #afd0ea 0%,#80a1bb 100%);
-  background: -o-linear-gradient(top,  #afd0ea 0%,#80a1bb 100%);
-  background: -ms-linear-gradient(top,  #afd0ea 0%,#80a1bb 100%);
-  background: linear-gradient(to bottom,  #afd0ea 0%,#80a1bb 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#afd0ea', endColorstr='#80a1bb',GradientType=0 );
   opacity: 0.9;
 }
 
@@ -562,42 +576,6 @@ p.price {
   font-family: 'Karla Bold', sans-serif;
   margin-top: 180px;
   font-weight: bold;
-}
-
-header.navbar { 
-  width:100%;
-  min-height:915px; 
-  margin-top: 0;
-  padding-top: 125px;
-  margin-bottom: 0
-}
-
-header.tan {
-  background-image: url(background-tan.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-}
-
-header.green {
-  background-image: url(background-green.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-}
-
-header.blue {
-  background-image: url(background-green.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-}
-
-header.red {
-  background-image: url(background-red.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
 }
 
 .banner .container{

@@ -27,47 +27,11 @@ p.price {
   margin-left: 15px;    
 }
 
-.essay-container {
-  background: #091851 url(essay-bg.png) bottom right no-repeat;
-  background-position-x: -15%;
-  padding-bottom: 100px; 
-}
-
-.pricing-container {
-  background: #9dc6e6 url(pricing-bg.png) bottom left no-repeat;  
-  padding-bottom: 100px;
-}
-
-.faq-container {
-  background: #627886 url(faq-bg.png) top left no-repeat;
-  background-position-y: 25%;
-  padding-bottom: 100px;
-}
-
-.about-us-container {
-  background: #CEB161 url(about-us-bg.png) bottom right no-repeat;
-  background-position-x: 85%;
-  padding-bottom: 100px;
-}
-
-.bootcamp-container {
-  background: #d52e3f url(boot-camp-bg.png) top left no-repeat;
-  background-position-y: 25%;
-  padding-bottom: 100px;
-}
-
 .pricing {
   color: #091851;
   padding: 15px;
-  min-height: 478px;
+  min-height: 569px;
   background: #afd0ea;
-  background: -moz-linear-gradient(top,  #afd0ea 0%, #80a1bb 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#afd0ea), color-stop(100%,#80a1bb));
-  background: -webkit-linear-gradient(top,  #afd0ea 0%,#80a1bb 100%);
-  background: -o-linear-gradient(top,  #afd0ea 0%,#80a1bb 100%);
-  background: -ms-linear-gradient(top,  #afd0ea 0%,#80a1bb 100%);
-  background: linear-gradient(to bottom,  #afd0ea 0%,#80a1bb 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#afd0ea', endColorstr='#80a1bb',GradientType=0 );
   opacity: 0.9;
 }
 
@@ -88,14 +52,14 @@ p.price {
 
 .about-us {
   margin-left: 155px;
-  color: #091851;
+  color: #fff;
 }
 
 .essay h1, .pricing-heading h1, .faq h1, .bootcamp h1, .about-us h1 {
   font-size: 44px;
   color: #fff;
   margin-top: 45px;
-  font-family: 'Eurofurencebolditalic', sans-serif;
+  font-family: 'Tenor Sans', sans-serif;
 }
 
 .pricing-heading h1 {
@@ -118,55 +82,24 @@ p.price {
 
 .essay p, .pricing p, .faq p, .bootcamp p, .about-us p,
 .essay li, .pricing li, .faq li, .bootcamp p, .about-us li {
-  font-size: 10px;  
-  font-family: 'Calibri', sans-serif;
+  font-size: 16px;  
+  font-family: 'Open Sans', sans-serif;
 }
+
+.essay li, .pricing li, .faq li, .bootcamp p, .about-us li {
+  font-size: 14px; 
+}
+
 .pricing p {  
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .contact-info {
   color: #fff;
-  font-family: 'Karla', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin-top: 180px;
   font-weight: bold;
-  font-size: 12px;
-}
-
-header.navbar {	
-	width:100%;
-	min-height:915px;	
-	margin-top: 0;
-	padding-top: 25px;
-	margin-bottom: 0
-}
-
-header.tan {
-  background-image: url(background-tan.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 100% 100%;
-}
-
-header.green {
-  background-image: url(background-green.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 100% 100%;
-}
-
-header.blue {
-  background-image: url(background-blue.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 100% 100%;
-}
-
-header.red {
-  background-image: url(background-red.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 100% 100%;
+  font-size: 18px;
 }
 
 .banner .container{
@@ -421,47 +354,11 @@ p.price {
   margin-left: 15px;    
 }
 
-.essay-container {
-  background: #091851 url(essay-bg.png) bottom right no-repeat;
-  background-position-x: -15%;
-  padding-bottom: 100px; 
-}
-
-.pricing-container {
-  background: #9dc6e6 url(pricing-bg.png) bottom left no-repeat;  
-  padding-bottom: 100px;
-}
-
-.faq-container {
-  background: #627886 url(faq-bg.png) top left no-repeat;
-  background-position-y: 25%;
-  padding-bottom: 100px;
-}
-
-.about-us-container {
-  background: #CEB161 url(about-us-bg.png) bottom right no-repeat;
-  background-position-x: 85%;
-  padding-bottom: 100px;
-}
-
-.bootcamp-container {
-  background: #d52e3f url(boot-camp-bg.png) top left no-repeat;
-  background-position-y: 25%;
-  padding-bottom: 100px;
-}
-
 .pricing {
   color: #091851;
   padding: 15px;
-  min-height: 478px;
-  background: #afd0ea;
-  background: -moz-linear-gradient(top,  #afd0ea 0%, #80a1bb 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#afd0ea), color-stop(100%,#80a1bb));
-  background: -webkit-linear-gradient(top,  #afd0ea 0%,#80a1bb 100%);
-  background: -o-linear-gradient(top,  #afd0ea 0%,#80a1bb 100%);
-  background: -ms-linear-gradient(top,  #afd0ea 0%,#80a1bb 100%);
-  background: linear-gradient(to bottom,  #afd0ea 0%,#80a1bb 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#afd0ea', endColorstr='#80a1bb',GradientType=0 );
+  min-height: 569px;
+  background: #afd0ea;  
   opacity: 0.9;
 }
 
@@ -482,14 +379,14 @@ p.price {
 
 .about-us {
   margin-left: 155px;
-  color: #091851;
+  color: #fff;
 }
 
 .essay h1, .pricing-heading h1, .faq h1, .bootcamp h1, .about-us h1 {
   font-size: 44px;
   color: #fff;
   margin-top: 45px;
-  font-family: 'Eurofurencebolditalic', sans-serif;
+  font-family: 'Tenor Sans', sans-serif;
 }
 
 .pricing-heading h1 {
@@ -499,24 +396,30 @@ p.price {
 }
 
 .essay h2, .pricing h2, .faq h2, .bootcamp h2, .about-us h2 {
-  font-size: 12px;  
-  font-family: 'Karla', sans-serif;  
+  font-size: 22px;  
+  font-family: 'Tenor Sans', sans-serif;  
   font-weight: bold;
   margin-top: 28px;
-  margin-bottom: 0px;
+  margin-bottom: 0px;  
 }
 
 .pricing h2 {
   margin-top: 0px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 15px;
+  min-height: 50px;
+  text-align: center;
 }
 
 .essay p, .pricing p, .faq p, .bootcamp p, .about-us p {
-  font-size: 10px;  
-  font-family: 'Calibri', sans-serif;
+  font-size: 16px;  
+  font-family: 'Open Sans', sans-serif;
 }
 
 .pricing p {  
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .contact-info {
@@ -524,14 +427,6 @@ p.price {
   font-family: 'Karla', sans-serif;
   margin-top: 180px;
   font-weight: bold;
-}
-
-header.navbar { 
-  width:100%;
-  min-height:915px; 
-  margin-top: 0;
-  padding-top: 25px;
-  margin-bottom: 0
 }
 
 .banner .container{
@@ -749,10 +644,6 @@ section.essay .note, .note{
 @media (max-width: 767px) {
   a.brand {
     margin-left: 0px !important;
-  }
-  
-  header {
-    background-size: initial !important;
   }
   
   .essay {
