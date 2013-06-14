@@ -1,0 +1,60 @@
+<div class="container-fluid pricing-container" id="_pricing">
+  <%= render 'layouts/navigation_short' %>
+  
+  <div class="row-fluid">
+    <div class="pricing-heading">
+      <h1>Register</h1>
+    </div>
+    <div class="span12">
+    	<%= form_for @user do |f| %>
+			
+			  <p>You are about to register to the course: <%= @program_desc %></p>
+			  <% if @user.errors.any? %>
+			    <div class="error_messages">
+			      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+			      <ul>
+			      <% @user.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			 
+			  <div class="field">
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			  </div>
+			
+			  <div class="field">
+				<%= f.label :address %>
+				<%= f.text_field :address %>
+			  </div>
+			
+			  <div class="field">
+				<%= f.label :year_in_school %>
+				<%= f.text_field :year_in_school %>
+			  </div>
+
+			  <div class="field">
+				<label>Card Number</label>
+				<input type="text" size="20" data-stripe="number"/>
+			  </div>
+			
+			  <div class="field">
+				    <label>Expiration (MM/YYYY)</label>
+				    <input type="text" size="2" data-stripe="exp-month" class="span1"/>
+				    <span> / </span>
+				    <input type="text" size="4" data-stripe="exp-year" class = "span1"/>
+			  </div>
+			  <div id="stripe_error">
+			    <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+			  </div>
+			  <div>
+			  	<label>Total Price</label>
+			  	<h4 class="price">$<%= @program_price %></h4>
+			  </div>
+			  <div class="actions"><%= f.submit "Register" %></div>
+		<% end %>
+	</div>
+  </div>
+</div>
