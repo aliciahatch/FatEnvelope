@@ -3,6 +3,7 @@
     sliders: ['tan', 'green', 'red', 'blue'],
     active_slider: 'tan',
     intTime: 0,
+    background: 0,
     
     pause: false,
     
@@ -100,10 +101,18 @@
     
     set_background: function(background) {    
       var _this = this;
+      
+      this.background++;
+      
+      if (this.background > 3) {
+        this.background = 0;
+      }              
         
       if ($.inArray(background, this.sliders) === -1) return false; 
                  
       this.active_slider = background;
+      
+      $('video').hide();
             
       this.intTime -= document.body.clientWidth;
     
@@ -111,6 +120,16 @@
       
       $('header > .background-images > img').animate({
         left: _this.intTime
+      }, 1000);      
+      
+      
+      // Video display with 1 second delay
+      window.setTimeout(function() {                
+        if (_this.background === 2) {
+          $('video#video-green').show();
+        } else if (_this.background === 3) {
+          $('video#video-blue').show();
+        }
       }, 1000);      
       
       this.set_slider_controls();

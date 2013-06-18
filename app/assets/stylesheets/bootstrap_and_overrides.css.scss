@@ -61,9 +61,14 @@ ul.nav.blue {
   }
 }
 
-body{
+body {
   padding-top:0;
   
+}
+
+.navbar .navbar-inner,
+.page_container .nav {
+  margin-left: 100px;
 }
 
 p.price {
