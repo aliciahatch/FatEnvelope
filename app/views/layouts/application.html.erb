@@ -19,6 +19,32 @@
   </head>
   <body class="<%if user_signed_in? %>app<%end%>">
     <% if controller.controller_name == 'marketing' %>
+    <div class="mobile-menu">
+      <div class="tile" data-url="<%= root_url %>">
+        Home
+      </div>
+      
+      <div class="tile essay" data-url="<%=essaysystem_path%>">
+        Essay System
+      </div>
+      
+      <div class="tile about" data-url="<%=about_path%>">
+        About Us
+      </div>
+      
+      <div class="tile price" data-url="<%=programcosts_path%>">
+        Program &amp; Pricing
+      </div>
+      
+      <div class="tile bootcamp" data-url="<%=advisors_path%>">
+        Bootcamp
+      </div>
+      
+      <div class="tile faq" data-url="<%=faq_path%>">
+        FAQ
+      </div>
+    </div>
+    
     <header class="navbar">
       <div class="background-images">
         <%= image_tag 'background-red.jpg' %>
