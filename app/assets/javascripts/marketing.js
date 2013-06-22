@@ -3,6 +3,7 @@
     sliders: ['tan', 'green', 'red', 'blue'],
     active_slider: 'tan',
     intTime: 0,
+    background: 0,
     
     pause: false,
     
@@ -48,6 +49,15 @@
         _this.intervals.pause = window.setTimeout(function() {
           _this.pause = false;
         }, 6000);
+      });
+      
+      $('.tile').click(function() {
+        var _this = $(this),
+            url   = _this.data('url');
+            
+        if (typeof(url) !== 'undefined' && url.length > 0) {
+          window.location = url;
+        }
       });
       
       // Smooth scroll to section
@@ -100,10 +110,19 @@
     
     set_background: function(background) {    
       var _this = this;
+      
+      this.background++;
+      
+      if (this.background > 3) {
+        this.background = 0;
+      }              
         
       if ($.inArray(background, this.sliders) === -1) return false; 
                  
       this.active_slider = background;
+      
+      // Style updates
+      $('video').hide();            
             
       this.intTime -= document.body.clientWidth;
     
@@ -111,6 +130,20 @@
       
       $('header > .background-images > img').animate({
         left: _this.intTime
+      }, 1000);      
+      
+      
+      // Video display with 1 second delay
+      window.setTimeout(function() {                
+        if (_this.background === 2) {
+          $('video#video-green').show();
+        } else if (_this.background === 3) {
+          $('video#video-blue').show();
+        }
+        
+        var nav = $('ul.nav');
+        nav.removeClass(['tan', 'blue', 'red', 'green'].join(" "));
+        nav.addClass(background);
       }, 1000);      
       
       this.set_slider_controls();

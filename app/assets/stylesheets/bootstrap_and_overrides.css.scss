@@ -12,13 +12,15 @@ $iconWhiteSpritePath: asset-url('glyphicons-halflings-white.png', image);
   box-sizing: border-box;
 }
 
-#main {
-  height: 100%;
-  min-height: 100%;
+h3{line-height: 25px;}
+
+
+ul.nav > li.login-link {
+  top: 0px; 
 }
 
-h3{line-height: 25px;}
 .navbar .nav {
+  top: -35px;
   > li {
     margin-right: 15px;
     > a {
@@ -42,28 +44,52 @@ h3{line-height: 25px;}
 }
 
 ul.nav.tan,
-ul.nav.red {
+ul.nav.green {
   > li {
-    background: #c4b88c;
+    background: transparent;    
+    font-weight: bold;
   }        
 }
 
-ul.nav.skyblue {
-  > li {
-    background: #9dc6e5;
-  }
+ul.nav.tan,
+ul.nav.green {
+  > li {       
+    > a {      
+      text-shadow: 0px 1px 0px rgba(255,255,255,1);
+      
+      &:hover {
+        color: inherit;
+      }
+    }     
+  }        
 }
 
-ul.nav.green,
+ul.nav.red,
 ul.nav.blue {
   > li {
-    background: #627886;
+    background: transparent;    
+    font-weight: bold;    
   }
 }
 
-body{
+ul.nav.red,
+ul.nav.blue {
+  > li {
+    > a {
+      color: #fff;
+      text-shadow: 0px 1px 0px rgba(0,0,0,0.45);            
+    }
+  }
+}
+
+body {
   padding-top:0;
   
+}
+
+.navbar .navbar-inner,
+.page_container .nav {
+  margin-left: 100px;
 }
 
 p.price {
@@ -789,21 +815,71 @@ section.essay .note, .note{
   padding-top:18px;
 }
 
-@media (max-width: 767px) {      
+.mobile-menu {
+  display: none;
+  width: 100%;  
+  height: 100%;
+  margin: 0;
+  .tile {
+    display: inline-block;
+    width: 49.3%;
+    padding: 50px 0;
+    min-height: 33%;       
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 87px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background: #333;
+    box-sizing: border-box;
+    margin: 1px 0;
+    cursor: pointer;
+    color: #fff;
+    vertical-align: middle;
+    text-shadow: 0px 1px 0px rgba(0,0,0,0.55);
+    
+    &:hover {
+      text-shadow: 0px 2px 1px rgba(0,0,0,0.85);
+    }
+    
+    &.essay {
+      background: #091851;
+    }
+    
+    &.about {
+      background: #CEB161;
+    }
+    
+    &.price {
+      background: #9DC6E6;     
+    }
+    
+    &.bootcamp {
+      background: #D52E3F;
+    }
+    
+    &.faq {
+      background: #627886;      
+    }        
+  }
+}
+
+@media (max-width: 767px) {
+  header {
+    display: none;
+  }
+        
   .row-fluid [class*="span"] {
     width: 100%;
     display: block;
   }
   
-  ul.nav > li {
-    display: inline;
-    margin-left: 0px !important;
-    margin-top: 10px;
-    font-size: 10px !important;
+  ul.nav {
+    display: none !important;
   }
   
-  ul.nav > li.login-link {
-    top: 0px;
-    left: 0px;
-  }
+  .mobile-menu {
+    display: block;
+  }  
 }

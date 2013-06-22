@@ -79,3 +79,6 @@ db/*.sqlite3
 
 # vim artifacts
 **.swp
+
+# Aptana Project file
+.project
