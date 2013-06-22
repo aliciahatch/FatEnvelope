@@ -1,60 +1,265 @@
 <div class="container-fluid pricing-container" id="_pricing">
-  <%= render 'layouts/navigation_short' %>
-  
-  <div class="row-fluid">
-    <div class="pricing-heading">
-      <h1>Register</h1>
-    </div>
-    <div class="span12">
-    	<%= form_for @user do |f| %>
-			
-			  <p>You are about to register to the course: <%= @program_desc %></p>
-			  <% if @user.errors.any? %>
-			    <div class="error_messages">
-			      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this subscription from being saved:</h2>
-			      <ul>
-			      <% @user.errors.full_messages.each do |msg| %>
-			        <li><%= msg %></li>
-			      <% end %>
-			      </ul>
-			    </div>
-			  <% end %>
-			 
-			  <div class="field">
-				<%= f.label :name %>
-				<%= f.text_field :name %>
-			  </div>
-			
-			  <div class="field">
-				<%= f.label :address %>
-				<%= f.text_field :address %>
-			  </div>
-			
-			  <div class="field">
-				<%= f.label :year_in_school %>
-				<%= f.text_field :year_in_school %>
-			  </div>
+	<%= render 'layouts/navigation_short' %>
 
-			  <div class="field">
-				<label>Card Number</label>
-				<input type="text" size="20" data-stripe="number"/>
-			  </div>
+	<div class="row-fluid">
+		<div class="pricing-heading">
+			<h1>Register</h1>
+		</div>
+		<div class="span12">
+
+			<p>You are about to register to the course: <b><%= @program_desc %></b></p><br/>
 			
-			  <div class="field">
-				    <label>Expiration (MM/YYYY)</label>
-				    <input type="text" size="2" data-stripe="exp-month" class="span1"/>
-				    <span> / </span>
-				    <input type="text" size="4" data-stripe="exp-year" class = "span1"/>
-			  </div>
-			  <div id="stripe_error">
-			    <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
-			  </div>
-			  <div>
-			  	<label>Total Price</label>
-			  	<h4 class="price">$<%= @program_price %></h4>
-			  </div>
-			  <div class="actions"><%= f.submit "Register" %></div>
-		<% end %>
+			<div id="user_errors"></div>
+
+			<div class="row">
+				<div class="span6" style="padding-left:20px;">
+					
+					<%= form_for @user, :html => { :class => "form-horizontal", :id => "user-form"} do |f| %>
+					
+					<b>Student Information (Required):</b><br/><br/>
+					<div class="control-group">
+						<%= f.label :first_name, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :first_name, :class => "span6" %>
+							<input type="hidden" name="program" value="<%= @program %>">
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :last_name, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :last_name, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :date_of_birth, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :date_of_birth, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :current_school, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :current_school, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :current_grade, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :current_grade, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :email, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :email, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :password, :class => "control-label" %>
+						<div class="controls">
+							<%= f.password_field :password, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :password_confirmation, :class => "control-label" %>
+						<div class="controls">
+							<%= f.password_field :password_confirmation, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :address, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :address, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :city, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :city, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :state, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :state, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :zip_code, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :zip_code, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :country, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :country, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :country_code, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :country_code, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :telephone, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :telephone, :class => "span6" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="span6">
+					<br/><br/><b>Parent Information (Optional):</b><br/><br/>
+					<div class="control-group">
+						<%= f.label :parent_first_name, "First name", :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :parent_first_name, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :parent_last_name, "Last name", :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :parent_last_name, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :parent_cell_phone, "Cellphone", :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :parent_cell_phone, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :parent_email, "Email", :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :parent_email, :class => "span6" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							<label class="checkbox">
+								<%= f.check_box :parent_email_notifications %> Click to receive email notifications
+							</label>
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							<label class="checkbox">
+								<%= f.check_box :parent_text_notifications %> Click to receive text notifications
+							</label>
+						</div>
+					</div>
+
+					<% end %><!-- End of the user registration form -->
+
+					<br/><br/><b>Payment Information (Required):</b><br/><br/>
+					<form action="" method="POST" id="payment-form">
+						<div class="control-group">
+							<label class="control-label">Card Number</label>
+							<div class="controls">
+								<input type="text" size="20" data-stripe="number" class="span6" />
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">CVC</label>
+							<div class="controls">
+								<input type="text" size="4" data-stripe="cvc" class="span6" />
+							</div>
+						</div>			
+						<div class="control-group">
+							<label class="control-label">Expiration (MM/YYYY)</label>
+							<div class="controls">
+								<input type="text" size="2" data-stripe="exp-month" class="span2"/>
+								<span> / </span>
+								<input type="text" size="4" data-stripe="exp-year" class = "span2"/>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div id="stripe_error">
+				<noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+			</div>
+			<div>
+				<label>Total Price</label>
+				<h4 class="price">$<%= @program_price %></h4>
+			</div>
+			<div class="actions"><a id="register-user" class="btn" onClick="validate_user();">Register</a></div>
+		</div>
 	</div>
-  </div>
 </div>
+<script>
+function validate_user(){
+	$("#user_errors").html('');
+	$('#register-user').addClass('disabled');
+	jQuery.ajax({
+		"url":"/registration/validate_user",
+		"dataType":"json",
+		"data": $("#user-form").serialize(),
+		"type":"post",
+		"success":function(data){
+			if(data.status == "success"){
+				submit_payment();
+			}else{
+				$("#user_errors").html(data.html);
+				$('#register-user').removeClass('disabled');
+				return false;
+			}
+		},
+		"cache":false
+	});
+	return false;
+}
+
+function finalize_registration(){
+	jQuery.ajax({
+		"url":"/registration/charge_and_create_user",
+		"dataType":"json",
+		"data": $("#user-form").serialize(),
+		"type":"post",
+		"success":function(data){
+			if(data.status == "success"){
+				$("#user_errors").html('<div class="alert alert-success">User registered successfully</div>');
+				return true;
+			}else{
+				$("#user_errors").html(data.html);
+				$('#register-user').removeClass('disabled');
+				return false;
+			}
+		},
+		"cache":false
+	});
+	return false;
+}
+
+function submit_payment(){
+		var $form = $('#payment-form');
+	    Stripe.createToken($form, stripeResponseHandler);
+		return false;
+}
+
+var stripeResponseHandler = function(status, response) {
+  var $form = $('#payment-form');
+
+  if (response.error) {
+    // Show the errors on the form
+	$("#user_errors").html('<div class="alert alert-error span10">'+response.error.message+'</div>');
+    $('#register-user').removeClass('disabled');
+  } else {
+    // token contains id, last4, and card type
+    var token = response.id;
+    // Insert the token into the form so it gets submitted to the server
+    $('#user-form').append($('<input type="hidden" name="stripeToken" />').val(token));
+    // and submit
+    finalize_registration();
+  }
+};
+
+</script>
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+  // This identifies your website in the createToken call below
+  Stripe.setPublishableKey('pk_test_DxUgGYGNK7UVkzddfLcnFRJy');
+</script>

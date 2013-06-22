@@ -16,8 +16,6 @@ class Program < ActiveRecord::Base
   			complete << completedStep.to_i
   		end
 	  	
-	  	
-	  	
 	  	completedAmount = total.count - (total-complete).count
 	  	
 	  	return ((Float(completedAmount) / Float(total.count)) * 100).to_int
@@ -28,4 +26,34 @@ class Program < ActiveRecord::Base
   		return '0'
   	end
   end
+  
+  def self.get_price(program)
+    @program_price = 0
+    case program
+    when '1'
+      # DETERMINE YOUR COMPETITIVE ESSAY
+      @program_price = 350.00
+    when '2'
+      # COMPLETE ESSAY PACKAGE
+      @program_price = 850.00
+    when '3'
+      # DELUXE ESSAY PACKAGE
+      @program_price = 1150.00
+    end
+    return @program_price
+  end
+  
+  def self.get_description(program)
+    @program_desc = ''
+    case program
+    when '1'
+      @program_desc = "DETERMINE YOUR COMPETITIVE ESSAY"
+    when '2'
+      @program_desc = "COMPLETE ESSAY PACKAGE"
+    when '3'
+      @program_desc = "DELUXE ESSAY PACKAGE"
+    end
+    return @program_desc
+  end
+  
 end
