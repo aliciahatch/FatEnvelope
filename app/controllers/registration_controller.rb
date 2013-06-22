@@ -37,7 +37,8 @@ class RegistrationController < ApplicationController
           #  :card => token,
           #  :description => "registration to the program: #{Program.get_description(params[:program])} by the user: #{@user.first_name} #{@user.last_name} with email: #{@user.email}"
           #  )
-          # @user.save
+          @user.save
+          @user.add_role "student"
           format.json  {render :json => { :status => 'success'}.to_json}
         rescue Stripe::CardError => e
           # The card has been declined
@@ -54,28 +55,6 @@ class RegistrationController < ApplicationController
     authorize! :manage_registration, :all
     #@users = User.where(:status => 'pending')
     @users = User.all
-  end
-  
-  def add_details
-    authorize! :manage_registration, :all
-    @user = User.find(params[:user_id])
-    #if @user != nil and @user.status != 'pending'
-    #  redirect_to :back
-    #end
-  end
-  
-  def update_details
-    authorize! :manage_registration, :all
-    @user = User.find(params[:user_id])
-    @user.password = params[:user][:password]
-    @user.password_confirmation = params[:user][:password_confirmation]
-    #@user.status = 'active'
-    if @user.save
-      flash[:notice] = 'User registration info has been updated successfully. An email confirmation has been sent to the user'
-      redirect_to(:controller => 'registration', :action => 'pending' )
-    else
-      render 'add_details'
-    end
   end
   
 end

@@ -158,21 +158,21 @@
 						<div class="control-group">
 							<label class="control-label">Card Number</label>
 							<div class="controls">
-								<input type="text" size="20" data-stripe="number" class="span6" />
+								<input type="text" maxlength="20" data-stripe="number" class="span6" />
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label">CVC</label>
 							<div class="controls">
-								<input type="text" size="4" data-stripe="cvc" class="span6" />
+								<input type="text" maxlength="4" data-stripe="cvc" class="span6" />
 							</div>
 						</div>			
 						<div class="control-group">
 							<label class="control-label">Expiration (MM/YYYY)</label>
 							<div class="controls">
-								<input type="text" size="2" data-stripe="exp-month" class="span2"/>
+								<input type="text" maxlength="2" data-stripe="exp-month" class="span2"/>
 								<span> / </span>
-								<input type="text" size="4" data-stripe="exp-year" class = "span2"/>
+								<input type="text" maxlength="4" data-stripe="exp-year" class = "span2"/>
 							</div>
 						</div>
 					</form>
@@ -220,7 +220,7 @@ function finalize_registration(){
 		"type":"post",
 		"success":function(data){
 			if(data.status == "success"){
-				$("#user_errors").html('<div class="alert alert-success">User registered successfully</div>');
+				$("#user_errors").html('<div class="alert alert-success span10">User registered successfully</div>');
 				return true;
 			}else{
 				$("#user_errors").html(data.html);
