@@ -865,6 +865,18 @@ section.essay .note, .note{
   }
 }
 
+.brand {
+  background: asset-url('logo.png', image);
+  background-repeat: no-repeat;
+  height: 35px;
+  width: 117px;
+}
+
+.brand.invert {
+  background: asset-url('logo_invert.png', image);
+  background-repeat: no-repeat;
+}
+
 @media (max-width: 767px) {
   header {
     display: none;

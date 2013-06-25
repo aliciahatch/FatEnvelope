@@ -9,7 +9,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   get "pages/program-costs", :to => "pages#programcosts", :as => "programcosts"
   get "pages/faq", :to => "pages#faq", :as => "faq"
   get "pages/about", :to => "pages#about", :as => "about"
-  get "pages/advisors", :to => "pages#advisors", :as => "advisors"
+  get "pages/bootcamp", :to => "pages#bootcamp", :as => "advisors"
   get "pages/tiger-moms", :to => "pages#tigermoms", :as => "tigermoms"
   get "pages/contact", :to => "pages#contact", :as => "contact"
 

@@ -3,9 +3,9 @@
     <% if !session[:current_school].nil?%>
       <%= link_to "Fat Envelope", url_for(:controller => :program_overview, :action => :index, :id => session[:current_school]), :class => 'brand' %>
     <% else %>
-      <%= link_to "Fat Envelope", root_path, :class => 'brand' %>
+      <%= link_to "Fat Envelope", root_path, :class => 'brand invert' %>
     <% end %>        
-    <ul class="nav tan">
+    <ul class="nav blue">
       <% if !user_signed_in? %>
         <li>
           <%= link_to "Home", '/' %>
@@ -27,7 +27,7 @@
         </li>                            
         <li class="login-link">
         <%= link_to 'Login', new_user_session_path %>        
-        </li>   
+        </li>  
     
         <% end %>      
       </ul>
