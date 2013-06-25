@@ -137,8 +137,12 @@
       window.setTimeout(function() {                
         if (_this.background === 2) {
           $('video#video-green').show();
+          $('a.brand').addClass('invert');
         } else if (_this.background === 3) {
           $('video#video-blue').show();
+          $('a.brand').addClass('invert');
+        } else {
+          $('a.brand').removeClass('invert');
         }
         
         var nav = $('ul.nav');

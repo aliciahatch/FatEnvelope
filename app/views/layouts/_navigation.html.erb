@@ -23,20 +23,20 @@
         <%= link_to "Essay System", essaysystem_path %>
       </li>
       <li>
-        <%= link_to "About Us", about_path %>
-      </li>
-      <li>
         <%= link_to "Programs & Pricing", programcosts_path %>
       </li>
       <li>
         <%= link_to "Bootcamp", advisors_path %>
-      </li>     
+      </li>
       <li>
       <%= link_to 'FAQ', faq_path %>
       </li>
+      <li>
+        <%= link_to "About Us", about_path %>
+      </li>                            
       <li class="login-link">
       <%= link_to 'Login', new_user_session_path %>        
-      </li>   
+      </li>    
   
     <% end %>
     <% if user_signed_in? %>
