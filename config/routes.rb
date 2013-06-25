@@ -4,6 +4,8 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
 
 
 
+  resources :bootcamps
+
   get "pages/essay-system", :to => "pages#essaysystem", :as => "essaysystem"
   get "pages/success-stories", :to => "pages#successstories", :as => "successstories"
   get "pages/program-costs", :to => "pages#programcosts", :as => "programcosts"

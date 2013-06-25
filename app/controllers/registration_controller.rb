@@ -1,12 +1,13 @@
 class RegistrationController < ApplicationController
   
   def new
-    if params[:program].blank? or (not ['1','2','3'].include?(params[:program]))
+    if params[:program].blank? or (not ['1','2','3', '4'].include?(params[:program]))
       redirect_to :back
     else
       @program = params[:program]
       @program_price = Program.get_price(@program)
       @program_description = Program.get_description(@program)
+      @bootcamps = Bootcamp.where(['bootcamp_date >= ?', Time.now])
       @user = User.new
     end
   end
@@ -27,18 +28,23 @@ class RegistrationController < ApplicationController
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.valid? and params[:program]
-        # Stripe.api_key = "sk_test_vBT4w1H2Og5pa1cpsTG94ynU"
+         Stripe.api_key = "sk_test_Gv4s6k0leOc5eKPnWRngHWtA"
         token = params[:stripeToken]
         # Create the charge on Stripe's servers - this will charge the user's card
         begin
-          #charge = Stripe::Charge.create(
-          #  :amount => (Program.get_price(params[:program]).to_i * 100), # amount in cents, again
-          #  :currency => "usd",
-          #  :card => token,
-          #  :description => "registration to the program: #{Program.get_description(params[:program])} by the user: #{@user.first_name} #{@user.last_name} with email: #{@user.email}"
-          #  )
+          charge = Stripe::Charge.create(
+            :amount => (Program.get_price(params[:program]).to_i * 100), # amount in cents, again
+            :currency => "usd",
+            :card => token,
+            :description => "registration to the program: #{Program.get_description(params[:program])} by the user: #{@user.first_name} #{@user.last_name} with email: #{@user.email}"
+            )
           @user.save
           @user.add_role "student"
+          if params[:bootcamp_date].blank?
+            Registration.create(:program => Program.get_description(params[:program]), :price => (Program.get_price(params[:program]).to_i * 100), :user_id => @user.id)
+          else
+            Registration.create(:program => Program.get_description(params[:program]), :price => (Program.get_price(params[:program]).to_i * 100), :user_id => @user.id, :bootcamp_date => params[:bootcamp_date])
+          end
           format.json  {render :json => { :status => 'success'}.to_json}
         rescue Stripe::CardError => e
           # The card has been declined

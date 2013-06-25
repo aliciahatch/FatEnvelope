@@ -16,7 +16,16 @@
 					
 					<%= form_for @user, :html => { :class => "form-horizontal", :id => "user-form"} do |f| %>
 					
-					<b>Student Information (Required):</b><br/><br/>
+					<b>Bootcamp Date (Required):</b><br/><br/>
+					<div class="control-group">
+						<%= label_tag 'bootcamp_date', 'Bootcamp Date', :class => 'control-label' %>
+						<div class="controls">
+							<%= select_tag 'bootcamp_date', options_from_collection_for_select(@bootcamps, "bootcamp_date", "bootcamp_date"), :class => "span6" %>
+							<input type="hidden" name="program" value="<%= @program %>">
+						</div>
+					</div>
+					
+					<br/><br/><b>Student Information (Required):</b><br/><br/>
 					<div class="control-group">
 						<%= f.label :first_name, :class => "control-label" %>
 						<div class="controls">
