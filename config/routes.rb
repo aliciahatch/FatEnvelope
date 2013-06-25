@@ -72,6 +72,11 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
  
   resources :users, :only => [:show, :index]
 
-	
+	match "registration/new" => "registration#new"
+	match "registration/pending" => "registration#pending"
+	match "registration/add_details" => "registration#add_details"
+	match "registration/update_details" => "registration#update_details"
+	match "registration/validate_user" => "registration#validate_user"
+	match "registration/charge_and_create_user" => "registration#charge_and_create_user"
 
 end

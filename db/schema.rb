@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121201205) do
+ActiveRecord::Schema.define(:version => 20130622161756) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -132,23 +132,41 @@ ActiveRecord::Schema.define(:version => 20121121201205) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                      :default => "", :null => false
+    t.string   "encrypted_password",         :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",              :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
     t.string   "name"
     t.string   "stripetoken"
     t.string   "last4"
     t.integer  "num_of_tokens"
     t.boolean  "firsttime"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "current_school"
+    t.string   "parent_first_name"
+    t.string   "parent_last_name"
+    t.string   "parent_cell_phone"
+    t.string   "parent_email"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "country_code"
+    t.string   "telephone"
+    t.date     "date_of_birth"
+    t.decimal  "current_grade"
+    t.boolean  "parent_email_notifications"
+    t.boolean  "parent_text_notifications"
+    t.integer  "zip_code"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
