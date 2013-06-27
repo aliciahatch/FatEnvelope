@@ -63,4 +63,8 @@ class RegistrationController < ApplicationController
     @users = User.all
   end
   
+  def successful
+    redirect_to '/users/sign_in', :notice => "Thank you for registering with Fat Envelope Essays.  You will receive a confirmation email with login details.  To access the Fat Envelope Essay System, enter your login details here:"
+  end
+  
 end
