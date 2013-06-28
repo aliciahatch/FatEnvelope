@@ -18,10 +18,19 @@
 
   </head>
   <body class="<%if user_signed_in? %>app<%end%>">
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=210069412372115";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    
     <% if controller.controller_name == 'marketing' %>
     <div class="mobile-menu">
       <div class="tile" data-url="<%= root_url %>">
-        Home
+        <%= image_tag 'logo_invert.png' %>
       </div>
       
       <div class="tile essay" data-url="<%=essaysystem_path%>">
@@ -48,9 +57,9 @@
     <header class="navbar">
       <div class="background-images">
         <%= image_tag 'background-red.jpg' %>
-        <%= image_tag 'background-tan.jpg' %>
-        <%= image_tag 'background-green.jpg' %>
-        <%= image_tag 'background-blue.jpg' %>    
+        <%= image_tag 'background-blue.jpg' %> 
+        <%= image_tag 'background-tan.jpg' %>        
+        <%= image_tag 'background-green.jpg' %>                 
       </div>
       
       <nav class="navbar-inner">

@@ -57,9 +57,24 @@
             
         if (typeof(url) !== 'undefined' && url.length > 0) {
           window.location = url;
+        } else {
+          return false;
         }
       });
       
+      $('.slider-controls > ul > li').click(function() {                
+        var el              = $(this),
+            index           = el.index(),
+            background      = _this.sliders[index + 1],
+            lastBackground  = _this.background;
+            
+        // Check for active class
+        if (el.hasClass('active')) return false;
+               
+        _this.background = index;
+        _this.set_background(background, lastBackground);
+      });
+                 
       // Smooth scroll to section
       $(window).bind('hashchange', function(e) {
         e.preventDefault();
@@ -86,7 +101,7 @@
             _this.set_background(_this.sliders[0]);
           }
         }
-      }, 6000);
+      }, 4000);
     },
     
     set_slider_controls: function(i) {
@@ -108,13 +123,29 @@
       }      
     },
     
-    set_background: function(background) {    
+    set_background: function(background, lastBackground) {    
       var _this = this;
+      
+      console.log(this.background, lastBackground);
       
       this.background++;
       
+      var offset = 0;
+      if (typeof(lastBackground) !== 'undefined') {
+        if ((lastBackground - this.background) >= 0) {
+          offset = (this.background - lastBackground) * document.body.clientWidth;
+        } else {
+          offset = ((this.background - lastBackground) * -1) * document.body.clientWidth;
+        }
+        
+        if (offset === 0) {
+          offset = 0;
+        }
+      }
+      
       if (this.background > 3) {
         this.background = 0;
+        this.pause = true;
       }              
         
       if ($.inArray(background, this.sliders) === -1) return false; 
@@ -135,10 +166,10 @@
       
       // Video display with 1 second delay
       window.setTimeout(function() {                
-        if (_this.background === 2) {
+        if (_this.background === 3) {
           $('video#video-green').show();
           $('a.brand').addClass('invert');
-        } else if (_this.background === 3) {
+        } else if (_this.background === 1) {
           $('video#video-blue').show();
           $('a.brand').addClass('invert');
         } else {

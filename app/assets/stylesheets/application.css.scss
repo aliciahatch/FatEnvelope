@@ -83,6 +83,7 @@
       width: 24px;
       height: 26px;
       margin-right: 5px;
+      cursor: pointer;
     }
     
     > li.active {
@@ -91,6 +92,7 @@
       height: 33px;
       position: relative;
       top: 3px;
+      cursor: default;
     }
   }
 }

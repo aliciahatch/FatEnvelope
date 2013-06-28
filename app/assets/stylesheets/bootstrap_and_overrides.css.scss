@@ -15,6 +15,12 @@ $iconWhiteSpritePath: asset-url('glyphicons-halflings-white.png', image);
 h3{line-height: 25px;}
 
 
+.social-buttons {
+  position: relative;
+  top: -44px;
+  left: 85%;
+}
+
 ul.nav > li.login-link {
   top: 0px; 
 }
@@ -44,7 +50,7 @@ ul.nav > li.login-link {
 }
 
 ul.nav.tan,
-ul.nav.green {
+ul.nav.red {
   > li {
     background: transparent;    
     font-weight: bold;
@@ -52,7 +58,7 @@ ul.nav.green {
 }
 
 ul.nav.tan,
-ul.nav.green {
+ul.nav.red {
   > li {       
     > a {      
       text-shadow: 0px 1px 0px rgba(255,255,255,1);
@@ -64,7 +70,7 @@ ul.nav.green {
   }        
 }
 
-ul.nav.red,
+ul.nav.green,
 ul.nav.blue {
   > li {
     background: transparent;    
@@ -72,7 +78,7 @@ ul.nav.blue {
   }
 }
 
-ul.nav.red,
+ul.nav.green,
 ul.nav.blue {
   > li {
     > a {
@@ -868,13 +874,19 @@ section.essay .note, .note{
 .brand {
   background: asset-url('logo.png', image);
   background-repeat: no-repeat;
-  height: 35px;
-  width: 117px;
+  height: 65px !important;
+  width: 235px !important;
+  background-size: cover !important;
+  position: relative;
+  top: -30px;
 }
 
 .brand.invert {
   background: asset-url('logo_invert.png', image);
   background-repeat: no-repeat;
+  height: 65px !important;
+  width: 235px !important;
+  background-size: cover !important;
 }
 
 @media (max-width: 767px) {
