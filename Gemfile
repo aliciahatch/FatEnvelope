@@ -11,6 +11,7 @@ gem 'thin'
 gem 'jquery-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'stripe'
+gem 'mandrill-api'
 
 gem "rspec-rails", ">= 2.10.1", :group => [:development, :test]
 gem "factory_girl_rails", ">= 3.3.0", :group => [:development, :test]

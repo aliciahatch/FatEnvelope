@@ -40,11 +40,13 @@ class RegistrationController < ApplicationController
             )
           @user.save
           @user.add_role "student"
+          @registration = nil
           if params[:bootcamp_date].blank?
-            Registration.create(:program => Program.get_description(params[:program]), :price => (Program.get_price(params[:program]).to_i * 100), :user_id => @user.id)
+            @registration = Registration.create(:program => Program.get_description(params[:program]), :price => (Program.get_price(params[:program]).to_i * 100), :user_id => @user.id)
           else
-            Registration.create(:program => Program.get_description(params[:program]), :price => (Program.get_price(params[:program]).to_i * 100), :user_id => @user.id, :bootcamp_date => params[:bootcamp_date])
+            @registration = Registration.create(:program => Program.get_description(params[:program]), :price => (Program.get_price(params[:program]).to_i * 100), :user_id => @user.id, :bootcamp_date => params[:bootcamp_date])
           end
+          UserMailer.registration_email(@user, @registration).deliver
           format.json  {render :json => { :status => 'success'}.to_json}
         rescue Stripe::CardError => e
           # The card has been declined
