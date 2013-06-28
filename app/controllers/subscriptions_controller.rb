@@ -24,15 +24,15 @@ class SubscriptionsController < ApplicationController
   	num_of_tokens = current_user.num_of_tokens
 
   	
-  	if plan_id = 1
+  	if plan_id == 1
   		price = 20000
-  	elsif plan_id = 2
+  	elsif plan_id == 2
   		price = 37500
-  	elsif plan_id = 3
+  	elsif plan_id == 3
   		price = 55000
-  	elsif plan_id = 4
+  	elsif plan_id == 4
   		price = 70000
-  	elsif plan_id = 5
+  	elsif plan_id == 5
   		price = 80000
   	end
   	
