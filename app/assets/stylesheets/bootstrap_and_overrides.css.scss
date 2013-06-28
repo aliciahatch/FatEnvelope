@@ -18,7 +18,11 @@ h3{line-height: 25px;}
 .social-buttons {
   position: relative;
   top: -44px;
-  left: 85%;
+  left: 78%;
+  
+  > a {
+    top: -6px;
+  }
 }
 
 ul.nav > li.login-link {
