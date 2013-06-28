@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "info@fatenvelopeessays.com"
+  default from: "Fat Envelope Essays <info@fatenvelopeessays.com>"
   
   def registration_email(user, registration)
     @user = user
