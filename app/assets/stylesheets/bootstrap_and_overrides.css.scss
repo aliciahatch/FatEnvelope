@@ -183,11 +183,44 @@ p.price {
   color: #091851;
 }
 
+.pricing {
+  background: transparent;
+  color: #fff !important;
+}
+
 .essay h1, .pricing-heading h1, .faq h1, .bootcamp h1, .about-us h1 {
   font-size: 44px;
   color: #fff;
   margin-top: 45px;
   font-family: 'Tenor Sans', sans-serif;
+}
+
+.about-us h1 {  
+  text-indent: -999px;
+  background: url(about-us-title.png) no-repeat  
+}
+
+.bootcamp h1 {
+  text-indent: -999px;
+  background: url(bootcamp-title.png) no-repeat
+}
+
+.essay h1 {
+  text-indent: -999px;
+  background: url(essay-title.png) no-repeat;
+  height: 100px;
+}
+
+.faq h1 {
+  text-indent: -999px;
+  background: url(faq-title.png) no-repeat;
+  height: 108px;
+}
+
+.pricing h1 {
+  text-indent: -999px;
+  background: url(program-title.png) no-repeat; 
+  height: 100px;
 }
 
 .pricing-heading h1 {
@@ -574,17 +607,16 @@ p.price {
   color: #091851;
 }
 
+.pricing {
+  margin-left: 155px;
+  color: #fff;
+}
+
 .essay h1, .pricing-heading h1, .faq h1, .bootcamp h1, .about-us h1 {
   font-size: 44px;
   color: #fff;
   margin-top: 45px;
   font-family: 'Eurofurencebolditalic', sans-serif;
-}
-
-.pricing-heading h1 {
-  width: 260px;
-  margin-bottom: 30px;
-  line-height: 50px;
 }
 
 .essay h2, .pricing h2, .faq h2, .bootcamp h2, .about-us h2 {

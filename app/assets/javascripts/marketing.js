@@ -197,6 +197,8 @@
   $(document).ready(function() {
     window.location.hash = '';
     
-    Slider.init();
+    if (window.location.pathname === '/') {
+      Slider.init();
+    }
   });
 // })();
