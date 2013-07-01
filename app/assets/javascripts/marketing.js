@@ -70,9 +70,8 @@
             
         // Check for active class
         if (el.hasClass('active')) return false;
-               
-        _this.background = index;
-        _this.set_background(background, lastBackground);
+        console.log(index);                       
+        _this.move_background(index);
       });
                  
       // Smooth scroll to section
@@ -123,25 +122,29 @@
       }      
     },
     
-    set_background: function(background, lastBackground) {    
-      var _this = this;
+    move_background: function(position) {
+      var _this   = this;
+
+      if (position < 0 || position > 3) return;
+
+      _this.background = position;
+
+      // Move the background
+      $('video').hide();
+
+      _this.intTime = document.body.clientWidth * position * -1;
+
+      $('header > .background-images > img').animate({
+        left: _this.intTime
+      }, 1000);
+
+      _this.update_background_elements(_this.sliders[_this.background], _this.background);      
+    },
+
+    set_background: function(background) {    
+      var _this = this;      
       
-      console.log(this.background, lastBackground);
-      
-      this.background++;
-      
-      var offset = 0;
-      if (typeof(lastBackground) !== 'undefined') {
-        if ((lastBackground - this.background) >= 0) {
-          offset = (this.background - lastBackground) * document.body.clientWidth;
-        } else {
-          offset = ((this.background - lastBackground) * -1) * document.body.clientWidth;
-        }
-        
-        if (offset === 0) {
-          offset = 0;
-        }
-      }
+      this.background++;          
       
       if (this.background > 3) {
         this.background = 0;
@@ -164,6 +167,12 @@
       }, 1000);      
       
       
+      _this.update_background_elements(background);
+    },
+
+    update_background_elements: function(background, slider) {
+      var _this = this;
+
       // Video display with 1 second delay
       window.setTimeout(function() {                
         if (_this.background === 3) {
@@ -181,7 +190,7 @@
         nav.addClass(background);
       }, 1000);      
       
-      this.set_slider_controls();
+      this.set_slider_controls(slider);
     }
   }
   
