@@ -6,6 +6,7 @@
     background: 0,
     
     pause: false,
+    skip: false,
     
     el_slider: {
       body: null,
@@ -70,7 +71,10 @@
             
         // Check for active class
         if (el.hasClass('active')) return false;
-        console.log(index);                       
+        
+        // Skip the next slide
+        _this.skip = true;
+
         _this.move_background(index);
       });
                  
@@ -91,7 +95,7 @@
       
       // Set interval for slider
       this.intervals.background = window.setInterval(function() {    
-        if (_this.pause === false) {                             
+        if (_this.pause === false && _this.skip === false) {                             
           var index = $.inArray(_this.active_slider, _this.sliders) + 1;
           
           if (index < _this.sliders.length) {
@@ -99,6 +103,10 @@
           } else {
             _this.set_background(_this.sliders[0]);
           }
+        } 
+
+        if (_this.skip === true) {
+          _this.skip = false;
         }
       }, 4000);
     },

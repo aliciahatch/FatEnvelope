@@ -102,6 +102,12 @@ body {
   margin-left: 100px;
 }
 
+.page_container .nav {
+  top: -126px !important;
+  left: 55px !important;
+  margin-top: 50px !important;
+}
+
 p.price {
   text-align: center;
 }
@@ -165,26 +171,30 @@ p.price {
 
 .essay {
   margin-left: 155px;
+  margin-top: -95px;
   color: #fff;
 }
 
 .bootcamp {
   margin-left: 155px;
+  margin-top: -95px;
   color: #fff;
 }
 
 .faq {
   margin-left: 155px;
+  margin-top: -95px;
   color: #fff;
 }
 
 .about-us {
   margin-left: 155px;
+  margin-top: -95px;
   color: #091851;
 }
 
 .pricing {
-  background: transparent;
+  background: transparent !important;
   color: #fff !important;
 }
 
