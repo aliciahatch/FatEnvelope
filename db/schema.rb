@@ -11,13 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130622161756) do
+ActiveRecord::Schema.define(:version => 20130625034250) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
     t.string   "encrypted_password"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "bootcamps", :force => true do |t|
+    t.date     "bootcamp_date"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "ckeditor_assets", :force => true do |t|
@@ -66,6 +72,17 @@ ActiveRecord::Schema.define(:version => 20130622161756) do
     t.datetime "updated_at",          :null => false
     t.integer  "program_manifest_id"
   end
+
+  create_table "registrations", :force => true do |t|
+    t.string   "program"
+    t.integer  "price"
+    t.integer  "user_id"
+    t.date     "bootcamp_date"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "registrations", ["user_id"], :name => "index_registrations_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

@@ -39,6 +39,9 @@ class Program < ActiveRecord::Base
     when '3'
       # DELUXE ESSAY PACKAGE
       @program_price = 1150.00
+    when '4'
+      # BOOTCAMP
+      @program_price = 650.00
     end
     return @program_price
   end
@@ -52,6 +55,8 @@ class Program < ActiveRecord::Base
       @program_desc = "COMPLETE ESSAY PACKAGE"
     when '3'
       @program_desc = "DELUXE ESSAY PACKAGE"
+    when '4'
+      @program_desc = "BOOTCAMP"
     end
     return @program_desc
   end

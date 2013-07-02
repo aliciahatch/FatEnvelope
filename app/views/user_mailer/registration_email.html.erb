@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h2>Thank you for registering with Fat Envelope Essays!</h2>
+	<h3>This email serves as your registration confirmation and receipt:</h3>
+    <p>Dear <%= "#{@user.first_name} #{@user.last_name}"%>,</p>
+	<p>This email contains important information regarding your recent  Fatenvelopeessays.com purchase – please save it for reference.</p>
+	<p>
+		<strong>Customer Number: </strong><%= @user.id %><br/>
+	   	<strong>Username: </strong><%= @user.email %><br/>
+		<strong>Receipt Number: </strong><%= @registration.id %>
+	</p>
+    <table width="600" border="2" cellpadding="5px" cellspacing="0">
+	  <tr style="background-color:#EEE;">
+	    <td width="232"><strong>Item Purchased</strong></td>
+	    <td width="104"><strong>Quantity</strong></td>
+	    <td width="152">&nbsp;</td>
+	    <td width="84"><strong>Price</strong></td>
+	  </tr>
+	  <tr>
+	    <td><%= @registration.program + ((@registration.bootcamp_date == nil) ? "" : " (#{@registration.bootcamp_date})") %></td>
+	    <td>1</td>
+	    <td>&nbsp;</td>
+	    <td><div align="right">$<%= (@registration.price / 100) * 1.00 %></div></td>
+	  </tr>
+	  <tr>
+	    <td>&nbsp;</td>
+	    <td>&nbsp;</td>
+	    <td><div align="right">Subtotal:</div></td>
+	    <td><div align="right">$<%= (@registration.price / 100) * 1.00 %></div></td>
+	  </tr>
+	  <tr>
+	    <td>&nbsp;</td>
+	    <td>&nbsp;</td>
+	    <td><div align="right">Shipping and Handling:</div></td>
+	    <td><div align="right">$0.00</div></td>
+	  </tr>
+	  <tr>
+	    <td>&nbsp;</td>
+	    <td>&nbsp;</td>
+	    <td><div align="right">Tax:</div></td>
+	    <td><div align="right">$0.00</div></td>
+	  </tr>
+	  <tr>
+	    <td>&nbsp;</td>
+	    <td>&nbsp;</td>
+	    <td><div align="right"><strong>Order Total:</strong></div></td>
+	    <td><div align="right">$<%= (@registration.price / 100) * 1.00 %></div></td>
+	  </tr>
+	</table>
+	
+	<p>To access the program, please login using your username and password.</p>
+
+
+	<p>Thank you,</p>
+	<p>Fat Envelope Essays</p>
+  </body>
+</html>

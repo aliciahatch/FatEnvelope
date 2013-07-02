@@ -10,14 +10,17 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :stripetoken, :last4, :num_of_tokens, :name, :firstvisit, :school
 	
   #attr_accessor :year_in_school, :program, :status, :school
-  
   #attr_accessible :year_in_school, :program, :status, :school
   attr_accessible :first_name, :last_name, :date_of_birth, :current_school, :current_grade, :parent_first_name, :parent_last_name, :parent_cell_phone, :parent_email, :parent_email_notifications, :parent_text_notifications, :address, :city, :state, :zip_code, :country, :country_code, :telephone
+  
+  attr_accessor :terms_of_service
+  attr_accessible :terms_of_service
   
   validates :first_name, :last_name, :date_of_birth, :current_school, :current_grade, :address, :city, :state, :zip_code, :country, :country_code, :telephone, :presence => true
   validates :current_grade, :numericality => true
   validates :zip_code, :numericality => { :only_integer => true }
   validates :date_of_birth, :format => { :with => /\d\d\d\d-\d\d-\d\d/, :message => "invalid format, must match: YYYY-MM-DD" }
+  validates :terms_of_service, :acceptance => true
   
   has_many :subscription
   has_and_belongs_to_many :schools

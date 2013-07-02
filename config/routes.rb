@@ -4,6 +4,8 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
 
 
 
+  resources :bootcamps
+
   get "pages/essay-system", :to => "pages#essaysystem", :as => "essaysystem"
   get "pages/success-stories", :to => "pages#successstories", :as => "successstories"
   get "pages/program-costs", :to => "pages#programcosts", :as => "programcosts"
@@ -12,6 +14,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   get "pages/bootcamp", :to => "pages#bootcamp", :as => "advisors"
   get "pages/tiger-moms", :to => "pages#tigermoms", :as => "tigermoms"
   get "pages/contact", :to => "pages#contact", :as => "contact"
+  get "pages/terms", :to => "pages#terms", :as => "terms"
 
   mount Ckeditor::Engine => '/ckeditor'
 
@@ -74,6 +77,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
 
 	match "registration/new" => "registration#new"
 	match "registration/pending" => "registration#pending"
+	match "registration/successful" => "registration#successful"
 	match "registration/add_details" => "registration#add_details"
 	match "registration/update_details" => "registration#update_details"
 	match "registration/validate_user" => "registration#validate_user"

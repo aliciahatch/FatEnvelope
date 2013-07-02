@@ -1,0 +1,31 @@
+<div class="container-fluid pricing-container" id="_pricing">
+	<%= render 'layouts/navigation_short' %>
+
+	<div class="row-fluid">
+		<div class="pricing-heading">
+			<h1>Listing bootcamps</h1>
+		</div>
+		<div class="span12">
+			<table class="table table-bordered table-condensed">
+				<tr>
+					<th>Bootcamp date</th>
+					<th></th>
+					<th></th>
+				</tr>
+
+				<% @bootcamps.each do |bootcamp| %>
+				<tr>
+					<td><%= bootcamp.bootcamp_date %></td>
+					<td><%= link_to 'Edit', edit_bootcamp_path(bootcamp) %></td>
+					<td><%= link_to 'Destroy', bootcamp, confirm: 'Are you sure?', method: :delete %></td>
+				</tr>
+				<% end %>
+			</table>
+
+			<br />
+
+			<%= link_to 'New Bootcamp', new_bootcamp_path %>
+
+		</div>
+	</div>
+</div>

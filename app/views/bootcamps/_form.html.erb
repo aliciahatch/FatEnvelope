@@ -1,0 +1,21 @@
+<%= form_for(@bootcamp) do |f| %>
+  <% if @bootcamp.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bootcamp.errors.count, "error") %> prohibited this bootcamp from being saved:</h2>
+
+      <ul>
+      <% @bootcamp.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bootcamp_date %><br />
+    <%= f.date_select :bootcamp_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

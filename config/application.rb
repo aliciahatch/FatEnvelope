@@ -33,7 +33,10 @@ module Rails3BootstrapDeviseCancan
     # config.autoload_paths += %W(#{config.root}/extras)
     config.autoload_paths += %W(#{config.root}/lib)
 
-
+    
+    ENV['MANDRILL_USERNAME'] = "aliciahatch@gmail.com";
+    ENV['MANDRILL_APIKEY'] = "l1FG4CcwBF1b9TgXEhQOaQ";
+    
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
@@ -59,6 +62,17 @@ module Rails3BootstrapDeviseCancan
     # This is necessary if your schema can't be completely dumped by the schema dumper,
     # like if you have constraints or database-specific column types
     # config.active_record.schema_format = :sql
+    ActionMailer::Base.raise_delivery_errors = true
+    ActionMailer::Base.smtp_settings = {
+        :port =>           '587',
+        :address =>        'smtp.mandrillapp.com',
+        :user_name =>      ENV['MANDRILL_USERNAME'],
+        :password =>       ENV['MANDRILL_APIKEY'],
+        :enable_starttls_auto => true,
+        :domain =>         'fatenvelopeessays.com',
+        :authentication => :plain
+    }
+    ActionMailer::Base.delivery_method = :smtp
 
     # Enforce whitelist mode for mass assignment.
     # This will create an empty whitelist of attributes available for mass-assignment for all models
