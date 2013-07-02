@@ -16,7 +16,17 @@
 					
 					<%= form_for @user, :html => { :class => "form-horizontal", :id => "user-form"} do |f| %>
 					
-					<b>Student Information (Required):</b><br/><br/>
+					<% if @program == 4 %>
+					<b>Bootcamp Date (Required):</b><br/><br/>
+					<div class="control-group">
+						<%= label_tag 'bootcamp_date', 'Bootcamp Date', :class => 'control-label' %>
+						<div class="controls">
+							<%= select_tag 'bootcamp_date', options_from_collection_for_select(@bootcamps, "bootcamp_date", "bootcamp_date"), :class => "span6" %>
+							<input type="hidden" name="program" value="<%= @program %>">
+						</div>
+					</div>
+					<% end %>
+					<br/><br/><b>Student Information (Required):</b><br/><br/>
 					<div class="control-group">
 						<%= f.label :first_name, :class => "control-label" %>
 						<div class="controls">
@@ -108,8 +118,15 @@
 							<%= f.text_field :telephone, :class => "span6" %>
 						</div>
 					</div>
+					<div class="control-group">
+						<div class="controls">
+							<label class="checkbox">
+								<%= f.check_box :terms_of_service %> I accept the <%= link_to "terms of service", { :controller => "pages", :action => "terms"} %>
+							</label>
+						</div>
+					</div>
 				</div>
-
+				
 				<div class="span6">
 					<br/><br/><b>Parent Information (Optional):</b><br/><br/>
 					<div class="control-group">
@@ -150,9 +167,7 @@
 							</label>
 						</div>
 					</div>
-
 					<% end %><!-- End of the user registration form -->
-
 					<br/><br/><b>Payment Information (Required):</b><br/><br/>
 					<form action="" method="POST" id="payment-form">
 						<div class="control-group">
@@ -221,7 +236,7 @@ function finalize_registration(){
 		"success":function(data){
 			if(data.status == "success"){
 				$("#user_errors").html('<div class="alert alert-success span10">User registered successfully</div>');
-				return true;
+				window.location = "/registration/successful";
 			}else{
 				$("#user_errors").html(data.html);
 				$('#register-user').removeClass('disabled');
