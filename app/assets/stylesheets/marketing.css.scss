@@ -143,15 +143,25 @@ p.price {
 	right:0;
 }
 
+video {  
+  background:#000;
+}
+
 video#video-green {
   position:relative;
-  left: 35%;
-  top: 115px;
+  left: -10%;
+  top: 100px;
 }
   
 video#video-blue {
   position: relative;
-  left: 0%;
+  left: -3%;
+  top: 30px;
+}
+
+video#video-red {
+  position: relative;
+  left: 35%;
   top: 50px;
 }
 
@@ -425,7 +435,7 @@ p.price {
 .contact-info {
   color: #fff;
   font-family: 'Karla', sans-serif;
-  margin-top: 180px;
+  margin-top: 18px;
   font-weight: bold;
 }
 

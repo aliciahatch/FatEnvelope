@@ -82,3 +82,6 @@ db/*.sqlite3
 
 # Aptana Project file
 .project
+
+# Videos
+*.mp4
