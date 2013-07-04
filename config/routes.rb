@@ -73,7 +73,9 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   devise_for :users
   get "user/edit/:id" => "user#edit"
  
-  resources :users, :only => [:show, :index]
+  match 'users/dashboard' => "users#dashboard"
+  resources :users, :only => [:show, :index] 
+  
 
 	match "registration/new" => "registration#new"
 	match "registration/pending" => "registration#pending"
