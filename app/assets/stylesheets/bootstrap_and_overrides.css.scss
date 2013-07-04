@@ -49,7 +49,7 @@ ul.nav > li.login-link {
   }
   
   > li:first-child {
-    margin-left: 70px;
+    margin-left: 105px;
   }    
 }
 
@@ -64,9 +64,7 @@ ul.nav.red {
 ul.nav.tan,
 ul.nav.red {
   > li {       
-    > a {      
-      text-shadow: 0px 1px 0px rgba(255,255,255,1);
-      
+    > a {
       &:hover {
         color: inherit;
       }
@@ -78,7 +76,7 @@ ul.nav.green,
 ul.nav.blue {
   > li {
     background: transparent;    
-    font-weight: bold;    
+    font-weight: bold;      
   }
 }
 
@@ -207,18 +205,21 @@ p.price {
 
 .about-us h1 {  
   text-indent: -999px;
-  background: url(about-us-title.png) no-repeat  
+  background: url(about-us-title.png) no-repeat; 
 }
 
 .bootcamp h1 {
   text-indent: -999px;
-  background: url(bootcamp-title.png) no-repeat
+  background: url(common-application.png) no-repeat top left,
+              url(bootcamp-title.png) no-repeat bottom left;
+  height: 150px;
 }
 
 .essay h1 {
   text-indent: -999px;
-  background: url(essay-title.png) no-repeat;
-  height: 100px;
+  background: url(common-application.png) no-repeat top left,
+              url(essay-title.png) no-repeat bottom left;              
+  height: 175px;
 }
 
 .faq h1 {
@@ -229,8 +230,9 @@ p.price {
 
 .pricing h1 {
   text-indent: -999px;
-  background: url(program-title.png) no-repeat; 
-  height: 100px;
+  background: url(common-application-dark.png) no-repeat top left,
+              url(program-title.png) no-repeat bottom left; 
+  height: 175px;
 }
 
 .pricing-heading h1 {
@@ -349,6 +351,12 @@ header > .background-images > img:first-child {
   position: absolute;
   top:20px;
   right:0;
+}
+
+.video-nancy,
+.video-alicia,
+.video-masaru {
+  margin-bottom: 20px;
 }
 
 .marketing .banner a{
@@ -609,6 +617,7 @@ p.price {
 
 .faq {
   margin-left: 155px;
+  margin-top: 0px;
   color: #fff;
 }
 
@@ -619,7 +628,7 @@ p.price {
 
 .pricing {
   margin-left: 155px;
-  color: #fff;
+  color: #1b1d4f !important;
 }
 
 .essay h1, .pricing-heading h1, .faq h1, .bootcamp h1, .about-us h1 {
@@ -638,6 +647,7 @@ p.price {
 
 .pricing h2 {
   margin-top: 0px;
+  color: #1b1d4f !important;
 }
 
 .essay p, .pricing p, .faq p, .bootcamp p, .about-us p {
@@ -925,6 +935,7 @@ section.essay .note, .note{
   background-size: cover !important;
   position: relative;
   top: -30px;
+  margin-left: -70px !important;
 }
 
 .brand.invert {
@@ -933,6 +944,7 @@ section.essay .note, .note{
   height: 65px !important;
   width: 235px !important;
   background-size: cover !important;
+  margin-left: -70px !important;
 }
 
 @media (max-width: 767px) {
