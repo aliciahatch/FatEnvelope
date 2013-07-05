@@ -1,12 +1,36 @@
-<h1>Admin Section</h1>
-<p>Students can't get here, we have multple levels of access</p>
+<div class="container">
+<h1>Administrate Users</h1>
 
-<h5>Log</h5>
+<br />
+<br />
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th><center>First name</center></th>
+    <th><center>Last name</center></th>
+    <th><center>Email</center></th>
+    <th><center>City</center></th>
+    <th><center>Role(s)</center></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-<ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= link_to user.name, user %> signed up <%= user.created_at.to_date %>
-    </li>
-  <% end %>
-</ul>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.city %></td>
+    <td><center><%= user.get_roles %></center></td>
+    <td><center><%= link_to raw('<i class="icon-eye-open"></i>'), user %></center></td>
+    <td><center><%= link_to raw('<i class="icon-pencil"></i>'), edit_user_path(user) %></center></td>
+    <td><center><%= link_to raw('<i class="icon-trash"></i>'), user, :confirm => 'Are you sure?', :method => :delete %></center></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>
+
+</div>

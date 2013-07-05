@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, #:registerable,
          :recoverable, :rememberable, :trackable, :validatable
   rolify
   
@@ -13,13 +13,14 @@ class User < ActiveRecord::Base
   #attr_accessible :year_in_school, :program, :status, :school
   attr_accessible :first_name, :last_name, :date_of_birth, :current_school, :current_grade, :parent_first_name, :parent_last_name, :parent_cell_phone, :parent_email, :parent_email_notifications, :parent_text_notifications, :address, :city, :state, :zip_code, :country, :country_code, :telephone
   
-  attr_accessor :terms_of_service
-  attr_accessible :terms_of_service
+  attr_accessor :terms_of_service, :validation_scenario, :role
+  attr_accessible :terms_of_service, :role
   
-  validates :first_name, :last_name, :date_of_birth, :current_school, :current_grade, :address, :city, :state, :zip_code, :country, :country_code, :telephone, :presence => true
-  validates :current_grade, :numericality => true
-  validates :zip_code, :numericality => { :only_integer => true }
-  validates :date_of_birth, :format => { :with => /\d\d\d\d-\d\d-\d\d/, :message => "invalid format, must match: YYYY-MM-DD" }
+  validates :first_name, :last_name, :presence => true
+  validates :date_of_birth, :current_school, :current_grade, :address, :city, :state, :zip_code, :country, :country_code, :telephone, :presence => true, :if => :required_by_scenario 
+  validates :current_grade, :numericality => true, :allow_blank => true
+  validates :zip_code, :numericality => { :only_integer => true }, :allow_blank => true
+  validates :date_of_birth, :format => { :with => /\d\d\d\d-\d\d-\d\d/, :message => "invalid format, must match: YYYY-MM-DD" }, :allow_blank => true
   validates :terms_of_service, :acceptance => true
   
   has_many :subscription
@@ -60,6 +61,18 @@ class User < ActiveRecord::Base
 
     self.stripe_id = customer.id
     self.stripetoken = nil
+  end
+  
+  def get_roles
+    roles_text = ''
+    self.roles.each do |role|
+      roles_text = roles_text + (roles_text == '' ? '' : ', ') + role.name
+    end
+    return roles_text
+  end
+  
+  def required_by_scenario
+    return self.validation_scenario != 'admin_or_teacher'
   end
   
 end
