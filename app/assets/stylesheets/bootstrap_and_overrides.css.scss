@@ -188,7 +188,7 @@ p.price {
 .about-us {
   margin-left: 155px;
   margin-top: -95px;
-  color: #091851;
+  color: #091851;  
 }
 
 .pricing {
@@ -205,7 +205,7 @@ p.price {
 
 .about-us h1 {  
   text-indent: -999px;
-  background: url(about-us-title.png) no-repeat; 
+  background: url(about-us-title.png) no-repeat;   
 }
 
 .bootcamp h1 {
@@ -229,6 +229,7 @@ p.price {
 .pricing h1 {
   text-indent: -999px;
   background: url(program-title.png) no-repeat top left; 
+  background-size: contain;
   height: 100px;
 }
 
@@ -246,7 +247,7 @@ p.price {
 }
 
 .pricing h2 {
-  margin-top: 0px;
+  margin-top: 20px;
 }
 
 .essay p, .pricing p, .faq p, .bootcamp p, .about-us p,
@@ -902,23 +903,23 @@ section.essay .note, .note{
       text-shadow: 0px 2px 1px rgba(0,0,0,0.85);
     }
     
-    &.essay {
+    &._essay {
       background: #091851;
     }
     
-    &.about {
+    &._about {
       background: #CEB161;
     }
     
-    &.price {
+    &._price {
       background: #9DC6E6;     
     }
     
-    &.bootcamp {
+    &._bootcamp {
       background: #D52E3F;
     }
     
-    &.faq {
+    &._faq {
       background: #627886;      
     }        
   }
@@ -961,4 +962,6 @@ section.essay .note, .note{
   .mobile-menu {
     display: block;
   }  
+
+
 }

@@ -77,7 +77,7 @@ p.price {
 }
 
 .pricing h2 {
-  margin-top: 0px;
+  margin-top: 20px;
 }
 
 .essay p, .pricing p, .faq p, .bootcamp p, .about-us p,
@@ -445,7 +445,7 @@ p.price {
 }
 
 .pricing h2 {
-  margin-top: 0px;
+  margin-top: 20px;
   color: #fff;
   font-size: 18px;
   line-height: 25px;
@@ -687,12 +687,22 @@ section.essay .note, .note{
     margin-left: 0px !important;
   }
   
+  .pricing {
+    margin-left: 10px;
+    position: relative;
+    top: 75px;
+  }
+
   .essay {
     margin-left: 10px;
+    position: relative;
+    top: 75px;
   }
   
   .bootcamp {
     margin-left: 10px;
+    position: relative;
+    top: 75px;
   }
   
   .faq {
@@ -700,7 +710,9 @@ section.essay .note, .note{
   }
   
   .about-us {
-    margin-left: 10px;    
+    margin-left: 10px;   
+    position: relative;
+    top: 75px; 
   }  
   
   .contact-info {
