@@ -210,16 +210,14 @@ p.price {
 
 .bootcamp h1 {
   text-indent: -999px;
-  background: url(common-application.png) no-repeat top left,
-              url(bootcamp-title.png) no-repeat bottom left;
-  height: 150px;
+  background: url(bootcamp-title.png) no-repeat top left;              
+  height: 75px;
 }
 
 .essay h1 {
   text-indent: -999px;
-  background: url(common-application.png) no-repeat top left,
-              url(essay-title.png) no-repeat bottom left;              
-  height: 175px;
+  background: url(essay-title.png) no-repeat top left;              
+  height: 100px;
 }
 
 .faq h1 {
@@ -230,9 +228,8 @@ p.price {
 
 .pricing h1 {
   text-indent: -999px;
-  background: url(common-application-dark.png) no-repeat top left,
-              url(program-title.png) no-repeat bottom left; 
-  height: 175px;
+  background: url(program-title.png) no-repeat top left; 
+  height: 100px;
 }
 
 .pricing-heading h1 {

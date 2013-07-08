@@ -98,8 +98,13 @@ p.price {
   color: #fff;
   font-family: 'Open Sans', sans-serif;
   margin-top: 180px;
+  font-weight: normal;
+  font-size: 24px;
+}
+
+.contact-info > p:first-child {
+  font-size: 28px;
   font-weight: bold;
-  font-size: 18px;
 }
 
 .banner .container{
@@ -159,10 +164,36 @@ video#video-blue {
   top: 30px;
 }
 
+p.video-blue-over {
+  display: none;
+  font-size: 14px;
+  color: #fff;
+  position: absolute;
+  left: 311px;
+  top: 167px;
+  font-weight: bold;
+  z-index: 999;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+}
+
 video#video-red {
   position: relative;
   left: 35%;
-  top: 50px;
+  top: 115px;
+}
+
+p.video-red-over {
+  display: none;
+  font-size: 21px;
+  color: #fff;
+  position: absolute;
+  font-family: 'Open Sans', sans-serif;
+  left: 58%;
+  top: 236px;
+  font-weight: bold;
+  z-index: 999;
+  text-transform: uppercase;
 }
 
 .marketing .banner a{

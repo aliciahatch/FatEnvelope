@@ -1,7 +1,7 @@
 <div class="container-fluid bootcamp-container" id="_bootcamp">
   <%= render 'layouts/navigation_short_invert' %>
   <div class="row-fluid">
-    <div class="span10">
+    <div class="span8 offset2">
       <div class="bootcamp">
         <h1>Boot Camp</h1>
         
@@ -44,32 +44,32 @@
         <p>After Boot Camp, you’ll schedule a final 20-minute video chat with a Writing Coach to review your final draft and make sure your essay is ready for submission.</p>
         
         <h2>Choose Your Boot Camp</h2>
-        <p>All 2013 Boot Camp sessions will be held on the University of Washington campus in Seattle, Washington. You will receive specific location details upon registration.  Students are required to bring a laptop for use during the session.</p>
+        <p>All 2013 Boot Camp sessions will be held on the Seattle University campus in Seattle, Washington. You will receive specific location details upon registration.  Students are required to bring a laptop for use during the session.</p>
         
-        <ul style="list-style-type: none;">                    
-          <li> July 13-12</li>
+        <ul style="list-style-type: none;">                              
           <li> July 20-21</li>
           <li> July 27-28</li>
           <li> Aug. 3-4</li>
-          <li> Aug 9-10</li>
-          <li> Aug 17-18</li>
+          <li> Aug. 9-10</li>
+          <li> Aug. 17-18</li>
         </ul>
         
         <h2>Mid-week Sessions:</h2>
         
-        <ul style="list-style-type: none;">
-          <li> July 24-25</li>
+        <ul style="list-style-type: none;">          
           <li> Aug. 6-7</li>
-        </ul>
-        
+          <li> Aug. 13-14</li>
+        </ul>                
+
+        <h2>Cost: $950</h2>                      
+
         <br />
-        
-        <p>Private, single day sessions are also available if you would prefer to work one-on-one with a professor who will personally guide you through the whole process.</p>
-        <p>Cost: $650</p>
 
-        <h2>Space is limited. Send an email to <a href="mailto:signup@fatenvelopeessays.com">signup@fatenvelopeessays.com</a> to secure your spot.</h2>
+		    <%= link_to "Register", { :controller => "registration", :action => "new", :program => 4 }, :class => "btn" %>
 
-		<%= link_to "Register", { :controller => "registration", :action => "new", :program => 4 }, :class => "btn" %>
+        <br /><br />
+
+        <p>Private, single day sessions are also available if you would prefer to work one-on-one with a professor who will personally guide you through the whole process. Email <a href="mailto:intro@fatenvelopeessays.com">info@fatenvelopeessays.com</a> for more information.</p>
       </div>
     </div>
   </div>
