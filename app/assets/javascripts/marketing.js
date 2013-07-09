@@ -199,19 +199,25 @@
       var _this = this;
 
       $('p.video-blue-over, p.video-red-over').hide();
+      $('header > .background-text > div').hide();
 
       // Video display with 1 second delay
       window.setTimeout(function() {                
         if (_this.background === 0) {        
-          $('a.brand').removeClass('invert');          
+          $('a.brand').removeClass('invert'); 
+          $('.say-hello').fadeIn();        
         } else if (_this.background === 1) {
           $('video#video-blue').show();
           $('a.brand').addClass('invert');
+          $('.stand-out').fadeIn(); 
           $('p.video-blue-over').fadeIn();
+        } else if (_this.background === 2) {
+          $('.power-story').fadeIn();
         } else if (_this.background === 3) {
           $('a.brand').addClass('invert');
           $('video#video-red').show();
           $('p.video-red-over').fadeIn();
+          $('.find-hook').fadeIn();
         } else {
           $('a.brand').removeClass('invert');
         }

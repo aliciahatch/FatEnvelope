@@ -291,6 +291,35 @@ header {
   padding: 0 !important;
 }
 
+header > .background-text {
+  .say-hello {    
+    position: absolute;
+    top: 34%;
+    left: 12%;
+  }
+
+  .stand-out {
+    display: none;
+    position: absolute;
+    top: 36%;
+    left: 56%;
+  }
+
+  .power-story {
+    display: none;
+    position: absolute;
+    top: 24%;
+    left: 20%;
+  }
+
+  .find-hook {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+  }
+}
+
 header > .background-images {
   height: 100%;
   width: 400%;
