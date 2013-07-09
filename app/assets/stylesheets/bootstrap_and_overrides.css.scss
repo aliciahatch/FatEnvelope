@@ -132,7 +132,7 @@ p.price {
 
 .essay-container {
   background: #091851 url(essay-bg.png) bottom right no-repeat;
-  background-position-x: -15%;
+  background-position-x: -15%;  
   padding-bottom: 100px; 
 }
 
@@ -212,12 +212,12 @@ p.price {
   text-indent: -999px;
   background: url(bootcamp-title.png) no-repeat top left;              
   height: 75px;
-}
 
+}
 .essay h1 {
   text-indent: -999px;
   background: url(essay-title.png) no-repeat top left;              
-  height: 100px;
+  height: 100px;  
 }
 
 .faq h1 {
@@ -228,8 +228,7 @@ p.price {
 
 .pricing h1 {
   text-indent: -999px;
-  background: url(program-title.png) no-repeat top left; 
-  background-size: contain;
+  background: url(program-title.png) no-repeat top left;   
   height: 100px;
 }
 
@@ -886,7 +885,7 @@ section.essay .note, .note{
     padding: 50px 0;
     min-height: 33%;       
     text-align: center;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: bold;
     line-height: 87px;
     -webkit-box-sizing: border-box;
@@ -898,6 +897,7 @@ section.essay .note, .note{
     color: #fff;
     vertical-align: middle;
     text-shadow: 0px 1px 0px rgba(0,0,0,0.55);
+    white-space: nowrap;
     
     &:hover {
       text-shadow: 0px 2px 1px rgba(0,0,0,0.85);
@@ -963,5 +963,22 @@ section.essay .note, .note{
     display: block;
   }  
 
+  .pricing {
+    top: 0px !important;
+  }
 
+  .pricing h1 {
+    height: 50px;  
+    background-size: contain;
+  }
+
+  .essay h1 {
+    background-size: contain;
+    height: 50px;
+  }
+
+  .bootcamp h1 {
+    background-size: contain;
+    height: 50px;
+  }
 }
