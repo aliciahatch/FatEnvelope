@@ -62,7 +62,7 @@
           return false;
         }
       });
-      
+        
       $('.slider-controls > ul > li').click(function() {                
         var el              = $(this),
             index           = el.index(),
@@ -105,6 +105,10 @@
             }, 500);
           }
         }                
+      });
+
+      $(window).bind('resize', function() {        
+        _this.update_background_offset();
       });
       
       // Set interval for slider
@@ -193,6 +197,20 @@
       
       
       _this.update_background_elements(background);
+    },
+
+    update_background_offset: function() {
+      var _this = this;
+
+      if (typeof(background) !== 'number') return false;
+
+      var width     = document.body.clientWidth,
+          fullWidth = width * this.background * -1;
+
+      $('.background-images > img').css({
+        left: fullWidth,
+        height: window.screen.availHeight || document.body.clientHeight
+      });
     },
 
     update_background_elements: function(background, slider) {
