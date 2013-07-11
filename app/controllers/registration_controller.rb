@@ -15,7 +15,7 @@ class RegistrationController < ApplicationController
   def validate_code
     respond_to do |format|
       if params[:promo_code] == 'Getfat' and params[:program] == '4'
-        format.json  {render :json => { :status => 'success', :price => '$350.00'}.to_json}
+        format.json  {render :json => { :status => 'success', :price => '$650.00'}.to_json}
       else
         message = 'Invalid Code'
         format.json  {render :json => { :status => 'failure', :message => message}.to_json}
@@ -45,7 +45,7 @@ class RegistrationController < ApplicationController
         begin
           price = (Program.get_price(params[:program]).to_i * 100)
           if params[:promo_code] == 'Getfat' and params[:program] == '4'
-            price = 35000
+            price = 65000
           end
           charge = Stripe::Charge.create(
             :amount => price, # amount in cents, again
