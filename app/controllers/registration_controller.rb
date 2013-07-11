@@ -12,6 +12,17 @@ class RegistrationController < ApplicationController
     end
   end
   
+  def validate_code
+    respond_to do |format|
+      if params[:promo_code] == 'Getfat' and params[:program] == '4'
+        format.json  {render :json => { :status => 'success', :price => '$650.00'}.to_json}
+      else
+        message = 'Invalid Code'
+        format.json  {render :json => { :status => 'failure', :message => message}.to_json}
+      end
+    end
+  end
+  
   def validate_user
     @user = User.new(params[:user])
     respond_to do |format|
@@ -32,8 +43,12 @@ class RegistrationController < ApplicationController
         token = params[:stripeToken]
         # Create the charge on Stripe's servers - this will charge the user's card
         begin
+          price = (Program.get_price(params[:program]).to_i * 100)
+          if params[:promo_code] == 'Getfat' and params[:program] == '4'
+            price = 65000
+          end
           charge = Stripe::Charge.create(
-            :amount => (Program.get_price(params[:program]).to_i * 100), # amount in cents, again
+            :amount => price, # amount in cents, again
             :currency => "usd",
             :card => token,
             :description => "registration to the program: #{Program.get_description(params[:program])} by the user: #{@user.first_name} #{@user.last_name} with email: #{@user.email}"
@@ -42,9 +57,9 @@ class RegistrationController < ApplicationController
           @user.add_role "student"
           @registration = nil
           if params[:bootcamp_date].blank?
-            @registration = Registration.create(:program => Program.get_description(params[:program]), :price => (Program.get_price(params[:program]).to_i * 100), :user_id => @user.id)
+            @registration = Registration.create(:program => Program.get_description(params[:program]), :price => price, :user_id => @user.id)
           else
-            @registration = Registration.create(:program => Program.get_description(params[:program]), :price => (Program.get_price(params[:program]).to_i * 100), :user_id => @user.id, :bootcamp_date => params[:bootcamp_date])
+            @registration = Registration.create(:program => Program.get_description(params[:program]), :price => price, :user_id => @user.id, :bootcamp_date => params[:bootcamp_date])
           end
           UserMailer.registration_email(@user, @registration).deliver
           format.json  {render :json => { :status => 'success'}.to_json}
