@@ -7,7 +7,7 @@
 		</div>
 		<div class="span12">
 
-			<p>You are about to register to the course: <b><%= @program_desc %></b></p><br/>
+			<p>You are about to register to the course: <b><%= @program_description %></b></p><br/>
 			
 			<div id="user_errors"></div>
 
@@ -15,15 +15,21 @@
 				<div class="span6" style="padding-left:20px;">
 					
 					<%= form_for @user, :html => { :class => "form-horizontal", :id => "user-form"} do |f| %>
-					
-					<% if @program == 4 %>
+					<% if @program == '4' %>
 					<b>Bootcamp Date (Required):</b><br/><br/>
 					<div class="control-group">
 						<%= label_tag 'bootcamp_date', 'Bootcamp Date', :class => 'control-label' %>
 						<div class="controls">
 							<%= select_tag 'bootcamp_date', options_from_collection_for_select(@bootcamps, "bootcamp_date", "bootcamp_date"), :class => "span6" %>
-							<input type="hidden" name="program" value="<%= @program %>">
 						</div>
+					</div>
+					<div class="control-group">
+						<%= label_tag 'promo_code', 'Promo Code', :class => 'control-label' %>
+						<div class="controls">
+							<%= text_field_tag 'promo_code', nil, :class => "span6" %>
+							<a class="btn" onClick="validate_code();" id="apply_code">apply</a>
+						</div>
+						<span style="margin-left:185px; margin-top:5px; color:#C00;" id="promo-code-error"></span>
 					</div>
 					<% end %>
 					<br/><br/><b>Student Information (Required):</b><br/><br/>
@@ -31,7 +37,7 @@
 						<%= f.label :first_name, :class => "control-label" %>
 						<div class="controls">
 							<%= f.text_field :first_name, :class => "span6" %>
-							<input type="hidden" name="program" value="<%= @program %>">
+							<input type="hidden" name="program" id="program" value="<%= @program %>">
 						</div>
 					</div>
 					<div class="control-group">
@@ -198,7 +204,7 @@
 			</div>
 			<div>
 				<label>Total Price</label>
-				<h4 class="price">$<%= @program_price %></h4>
+				<h4 class="price" id="price"><%= number_to_currency(@program_price) %></h4>
 			</div>
 			<div class="actions"><a id="register-user" class="btn" onClick="validate_user();">Register</a></div>
 		</div>
@@ -219,6 +225,32 @@ function validate_user(){
 			}else{
 				$("#user_errors").html(data.html);
 				$('#register-user').removeClass('disabled');
+				return false;
+			}
+		},
+		"cache":false
+	});
+	return false;
+}
+
+function validate_code(){
+	$("#apply_code").attr('disabled', 'disabled');
+	jQuery.ajax({
+		"url":"/registration/validate_code",
+		"dataType":"json",
+		"data": {promo_code: $("#promo_code").val(), program: $('#program').val()},
+		"type":"post",
+		"success":function(data){
+			if(data.status == "success"){
+				$("#promo-code-error").html('');
+				$("#promo_code").attr('readonly', 'readonly');
+				$("#price").html(data.price);
+				$("#apply_code").removeAttr('onClick');
+				$("#apply_code").addClass('btn-success');
+				$("#apply_code").html('Code Applied!');
+			}else{
+				$("#apply_code").removeAttr('disabled', 'disabled');
+				$("#promo-code-error").html(data.message);
 				return false;
 			}
 		},
