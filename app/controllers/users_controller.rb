@@ -37,6 +37,7 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       if @user.save
+        @user.add_role @user.role
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -69,6 +70,10 @@ class UsersController < ApplicationController
   def dashboard
     #authorize! :student_actions, :all
     @user = current_user
+  end
+  
+  def bootcamp_welcome
+    
   end
   
 end
