@@ -67,8 +67,8 @@
 
 .slider-controls {
   ul {
-    position: relative;
-    top: 690px;
+    position: absolute;
+    bottom: 5%;
     left: 75%;
     width: 350px; 
     > li {

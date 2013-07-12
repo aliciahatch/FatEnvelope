@@ -204,12 +204,9 @@
 
       var width     = document.body.clientWidth,
           fullWidth = width * this.background * -1;
-      
-      console.log(document.body.clientHeight, fullWidth);
 
       $('.background-images > img').css({
-        left: fullWidth,
-        height: (window.screen.availHeight || document.body.clientHeight)
+        left: fullWidth        
       });
     },
 
