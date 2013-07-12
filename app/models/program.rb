@@ -41,7 +41,7 @@ class Program < ActiveRecord::Base
       @program_price = 1150.00
     when '4'
       # BOOTCAMP
-      @program_price = 650.00
+      @program_price = 950.00
     end
     return @program_price
   end

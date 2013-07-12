@@ -74,6 +74,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   get "user/edit/:id" => "user#edit"
  
   match 'users/dashboard' => "users#dashboard"
+  match 'users/bootcamp_welcome' => "users#bootcamp_welcome"
   resources :users 
   
 
@@ -83,6 +84,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
 	match "registration/add_details" => "registration#add_details"
 	match "registration/update_details" => "registration#update_details"
 	match "registration/validate_user" => "registration#validate_user"
+	match "registration/validate_code" => "registration#validate_code"
 	match "registration/charge_and_create_user" => "registration#charge_and_create_user"
 
 end
