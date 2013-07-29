@@ -1,3 +1,4 @@
+<% @page_name = "home" %>
 <div class="slider-controls">
     <ul>
         <li class="active"></li>
@@ -16,42 +17,7 @@
   <a data-pin-do="buttonFollow" href="http://pinterest.com/fatenvelope">fatenvelope</a>
 </div>
 
-<div class="home" id="home"> 
-  
-  <% if !session[:current_school].nil?%>
-    <%= link_to "Fat Envelope", url_for(:controller => :program_overview, :action => :index, :id => session[:current_school]), :class => 'brand' %>
-  <% else %>
-    <%= link_to "Fat Envelope", root_path, :class => 'brand' %>
-  <% end %>
-  <ul class="nav tan">
-    <% if !user_signed_in? %>
-      <li>
-        <%= link_to "Home", '/' %>
-      </li>
-      <li>
-        <%= link_to "Essay System", essaysystem_path %>
-      </li>
-      <li>
-        <%= link_to "Programs & Pricing", programcosts_path %>
-      </li>
-      <li>
-        <%= link_to "Bootcamp", advisors_path %>
-      </li>
-      <li>
-      <%= link_to 'FAQ', faq_path %>
-      </li>
-      <li>
-        <%= link_to "About Us", about_path %>
-      </li>                            
-      <li class="login-link">
-      <%= link_to 'Login', new_user_session_path %>        
-      </li>    
-  
-    <% end %>
-    <% if user_signed_in? %>
-  
-    <% end %> 
-  </ul>
+<%= render 'layouts/menu' %>
   
   
   <% if user_signed_in? %>
