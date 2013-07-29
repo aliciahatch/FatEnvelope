@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  
+  require 'open-uri'
+  require 'json'
+  
   before_filter :authenticate_user!
 
   def index
@@ -74,6 +78,15 @@ class UsersController < ApplicationController
   
   def bootcamp_welcome
     
+  end
+
+  def panam_login
+json_object=JSON.parse(open("https://panameducation.com/app/sso/token?api_login="+ENV['panam_api_login']+"&api_password="+ENV['panam_api_password']+"&email="+current_user.email).read)
+  puts "HOLA!!!!!!!!!!!!!!!"
+  if json_object['result']
+    puts json_object['result']['token']
+  end
+  puts "END!!!!!!!!!!!!!!"
   end
   
 end

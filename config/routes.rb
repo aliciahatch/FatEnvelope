@@ -75,6 +75,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
  
   match 'users/dashboard' => "users#dashboard"
   match 'users/bootcamp_welcome' => "users#bootcamp_welcome"
+  match 'users/panam_login' => "users#panam_login"
   resources :users 
   
 
