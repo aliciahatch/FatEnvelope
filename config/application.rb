@@ -34,8 +34,10 @@ module Rails3BootstrapDeviseCancan
     config.autoload_paths += %W(#{config.root}/lib)
 
     
-    ENV['MANDRILL_USERNAME'] = "aliciahatch@gmail.com";
-    ENV['MANDRILL_APIKEY'] = "l1FG4CcwBF1b9TgXEhQOaQ";
+    ENV['MANDRILL_USERNAME'] = "aliciahatch@gmail.com"
+    ENV['MANDRILL_APIKEY'] = "l1FG4CcwBF1b9TgXEhQOaQ"
+    ENV['panam_api_login'] = "33101748"
+    ENV['panam_api_password'] = "SxSwKVrk87kPtec2yhnMaBDys"
     
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
