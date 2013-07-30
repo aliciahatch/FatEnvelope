@@ -29,7 +29,6 @@ p.price {
 
 .pricing {
   color: #091851;
-  padding: 15px;
   min-height: 569px;
   background: #afd0ea;
   opacity: 0.9;
@@ -41,24 +40,21 @@ p.price {
 }
 
 .bootcamp {
-  margin-left: 155px;
   color: #fff;
 }
 
 .faq {
-  margin-left: 155px;
   color: #fff;
 }
 
 .about-us {
-  margin-left: 155px;
   color: #fff;
 }
 
 .essay h1, .pricing-heading h1, .faq h1, .bootcamp h1, .about-us h1 {
   font-size: 44px;
   color: #fff;
-  margin-top: 100px;
+  margin-top: 105px;
   font-family: 'Tenor Sans', sans-serif;
 }
 
@@ -161,9 +157,9 @@ video#video-green {
 }
   
 video#video-blue {
-  position: relative;
-  left: -3%;
-  top: 30px;
+  position: fixed;
+  top: 180px; 
+  left: 50px;
   width: 525px;
   height: 400px;
 }
@@ -403,7 +399,6 @@ p.price {
 
 .pricing {
   color: #091851;
-  padding: 15px;
   min-height: 569px;
   background: #afd0ea;  
   opacity: 0.9;
@@ -415,24 +410,21 @@ p.price {
 }
 
 .bootcamp {
-  margin-left: 155px;
   color: #fff;
 }
 
 .faq {
-  margin-left: 155px;
   color: #fff;
 }
 
 .about-us {
-  margin-left: 155px;
   color: #fff;
 }
 
 .essay h1, .pricing-heading h1, .faq h1, .bootcamp h1, .about-us h1 {
   font-size: 44px;
   color: #fff;
-  margin-top: 100px;
+  margin-top: 105px;
   font-family: 'Tenor Sans', sans-serif;
 }
 
@@ -706,7 +698,6 @@ section.essay .note, .note{
   }
   
   .bootcamp {
-    margin-left: 10px;
     position: relative;
     top: 75px;
   }
