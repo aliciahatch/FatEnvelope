@@ -126,7 +126,7 @@
         if (_this.skip === true) {
           _this.skip = false;
         }
-      }, 4000);
+      }, 8000);
     },
     
     set_slider_controls: function(i) {
@@ -213,7 +213,7 @@
     update_background_elements: function(background, slider) {
       var _this = this;
 
-      $('p.video-blue-over, p.video-red-over').hide();
+      //$('p.video-blue-over, p.video-red-over').hide();
       $('header > .background-text > div').hide();
 
       // Video display with 1 second delay
@@ -223,7 +223,7 @@
         } else if (_this.background === 1) {
           $('video#video-blue').show();
           $('.stand-out').fadeIn(); 
-          $('p.video-blue-over').fadeIn();
+          //$('p.video-blue-over').fadeIn();
         } else if (_this.background === 2) {
           $('.power-story').fadeIn();
         } else if (_this.background === 3) {
