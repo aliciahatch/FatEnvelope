@@ -30,7 +30,7 @@
       fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>    
     
-    <% if controller.controller_name == 'marketing' %>
+    
     <div class="mobile-menu">
       <div class="tile" data-url="<%= root_url %>">
         <%= image_tag 'logo_invert.png' %>
@@ -56,8 +56,9 @@
         About Us
       </div>                                    
     </div>
-    
-    <header class="navbar">
+
+    <% if controller.controller_name == 'marketing' %>
+    <header class="navbar">	
       <div class="background-text">
         <div class="say-hello">
           <%= image_tag 'say-hello.png' %>
@@ -82,15 +83,34 @@
         <%= image_tag 'background-tan.jpg' %>        
         <%= image_tag 'background-green.jpg' %>                 
       </div>
-      
       <nav class="navbar-inner">
         <div class="container">
           <%= render 'layouts/navigation' %>
         </div>
       </nav>
-    </header>    
-    <% end %>
+    </header>
+ 	<div>
+	    <!-- p class="video-blue-over">What does it feel like to receive a Fat Envelope?</p -->
 
+	    <p class="video-red-over">Get your Fat Envelope</p>    
+
+	    <video id="video-blue" preload="metadata" style="display: none;" controls="controls" width="525" height="400">
+	      <source src="/video/acceptance2.mp4" type="video/mp4">
+	    </video>
+
+	    <video id="video-red" preload="metadata" style="display: none;" controls="controls" width="525" height="400">
+	      <source src="/video/acceptance1.mp4" type="video/mp4">
+	    </video>
+	  </div>
+	<% else %>
+		<div class="navbar menu">
+			<nav class="navbar-inner">
+		        <div class="container" style="margin-top:26px;">
+		          <%= render 'layouts/menu' %>
+		        </div>
+		      </nav>
+		</div>	
+	<% end %>
     <div id="main" role="main">
       
       

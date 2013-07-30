@@ -30,7 +30,6 @@ ul.nav > li.login-link {
 }
 
 .navbar .nav {
-  top: -8px;
   > li {
     margin-right: 15px;
     > a {
@@ -49,7 +48,6 @@ ul.nav > li.login-link {
   }
   
   > li:first-child {
-    margin-left: 105px;
   }    
 }
 
@@ -97,7 +95,6 @@ body {
 
 .navbar .navbar-inner,
 .page_container .nav {
-  margin-left: 100px;
 }
 
 .page_container .nav {
@@ -131,37 +128,36 @@ p.price {
 }
 
 .essay-container {
-  background: #091851 url(essay-bg.png) bottom right no-repeat;
+  background-color: #424b6e;
   background-position-x: -15%;  
   padding-bottom: 100px; 
 }
 
 .pricing-container {
-  background: #9dc6e6 url(pricing-bg.png) bottom left no-repeat;  
+  background-color: #9dc6e6;  
   padding-bottom: 100px;
 }
 
 .faq-container {
-  background: #627886 url(faq-bg.png) top left no-repeat;
+  background-color: #627886;
   background-position-y: 25%;
   padding-bottom: 100px;
 }
 
 .about-us-container {
-  background: #CEB161 url(about-us-bg.png) bottom right no-repeat;
+  background-color: #CEB161;
   background-position-x: 85%;
   padding-bottom: 100px;
 }
 
 .bootcamp-container {
-  background: #d52e3f url(boot-camp-bg.png) top left no-repeat;
+  background-color: #b94551;
   background-position-y: 25%;
   padding-bottom: 100px;
 }
 
 .pricing {
   color: #091851;
-  padding: 15px;
   min-height: 478px;
   background: #afd0ea;
   opacity: 0.9;
@@ -174,19 +170,15 @@ p.price {
 }
 
 .bootcamp {
-  margin-left: 155px;
   margin-top: -95px;
   color: #fff;
 }
 
 .faq {
-  margin-left: 155px;
-  margin-top: -95px;
   color: #fff;
 }
 
 .about-us {
-  margin-left: 155px;
   margin-top: -95px;
   color: #091851;  
 }
@@ -199,7 +191,7 @@ p.price {
 .essay h1, .pricing-heading h1, .faq h1, .bootcamp h1, .about-us h1 {
   font-size: 44px;
   color: #fff;
-  margin-top: 45px;
+  margin-top: 105px;
   font-family: 'Tenor Sans', sans-serif;
 }
 
@@ -587,22 +579,20 @@ p.price {
 }
 
 .essay-container {
-  background: #091851 url(essay-bg.png) bottom right no-repeat;
   background-position-x: -15%;
   padding-bottom: 100px; 
   height: 100%;
   min-height: 100%;
 }
 
-.pricing-container {
-  background: #9dc6e6 url(pricing-bg.png) bottom left no-repeat;  
+.pricing-container { 
   padding-bottom: 100px;
   height: 100%;
   min-height: 100%;
 }
 
 .faq-container {
-  background: #627886 url(faq-bg.png) top left no-repeat;
+  background-color: #627886;
   background-position-y: 25%;
   padding-bottom: 100px;
   height: 100%;
@@ -610,7 +600,7 @@ p.price {
 }
 
 .about-us-container {
-  background: #CEB161 url(about-us-bg.png) bottom right no-repeat;
+  background-color: #CEB161;
   background-position-x: 85%;
   padding-bottom: 100px;
   height: 100%;
@@ -618,7 +608,6 @@ p.price {
 }
 
 .bootcamp-container {
-  background: #d52e3f url(boot-camp-bg.png) top left no-repeat;
   background-position-y: 25%;
   padding-bottom: 100px;
   height: 100%;
@@ -627,7 +616,6 @@ p.price {
 
 .pricing {
   color: #091851;
-  padding: 15px;
   min-height: 478px;
   background: #afd0ea;
   opacity: 0.9;
@@ -639,18 +627,14 @@ p.price {
 }
 
 .bootcamp {
-  margin-left: 155px;
   color: #fff;
 }
 
 .faq {
-  margin-left: 155px;
-  margin-top: 0px;
   color: #fff;
 }
 
 .about-us {
-  margin-left: 155px;
   color: #091851;
 
   video {
@@ -660,14 +644,13 @@ p.price {
 }
 
 .pricing {
-  margin-left: 155px;
   color: #1b1d4f !important;
 }
 
 .essay h1, .pricing-heading h1, .faq h1, .bootcamp h1, .about-us h1 {
   font-size: 44px;
   color: #fff;
-  margin-top: 45px;
+  margin-top: 105px;
   font-family: 'Eurofurencebolditalic', sans-serif;
 }
 
@@ -968,8 +951,6 @@ section.essay .note, .note{
   width: 235px !important;
   background-size: cover !important;
   position: relative;
-  top: -30px;
-  margin-left: -70px !important;
 }
 
 .brand.invert {
@@ -1018,3 +999,31 @@ section.essay .note, .note{
     height: 50px;
   }
 }
+
+#home{
+	overflow:hidden;
+	width:100%;
+	height:100%
+}
+ul.nav{
+	width:100%;
+	float:none;
+	margin-top:5px;
+	overflow:hidden;
+	padding-left:200px;
+	margin-bottom:5px !important;
+}
+.menu{position:absolute !important;}
+.content-holder{
+	padding:210px 0 50px 140px !important;
+	
+}
+li.active a{
+	text-shadow: -1px 1px #333 !important;
+	background:none !important; 
+	color:#FFF !important;
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+}
+.faq h1 {margin-top:10px !important;}

@@ -126,7 +126,10 @@ ul.color_picker {
 } 
 
 .navbar .navbar-inner{
-	background:transparent;
+	background: rgb(255, 255, 255) transparent;
+	background: rgba(255, 255, 255, 0.4);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99FFFFFF, endColorstr=#99FFFFFF);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99FFFFFF, endColorstr=#99FFFFFF)";
 	border: 0;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
@@ -160,4 +163,4 @@ footer ul li a{
 	padding:5px 30px;
 	display: block;
 }
-
+.essay{margin-left:0px !important;}
