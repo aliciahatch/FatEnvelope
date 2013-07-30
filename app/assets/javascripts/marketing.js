@@ -157,7 +157,7 @@
 
       // Move the background
       $('video').hide();
-
+	 
       _this.intTime = document.body.clientWidth * position * -1;
 
       $('header > .background-images > img').animate({
@@ -188,7 +188,7 @@
       $('video').hide();            
             
       this.intTime -= document.body.clientWidth;
-    
+
       if (this.intTime <= (document.body.clientWidth * -4)) this.intTime = 0;
       
       $('header > .background-images > img').animate({
