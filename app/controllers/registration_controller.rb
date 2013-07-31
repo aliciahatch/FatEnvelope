@@ -7,7 +7,7 @@ class RegistrationController < ApplicationController
       @program = params[:program]
       @program_price = Program.get_price(@program)
       @program_description = Program.get_description(@program)
-      @bootcamps = Bootcamp.where(['bootcamp_date >= ?', Time.now])
+      @bootcamps = Bootcamp.where(['bootcamp_date >= ?', Time.now]).order('bootcamp_date ASC')
       @user = User.new
     end
   end
