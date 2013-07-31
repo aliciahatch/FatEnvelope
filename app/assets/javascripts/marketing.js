@@ -151,7 +151,7 @@
     move_background: function(position) {
       var _this   = this;
 
-      if (position < 0 || position > 3) return;
+      if (position < 0 || position > 4) return;
 
       _this.background = position;
 
@@ -164,6 +164,10 @@
         left: _this.intTime
       }, 1000);
 
+	  if (this.background == 4) {
+        this.background = 0;
+      }
+
       // Set active background
       _this.active_slider = _this.sliders[_this.background];
 
@@ -175,7 +179,7 @@
       
       this.background++;          
       
-      if (this.background > 3) {
+      if (this.background > 4) {
         this.background = 0;
         this.pause = true;
       }              
@@ -189,12 +193,20 @@
             
       this.intTime -= document.body.clientWidth;
 
-      if (this.intTime <= (document.body.clientWidth * -4)) this.intTime = 0;
+      if (this.intTime <= (document.body.clientWidth * -5)) this.intTime = 0;
       
       $('header > .background-images > img').animate({
         left: _this.intTime
       }, 1000);      
-      
+      console.log(this.background);
+	  if(this.background == 4){
+		this.background = 0;
+		this.intTime = 0;
+		$('header > .background-images > img').animate({
+	        left: _this.intTime
+	      }, 1);
+	  }
+	  console.log(this.background);
       
       _this.update_background_elements(background);
     },
@@ -211,10 +223,12 @@
     },
 
     update_background_elements: function(background, slider) {
+	  
       var _this = this;
-
       //$('p.video-blue-over, p.video-red-over').hide();
       $('header > .background-text > div').hide();
+	  $('.video-red-over').hide();
+	
 
       // Video display with 1 second delay
       window.setTimeout(function() {                
@@ -222,12 +236,14 @@
           $('.say-hello').fadeIn();        
         } else if (_this.background === 1) {
           $('video#video-blue').show();
+		  $('video#video-blue').get(0).play();
           $('.stand-out').fadeIn(); 
           //$('p.video-blue-over').fadeIn();
         } else if (_this.background === 2) {
           $('.power-story').fadeIn();
         } else if (_this.background === 3) {
           $('video#video-red').show();
+		  $('video#video-red').get(0).play();
           $('p.video-red-over').fadeIn();
           $('.find-hook').fadeIn();
         } else {

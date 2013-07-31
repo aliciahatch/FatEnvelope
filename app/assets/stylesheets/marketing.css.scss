@@ -178,9 +178,9 @@ p.video-blue-over {
 }
 
 video#video-red {
-  position: relative;
-  left: 35%;
-  top: 115px;
+  position: fixed;
+  top: 180px; 
+  left: 50px;
   width: 525px;
   height: 400px;
 }
