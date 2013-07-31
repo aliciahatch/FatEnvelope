@@ -116,7 +116,7 @@
       
       
       <% if @current_controller != "marketing" %>
-      	<div class="page_container">
+      	<div class="page_container<% if @page_name == "login" %> login_background<% end %>">
       <%end%>       
 
               <%= render 'layouts/messages' %>
