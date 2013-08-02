@@ -1,0 +1,47 @@
+<div class="container-fluid pricing-container content-holder" id="_pricing">
+	<%# render 'layouts/navigation_short' %>
+
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="row">
+				<div class="span9" style="padding-left:20px;">
+					<h1>Dashboard</h1>
+					<h2>Step 1</h2>
+					<ul>
+						<li>Use the <a>Personal Assessment Sheet</a> to develop ideas for your essay topic.</li>
+						<li>Ask your parent (or a friend or mentor) to complete a <a>Parent Assessment Sheet</a>.</li>
+						<li>Schedule a session with your Fat Envelope Writing Coach to select your essay hook.</li>
+					</ul>
+					<h2>Step 2</h2>
+					<ul>
+						<li>Login to the <a>Fat Envelope Writing Lab</a>.</li>
+						<li>Write the introductory paragraph of your essay.</li>
+						<li><a>Schedule a session</a> with your Fat Envelope Writing Coach to develop your power first sentence and introduction.</li>
+					</ul>
+					<h2>Step 3</h2>
+					<ul>
+						<li>Login to the <a>Fat Envelope Writing Lab</a>.</li>
+						<li>Write the first draft of your essay.</li>
+						<li><a>Schedule a session</a> with your Fat Envelope Writing Coach to refine your first draft.</li>
+					</ul>
+					<h2>Step 4</h2>
+					<ul>
+						<li>Login to the <a>Fat Envelope Writing Lab</a>.</li>
+						<li>Write the second draft of your essay.</li>
+						<li><a>Schedule a session</a> with your Fat Envelope Writing Coach to develop your power draft.</li>
+					</ul>
+					<h2>Step 5</h2>
+					<ul>
+						<li>Login to the <a>Fat Envelope Writing Lab</a>.</li>
+						<li>Refine the final draft of your essay.</li>
+						<li><a>Schedule a session</a> with your Fat Envelope Writing Coach to make final changes to word choice and grammar.  You are now ready to submit your essay!</li>
+					</ul>
+				</div>
+				<div class="span3">
+					<a class="btn dashboard_button">Launch Writing Lab</a>
+					<%= link_to "Launch Writing Coach Session", {:controller => 'users', :action => 'panam_login'}, :class =>  "btn dashboard_button" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
