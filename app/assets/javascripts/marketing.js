@@ -198,15 +198,15 @@
       $('header > .background-images > img').animate({
         left: _this.intTime
       }, 1000);      
-      console.log(this.background);
+
 	  if(this.background == 4){
 		this.background = 0;
 		this.intTime = 0;
+		this.pause = true;
 		$('header > .background-images > img').animate({
 	        left: _this.intTime
 	      }, 1);
-	  }
-	  console.log(this.background);
+	   }
       
       _this.update_background_elements(background);
     },
