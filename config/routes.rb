@@ -71,6 +71,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   end
   root :to => "marketing#index"
   devise_for :users
+  get "users/sign_out" => "devise/sessions#destroy"
   get "user/edit/:id" => "user#edit"
  
   match 'users/dashboard' => "users#dashboard"
