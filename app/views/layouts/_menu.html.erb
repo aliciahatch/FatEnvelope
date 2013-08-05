@@ -1,13 +1,9 @@
 <div class="home" id="home">   
-  <% if !session[:current_school].nil?%>
-    <%= link_to "Fat Envelope", url_for(:controller => :program_overview, :action => :index, :id => session[:current_school]), :class => 'brand' %>
-  <% else %>
-    <%= link_to "Fat Envelope", root_path, :class => 'brand' %>
-  <% end %>
+  <%= link_to "Fat Envelope", '/marketing/index', :class => 'brand' %>
   <ul class="nav tan">
     
       <li <% if @page_name == "home" %>class="active" <% end %>>
-        <%= link_to "Home", '/' %>
+        <%= link_to "Home", '/marketing/index' %>
       </li>
       <li <% if @page_name == "essay-system" %>class="active" <% end %>>
         <%= link_to "Essay System", essaysystem_path %>
