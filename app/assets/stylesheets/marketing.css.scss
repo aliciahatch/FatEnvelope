@@ -155,14 +155,6 @@ video#video-green {
   width: 525px;
   height: 400px;
 }
-  
-video#video-blue {
-  position: fixed;
-  top: 180px; 
-  left: 235px;
-  width: 525px;
-  height: 400px;
-}
 
 p.video-blue-over {
   display: none;
@@ -176,14 +168,28 @@ p.video-blue-over {
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
 }
-
-video#video-red {
-  position: fixed;
-  top: 280px; 
-  right: 140px;
-  width: 525px;
-  height: 400px;
+@media (min-width: 768px) {
+	video#video-red {
+	  position: absolute;
+	  top: 280px; 
+	  right: 140px;
+	  width: 525px;
+	  height: 400px;
+	}
+	video#video-blue {
+	  position: fixed;
+	  top: 180px; 
+	  left: 235px;
+	  width: 525px;
+	  height: 400px;
+	}
 }
+@media (max-width: 767px) {
+	video#video-red, video#video-blue, .stand-out, .find-hook {
+		display:none !important;
+	}
+}
+
 
 p.video-red-over {
   display: none;
