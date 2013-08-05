@@ -31,6 +31,8 @@
   }(document, 'script', 'facebook-jssdk'));</script>    
     
     
+	<% if controller.controller_name == 'marketing' %>
+	
     <div class="mobile-menu">
       <div class="tile" data-url="<%= root_url %>">
         <%= image_tag 'logo_invert.png' %>
@@ -57,7 +59,6 @@
       </div>                                    
     </div>
 
-    <% if controller.controller_name == 'marketing' %>
     <header class="navbar">	
       <div class="background-text">
         <div class="say-hello">
@@ -104,7 +105,7 @@
 	    </video>
 	  </div>
 	<% else %>
-		<div class="navbar menu">
+		<div class="navbar menu" style="width:100%">
 			<nav class="navbar-inner">
 		        <div class="container" style="margin-top:26px;">
 		          <%= render 'layouts/menu' %>
