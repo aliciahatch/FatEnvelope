@@ -303,5 +303,5 @@ var stripeResponseHandler = function(status, response) {
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
   // This identifies your website in the createToken call below
-  Stripe.setPublishableKey('pk_live_eMBF8gdaeyFpsUfU6XceqRlY');
+  Stripe.setPublishableKey('<%= ENV["stripe_publishable_key"] %>');
 </script>
