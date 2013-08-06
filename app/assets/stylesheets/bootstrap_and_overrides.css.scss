@@ -1014,9 +1014,17 @@ ul.nav{
 	margin-bottom:5px !important;
 }
 .menu{position:absolute !important;}
-.content-holder{
-	padding:210px 0 50px 140px !important;
+@media (max-width: 767px) {
+	.content-holder{
+		padding:210px 0 50px 25px !important;
 	
+	}
+}
+@media (min-width: 768px) {
+	.content-holder{
+		padding:210px 0 50px 140px !important;
+	
+	}
 }
 li.active a{
 	text-shadow: -1px 1px #333 !important;
