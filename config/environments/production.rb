@@ -21,6 +21,9 @@ Rails3BootstrapDeviseCancan::Application.configure do
   config.assets.digest = true
   
   config.assets.precompile += Ckeditor.assets
+  
+  ENV['stripe_api_key'] = "sk_live_BQWD0OPobcWfzMSS7y5rrJ7T"
+  ENV['stripe_publishable_key'] = "pk_live_eMBF8gdaeyFpsUfU6XceqRlY"
 
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
