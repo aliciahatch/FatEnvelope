@@ -39,7 +39,7 @@ class RegistrationController < ApplicationController
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.valid? and params[:program]
-         Stripe.api_key = "sk_live_BQWD0OPobcWfzMSS7y5rrJ7T"
+         Stripe.api_key = ENV['stripe_api_key']
         token = params[:stripeToken]
         # Create the charge on Stripe's servers - this will charge the user's card
         begin

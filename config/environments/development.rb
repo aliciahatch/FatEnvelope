@@ -21,7 +21,8 @@ Rails3BootstrapDeviseCancan::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
 
-
+  ENV['stripe_api_key'] = "sk_test_Gv4s6k0leOc5eKPnWRngHWtA"
+  ENV['stripe_publishable_key'] = "pk_test_DxUgGYGNK7UVkzddfLcnFRJy"
 
 config.assets.logger = false
 
