@@ -235,8 +235,8 @@
         if (_this.background === 0) {        
           $('.say-hello').fadeIn();        
         } else if (_this.background === 1) {
-          $('video#video-blue').show();
-		  $('video#video-blue').get(0).play();
+          //$('video#video-blue').show();
+		  //$('video#video-blue').get(0).play();
           $('.stand-out').fadeIn(); 
           //$('p.video-blue-over').fadeIn();
         } else if (_this.background === 2) {
