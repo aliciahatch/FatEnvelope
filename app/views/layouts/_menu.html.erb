@@ -1,9 +1,9 @@
 <div class="home" id="home">   
-  <%= link_to "Fat Envelope", '/marketing/index', :class => 'brand' %>
+  <%= link_to "Fat Envelope", '/', :class => 'brand' %>
   <ul class="nav tan">
     
       <li <% if @page_name == "home" %>class="active" <% end %>>
-        <%= link_to "Home", '/marketing/index' %>
+        <%= link_to "Home", '/' %>
       </li>
       <li <% if @page_name == "essay-system" %>class="active" <% end %>>
         <%= link_to "Essay System", essaysystem_path %>

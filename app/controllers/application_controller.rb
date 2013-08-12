@@ -8,6 +8,13 @@ class ApplicationController < ActionController::Base
   before_filter :instantiate_controller_and_action_names
   before_filter :ensuresso
   
+  def after_sign_in_path_for(resource)
+      if current_user.has_role? :student
+    			url_for(:controller => '/users', :action => 'bootcamp_welcome')
+    		else
+    			url_for(:controller => '/users', :action => 'dashboard')
+    		end
+    end
  
   def instantiate_controller_and_action_names
       @current_action = action_name
