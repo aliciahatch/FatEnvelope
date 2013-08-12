@@ -66,9 +66,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
 
   resources :subscriptions    
 
-  authenticated :user do
-    root :to => 'home#index'
-  end
+
   root :to => "marketing#index"
   devise_for :users
   get "user/edit/:id" => "user#edit"
