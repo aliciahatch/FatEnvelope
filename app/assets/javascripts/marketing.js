@@ -243,7 +243,7 @@
           $('.power-story').fadeIn();
         } else if (_this.background === 3) {
           $('video#video-red').show();
-		  $('video#video-red').get(0).play();
+		  //$('video#video-red').get(0).play();
           $('p.video-red-over').fadeIn();
           $('.find-hook').fadeIn();
         } else {
