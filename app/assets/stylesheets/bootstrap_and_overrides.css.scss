@@ -324,7 +324,7 @@ header > .background-images {
 header > .background-images > img { 
   position: relative;
   width: 19.95%;
-  height: 100%;
+  vertical-align:top !important;
   min-height:100%;
 }
 
