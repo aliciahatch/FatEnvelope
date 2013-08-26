@@ -1,0 +1,79 @@
+<div class="container top-padding">
+	<h1>Appointments</h1>
+	<h3>Schedule an appointment for the: <%= @date %></h3>
+	<div class="select-date">
+		<label>Select another date: </label>
+		<input type="text" class='datepicker' id="date" onChange="change_date();">
+		<a id="date_button" class="btn">Change Date</a>
+	</div>
+	<div class="row hours">
+		<% (6..21).each do |hour| %>
+			<% availability = Appointment.teacher_availability(@user, @date, hour) %>
+			<div class="hour <% if availability == 'session' %>booked<% else %><%= availability ? availability : 'available' %><% end %>" data-hour="<%= hour %>">	
+				<div style="width:20%; float:left;">
+					<h4><%= hour %>:00</h4>
+				</div>
+				<div style="width:60%; float:left;">
+					<h4 class="name"><% if availability == 'session' %>Booked<% else %><%= availability ? availability.capitalize : 'Available' %><% end %></h4>
+				</div>
+				<% if availability == 'unavailable' %>
+				<div class="hour-actions">
+					<a class="make_available" onClick="make_available(<%=hour%>);"><i class="icon-ok"></i></a>
+				</div>
+				<% end %>
+				<% unless availability %>
+				<div class="hour-actions">
+					<a class="make_unavailable" onClick="make_unavailable(<%=hour%>);"><i class="icon-remove"></i></a>
+				</div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</div>
+<script>
+function make_unavailable(hour){
+	jQuery.ajax({
+		"url":"/appointments/make_unavailable",
+		"dataType":"json",
+		"data": {user_id: <%= @user.id %>, date: '<%= @date %>', hour: hour},
+		"type":"get",
+		"success":function(data){
+			if(data.status == "success"){
+				$('div[data-hour="'+hour+'"] .make_unavailable').remove();
+				$('div[data-hour="'+hour+'"] .hour-actions').append('<a class="make_available" onClick="make_available('+hour+');"><i class="icon-ok"></i></a>');
+				$('div[data-hour="'+hour+'"] h4.name').html('Unavailable');
+				$('div[data-hour="'+hour+'"]').removeClass('available');
+				$('div[data-hour="'+hour+'"]').addClass('unavailable');
+			}else{
+				alert('An error has ocurred');
+			}
+		},
+		"cache":false
+	});
+	return false;
+}
+function make_available(hour){
+	jQuery.ajax({
+		"url":"/appointments/make_available",
+		"dataType":"json",
+		"data": {user_id: <%= @user.id %>, date: '<%= @date %>', hour: hour},
+		"type":"get",
+		"success":function(data){
+			if(data.status == "success"){
+				$('div[data-hour="'+hour+'"] .make_available').remove();
+				$('div[data-hour="'+hour+'"] .hour-actions').append('<a class="make_unavailable" onClick="make_unavailable('+hour+');"><i class="icon-remove"></i></a>');
+				$('div[data-hour="'+hour+'"] h4.name').html('Available');
+				$('div[data-hour="'+hour+'"]').removeClass('unavailable');
+				$('div[data-hour="'+hour+'"]').addClass('available');
+			}else{
+				alert('An error has ocurred');
+			}
+		},
+		"cache":false
+	});
+	return false;
+}
+function change_date(){
+	$('#date_button').attr('href','/users/<%=@user.id%>/appointments?date='+$('#date').val());
+}
+</script>

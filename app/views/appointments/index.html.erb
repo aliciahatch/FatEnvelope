@@ -1,0 +1,43 @@
+<div class="container top-padding">
+	<h1>Appointments</h1>
+	<h3>Schedule an appointment for the: <%= @date %></h3>
+	<div class="row hours">
+		<% (6..21).each do |hour| %>
+			<% availability = Appointment.availability(@date, hour) ? 'available' : 'unavailable' %>
+			<% if availability != 'unavailable' and !(@appointment and @appointment.hour == hour) %>
+			<a onClick="select_hour(<%= hour %>);">
+			<% end %>
+			<div class="hour <% if @appointment and @appointment.hour == hour %>booked<% else %><%= availability %><% end %>" data-hour="<%= hour %>">	
+				<div style="width:20%; float:left;">
+					<h4><%= hour %>:00</h4>
+				</div>
+				<div style="width:80%; float:left;">
+					<h4><% if @appointment and @appointment.hour == hour %>Booked<% else %><%= availability.capitalize %><% end %></h4>
+				</div>
+				<% if false %>
+				<div class="hour-actions">
+					<a><i class="icon-ok"></i></a>
+					<a><i class="icon-remove"></i></a>
+				</div>
+				<% end %>
+			</div>
+			<% if availability != 'unavailable' and !(@appointment and @appointment.hour == hour) %>
+			</a>
+			<% end %>
+		<% end %>
+		<%= form_tag '/appointments/book', :method => 'post' do%>
+			<input type="hidden" name="hour" id="hour" <% if @appointment %> value="<% @appointment.hour %>" <% end %>>
+			<input type="hidden" name="date" value="<%= @date %>">
+			<input type="hidden" name="user_id" value="<%= @user.id %>">
+			<div style="margin:40px 0 0 350px;"><button type="submit" class="btn btn-success"><i class="icon-calendar icon-white"></i> <%= @appointment ? 'Re-Schedule Appointment' : 'Book Appointment' %></button></div>
+		<% end %>
+	</div>
+</div>
+<script>
+	function select_hour(hour){
+		$('.selected').removeClass('selected');
+		$('div[data-hour="'+hour+'"]').addClass('selected');
+		$('#hour').val(hour);
+		//assign value to input
+	}
+</script>

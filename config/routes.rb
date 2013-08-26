@@ -4,6 +4,8 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
 
 
 
+  get "appointments/index"
+
   resources :bootcamps
 
   get "pages/essay-system", :to => "pages#essaysystem", :as => "essaysystem"
@@ -66,7 +68,6 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
 
   resources :subscriptions    
 
-
   root :to => "marketing#index"
   devise_for :users
   get "user/edit/:id" => "user#edit"
@@ -74,8 +75,14 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   match 'users/dashboard' => "users#dashboard"
   match 'users/bootcamp_welcome' => "users#bootcamp_welcome"
   match 'users/panam_login' => "users#panam_login"
-  resources :users 
-  
+  match 'appointments/book' => 'appointments#book'
+  match 'appointments/make_available' => 'appointments#make_available'
+  match 'appointments/make_unavailable' => 'appointments#make_unavailable'
+  match 'appointments/all' => 'appointments#all'
+  resources :users do
+    resources :appointments
+  end
+  resources :appointments
 
 	match "registration/new" => "registration#new"
 	match "registration/pending" => "registration#pending"
