@@ -7,14 +7,12 @@
 	<tr>
 		<th>Bootcamp date</th>
 		<th></th>
-		<th></th>
 	</tr>
 
 	<% @bootcamps.each do |bootcamp| %>
 	<tr>
 		<td><%= bootcamp.bootcamp_date %></td>
-		<td><%= link_to 'Edit', edit_bootcamp_path(bootcamp) %></td>
-		<td><%= link_to 'Destroy', bootcamp, confirm: 'Are you sure?', method: :delete %></td>
+		<td><%= link_to raw('<i class="icon-trash"></i>'), bootcamp, confirm: 'Are you sure?', method: :delete %></td>
 	</tr>
 	<% end %>
 </table>

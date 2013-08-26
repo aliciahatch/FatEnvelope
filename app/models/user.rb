@@ -71,6 +71,11 @@ class User < ActiveRecord::Base
     return roles_text
   end
   
+  def self.teachers
+    role = Role.where(:name => 'teacher').first
+    return role.users
+  end
+  
   def required_by_scenario
     return self.validation_scenario != 'admin_or_teacher'
   end
