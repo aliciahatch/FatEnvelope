@@ -78,6 +78,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   match 'appointments/book' => 'appointments#book'
   match 'appointments/make_available' => 'appointments#make_available'
   match 'appointments/make_unavailable' => 'appointments#make_unavailable'
+  match 'appointments/all' => 'appointments#all'
   resources :users do
     resources :appointments
   end

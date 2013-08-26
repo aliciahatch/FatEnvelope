@@ -26,10 +26,10 @@
 			<% end %>
 		<% end %>
 		<%= form_tag '/appointments/book', :method => 'post' do%>
-			<input type="hidden" name="hour" id="hour">
+			<input type="hidden" name="hour" id="hour" <% if @appointment %> value="<% @appointment.hour %>" <% end %>>
 			<input type="hidden" name="date" value="<%= @date %>">
 			<input type="hidden" name="user_id" value="<%= @user.id %>">
-			<button type="submit">Book Appointment</button>
+			<div style="margin:40px 0 0 350px;"><button type="submit" class="btn btn-success"><i class="icon-calendar icon-white"></i> <%= @appointment ? 'Re-Schedule Appointment' : 'Book Appointment' %></button></div>
 		<% end %>
 	</div>
 </div>

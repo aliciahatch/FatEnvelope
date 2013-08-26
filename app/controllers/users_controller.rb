@@ -74,6 +74,7 @@ class UsersController < ApplicationController
   def dashboard
     #authorize! :student_actions, :all
     @user = current_user
+    @registration = Registration.where(:user_id => @user.id).order('created_at DESC').first
   end
   
   def bootcamp_welcome
@@ -82,11 +83,9 @@ class UsersController < ApplicationController
 
   def panam_login
 json_object=JSON.parse(open("https://panameducation.com/app/sso/token?api_login="+ENV['panam_api_login']+"&api_password="+ENV['panam_api_password']+"&email="+current_user.email).read)
-  puts "HOLA!!!!!!!!!!!!!!!"
   if json_object['result']
     puts json_object['result']['token']
   end
-  puts "END!!!!!!!!!!!!!!"
   end
   
 end

@@ -4,21 +4,28 @@ class AppointmentsController < ApplicationController
     if params[:user_id] and (params[:user_id] == current_user.id or current_user.has_role? :admin)
       @user = User.find(params[:user_id])
       if @user.has_role? :teacher or @user.has_role? :student
-        @date = Time.now.to_date
+        @date = params[:date] || (Time.now.to_date + 1.day)
+        @date = @date.to_date
         @appointment = nil
         if @user.has_role? :teacher
           render 'index_teacher'
+          return false
         else
           @registration = Registration.where(['bootcamp_date is not NULL']).where(:user_id => @user.id).order('bootcamp_date DESC').first
           if @registration and @date > Date.new(Time.now.year,Time.now.month,Time.now.day)
             @date = @registration.bootcamp_date
-            @appointment = Appointment.where(:date => @date,:student_id => @user.id).first
-            render 'index'
+            if @date > Date.new(Time.now.year,Time.now.month,Time.now.day)
+              @appointment = Appointment.where(:date => @date,:student_id => @user.id).first
+              render 'index'
+              return false
+            else
+              flash[:error] = "The student has not registered to a bootcamp in the future."
+            end
           else
             if @date <= Date.new(Time.now.year,Time.now.month,Time.now.day)
               flash[:error] = "The date must be after today."
             else
-              flash[:error] = "The student is not registered at that bootcamp."
+              flash[:error] = "The student is not registered at a bootcamp."
             end
           end
         end
@@ -110,7 +117,11 @@ class AppointmentsController < ApplicationController
     end
   end
   
-  
+  def all
+    @teachers = User.teachers
+    @date = params[:date] || (Time.now.to_date + 1.day)
+    @date = @date.to_date
+  end
   
   
   def index_OLD

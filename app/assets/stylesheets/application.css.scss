@@ -177,7 +177,7 @@ footer ul li a{
 
 .alert{position: absolute; top: 124px; width: 100%;}
 
-.top-padding{padding-top:130px;}
+.top-padding{padding-top:168px;}
 .hour {height:50px; margin:1px auto; padding:5px; border:solid 1px #333; clear:both; float:none; width:500px;}
 .hour h4{text-align:center;}
 .hours {margin:30px 0;}
@@ -185,7 +185,8 @@ footer ul li a{
 .hours a:hover{color:#111;}
 .hours .hour-actions {width:20%; float:left; padding: 13px 0 0 20px;}
 .hour .hour-actions a{margin: 0 10px 0 0; }
-.hour.available{background-color:#EEE;}
-.hour.unavailable{background-color:#BBB;}
-.hour.booked{background-color:#0A0;}
-.hour.selected{background-color:yellow;}
+
+.hour.available{background-color: #d9edf7; border: 1px solid #bce8f1; color: #3a87ad;}
+.hour.unavailable{background-color: #f2dede; border: 1px solid #eed3d7; color: #b94a48;}
+.hour.booked{background-color: #dff0d8; border: 1px solid #d6e9c6; color: #468847;}
+.hour.selected{background-color: #fcf8e3; border: 1px solid #fbeed5; color: #c09853;}

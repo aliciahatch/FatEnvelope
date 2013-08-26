@@ -1,6 +1,12 @@
 class Appointment < ActiveRecord::Base
   attr_accessible :date, :hour, :student_id, :description, :user_id
   
+  belongs_to :user, :class_name => "User", :foreign_key => "user_id"
+  belongs_to :student, :class_name => "User", :foreign_key => "student_id"
+  
+  validates :date, :hour, :description, :user_id, :presence => true
+  validates :date, :format => { :with => /\d\d\d\d-\d\d-\d\d/, :message => "invalid format, must match: YYYY-MM-DD" }
+  
   def self.availability(date, hour)
     teachers = User.teachers.count
     appointments = Appointment.where(:date => date, :hour => hour).count
