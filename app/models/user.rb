@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   validates :terms_of_service, :acceptance => true
   
   has_many :subscription
+  has_many :appointments
   has_and_belongs_to_many :schools
   
   def stripe_description
@@ -71,8 +72,17 @@ class User < ActiveRecord::Base
     return roles_text
   end
   
+  def self.teachers
+    role = Role.where(:name => 'teacher').first
+    return role.users
+  end
+  
   def required_by_scenario
     return self.validation_scenario != 'admin_or_teacher'
+  end
+  
+  def bootcamp_appointments(date)
+    appointments = Appointment.where(:date => date, :user_id => self.id, :description => 'session')
   end
   
 end
