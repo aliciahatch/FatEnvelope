@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
   
   def index
-    if params[:user_id] and (params[:user_id] == current_user.id or current_user.has_role? :admin)
+    if params[:user_id] and (params[:user_id].to_i == current_user.id or current_user.has_role? :admin)
       @user = User.find(params[:user_id])
       if @user.has_role? :teacher or @user.has_role? :student
         @date = params[:date] || (Time.now.to_date + 1.day)
