@@ -74,7 +74,11 @@ class User < ActiveRecord::Base
   
   def self.teachers
     role = Role.where(:name => 'teacher').first
-    return role.users
+    if role
+      return role.users
+    else
+      return []
+    end
   end
   
   def required_by_scenario
