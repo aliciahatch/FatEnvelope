@@ -1,6 +1,6 @@
 <div class="container top-padding">
 	<h1>Appointments</h1>
-	<h3>Schedule an appointment for the: <%= @date %></h3>
+	<h3>Schedule an appointment for the: <%= @date.strftime("%m/%d/%Y") %></h3>
 	<div class="select-date">
 		<label>Select another date: </label>
 		<input type="text" class='datepicker' id="date" onChange="change_date();">
@@ -11,7 +11,7 @@
 			<% availability = Appointment.teacher_availability(@user, @date, hour) %>
 			<div class="hour <% if availability == 'session' %>booked<% else %><%= availability ? availability : 'available' %><% end %>" data-hour="<%= hour %>">	
 				<div style="width:20%; float:left;">
-					<h4><%= hour %>:00</h4>
+					<h4><%= Appointment.am_pm_hour(hour) %></h4>
 				</div>
 				<div style="width:60%; float:left;">
 					<h4 class="name"><% if availability == 'session' %>Booked<% else %><%= availability ? availability.capitalize : 'Available' %><% end %></h4>

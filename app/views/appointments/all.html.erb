@@ -1,6 +1,6 @@
 <div class="container top-padding">
 	<h1>Appointments</h1>
-	<h3>Showing appointments for: <%= @date %></h3>
+	<h3>Showing appointments for: <%= @date.strftime("%m/%d/%Y") %></h3>
 	<div class="select-date">
 		<label>Select another date: </label>
 		<input type="text" class='datepicker' id="date" onChange="change_date();">
@@ -22,7 +22,7 @@
 						</tr>
 						<% appointments.each do |appointment| %>
 						<tr>
-							<th><%= appointment.hour %>:00</th>
+							<th><%= Appointment.am_pm_hour(appointment.hour) %></th>
 							<th><%= "#{appointment.student.first_name} #{appointment.student.last_name}" %></th>
 							<th><%= "#{appointment.student.email}" %></th>
 						</tr>

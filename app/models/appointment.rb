@@ -28,5 +28,13 @@ class Appointment < ActiveRecord::Base
     return nil
   end
   
+  def date_formatted
+    self.date.strftime("%m/%d/%Y")
+  end
+  
+  def self.am_pm_hour(hour)
+    hour <= 12 ? "#{hour}:00 am" : "#{hour - 12}:00 pm"
+  end
+  
   
 end
