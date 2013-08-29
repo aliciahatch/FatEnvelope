@@ -1,6 +1,6 @@
 <div class="container top-padding">
 	<h1>Appointments</h1>
-	<h3>Schedule an appointment for the: <%= @date %></h3>
+	<h3>Schedule an appointment for: <%= @date.strftime("%m/%d/%Y") %></h3>
 	<div class="row hours">
 		<% (6..21).each do |hour| %>
 			<% availability = Appointment.availability(@date, hour) ? 'available' : 'unavailable' %>
@@ -9,7 +9,7 @@
 			<% end %>
 			<div class="hour <% if @appointment and @appointment.hour == hour %>booked<% else %><%= availability %><% end %>" data-hour="<%= hour %>">	
 				<div style="width:20%; float:left;">
-					<h4><%= hour %>:00</h4>
+					<h4><%= Appointment.am_pm_hour(hour) %></h4>
 				</div>
 				<div style="width:80%; float:left;">
 					<h4><% if @appointment and @appointment.hour == hour %>Booked<% else %><%= availability.capitalize %><% end %></h4>

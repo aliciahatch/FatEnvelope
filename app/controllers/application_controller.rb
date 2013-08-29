@@ -10,10 +10,12 @@ class ApplicationController < ActionController::Base
   
   def after_sign_in_path_for(resource)
       if current_user.has_role? :student
-    			url_for(:controller => '/users', :action => 'bootcamp_welcome')
-    		else
     			url_for(:controller => '/users', :action => 'dashboard')
-    		end
+    	elsif current_user.has_role? :admin
+    	    url_for(:controller => '/users', :action => 'index')
+  	  else
+    			url_for(:controller => '/users', :action => 'dashboard')
+    	end
     end
  
   def instantiate_controller_and_action_names
