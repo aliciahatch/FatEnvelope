@@ -15,7 +15,7 @@
 					<div class="control-group">
 						<%= label_tag 'bootcamp_date', 'Bootcamp Date', :class => 'control-label' %>
 						<div class="controls">
-							<%= select_tag 'bootcamp_date', options_from_collection_for_select(@bootcamps, "date_formatted", "bootcamp_date"), :class => "span6" %>
+							<%= select_tag 'bootcamp_date', options_from_collection_for_select(@bootcamps, "bootcamp_date", "date_formatted"), :class => "span6" %>
 						</div>
 					</div>
 					<div class="control-group">
