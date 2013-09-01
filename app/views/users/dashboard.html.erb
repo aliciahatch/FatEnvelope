@@ -18,6 +18,9 @@
 			<h3>Schedule your first one-on-one Session with a Fat Envelope Writing Coach</h3>
 			<p>Set up your first coaching session and you’re on your way to getting YOUR fat envelope!</p>
 			<a class="btn btn-primary <% unless @registration and @registration.bootcamp_date and @registration.bootcamp_date > Date.new(Time.now.year,Time.now.month,Time.now.day) %> disabled<% end %>" <% if @registration and @registration.bootcamp_date and @registration.bootcamp_date > Date.new(Time.now.year,Time.now.month,Time.now.day) %> href="/users/<%= current_user.id %>/appointments" <% else %> disabled="disabled" <% end %>>Online Schedule</a>
+			<% if @registration %>
+				<p>(You are registered in the <%= @registration.bootcamp_date %> bootcamp)</p>
+			<% end %>
 		</div>
       </div>
   </div>
