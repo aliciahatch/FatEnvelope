@@ -37,7 +37,11 @@ class AppointmentsController < ApplicationController
       #raise error: students can only schedule appointment for themselves
       flash[:error] = "Students can only schedule appointment for themselves."
     end
-    redirect_to(:controller => 'users', :action => 'dashboard')
+    if current_user.has_role? :admin
+      redirect_to(:controller => 'users', :action => 'index')
+    else
+      redirect_to(:controller => 'users', :action => 'dashboard')
+    end
   end
   
   def book
