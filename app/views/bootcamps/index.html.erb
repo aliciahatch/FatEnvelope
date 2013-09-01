@@ -16,7 +16,7 @@
 
 	<% @bootcamps.each do |bootcamp| %>
 	<tr>
-		<td><%= bootcamp.bootcamp_date %></td>
+		<td><%= bootcamp.date_formatted %></td>
 		<td><%= link_to raw('<i class="icon-trash"></i>'), bootcamp, confirm: 'Are you sure?', method: :delete %></td>
 	</tr>
 	<% end %>
