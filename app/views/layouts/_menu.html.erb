@@ -21,8 +21,12 @@
         <%= link_to "About Us", about_path %>
       </li>   
       <% if user_signed_in? %>
-		  <li <% if @page_name == "about" %>class="active" <% end %>>
-	      	<%= link_to "Dashboard", '/users/dashboard' %>      
+		  <li <% if @page_name == "dashboard" %>class="active" <% end %>>
+			<% if current_user.has_role? :admin %>
+				<%= link_to "Dashboard", '/users' %> 
+			<% else %>
+	      		<%= link_to "Dashboard", '/users/dashboard' %>      
+			<% end %>
 	      </li>
 		  <li>
 	      	<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
