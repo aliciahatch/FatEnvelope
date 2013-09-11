@@ -1,8 +1,14 @@
 class RegistrationController < ApplicationController
   
   def new
-    if params[:program].blank? or (not ['1','2','3', '4'].include?(params[:program]))
-      redirect_to :back
+    #if params[:program].blank? or (not ['1','2','3', '4'].include?(params[:program]))
+    if params[:program].blank? or (not ['1', '4'].include?(params[:program]))
+      flash[:error] = 'Invalid Program Selected.'
+      if request.env["HTTP_REFERER"]
+        redirect_to :back
+      else
+        redirect_to(:controller => 'pages', :action => 'programcosts')
+      end
     else
       @program = params[:program]
       @program_price = Program.get_price(@program)
