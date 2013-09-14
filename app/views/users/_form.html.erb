@@ -34,22 +34,24 @@
 			<% end%>
 		</div>
 	</div>
-	<div class="control-group">
-		<%= f.label :date_of_birth, :class => "control-label" %>
-		<div class="controls">
-			<%= f.text_field :date_of_birth, :class => "span4" %>
+	<div class="required_if_student" <% if (@user.new_record? == false and @user.get_roles != 'student') or (@user.new_record? and (@user.role == 'teacher' or @user.role == 'admin')) %> style="display:none;" <% end %>>
+		<div class="control-group">
+			<%= f.label :date_of_birth, :class => "control-label" %>
+			<div class="controls">
+				<%= f.text_field :date_of_birth, :class => "span4" %>
+			</div>
 		</div>
-	</div>
-	<div class="control-group">
-		<%= f.label :current_school, :class => "control-label" %>
-		<div class="controls">
-			<%= f.text_field :current_school, :class => "span4" %>
+		<div class="control-group">
+			<%= f.label :current_school, :class => "control-label" %>
+			<div class="controls">
+				<%= f.text_field :current_school, :class => "span4" %>
+			</div>
 		</div>
-	</div>
-	<div class="control-group">
-		<%= f.label :current_grade, :class => "control-label" %>
-		<div class="controls">
-			<%= f.text_field :current_grade, :class => "span4" %>
+		<div class="control-group">
+			<%= f.label :current_grade, :class => "control-label" %>
+			<div class="controls">
+				<%= f.text_field :current_grade, :class => "span4" %>
+			</div>
 		</div>
 	</div>
 	<div class="control-group">
@@ -62,16 +64,17 @@
 		<div class="control-group">
 			<%= f.label :password, :class => "control-label" %>
 			<div class="controls">
-				<%= f.password_field :password, :class => "span6" %>
+				<%= f.password_field :password, :class => "span4" %>
 			</div>
 		</div>
 		<div class="control-group">
 			<%= f.label :password_confirmation, :class => "control-label" %>
 			<div class="controls">
-				<%= f.password_field :password_confirmation, :class => "span6" %>
+				<%= f.password_field :password_confirmation, :class => "span4" %>
 			</div>
 		</div>
 	<% end %>
+	
 	<div class="control-group">
 		<%= f.label :address, :class => "control-label" %>
 		<div class="controls">
@@ -116,47 +119,59 @@
 	</div>
 	
 	
-	
-	<br/><br/><b>Parent Information (If Student):</b><br/><br/>
-	<div class="control-group">
-		<%= f.label :parent_first_name, "First name", :class => "control-label" %>
-		<div class="controls">
-			<%= f.text_field :parent_first_name, :class => "span4" %>
+	<div class="required_if_student" <% if (@user.new_record? == false and @user.get_roles != 'student') or (@user.new_record? and (@user.role == 'teacher' or @user.role == 'admin')) %> style="display:none;" <% end %>>
+		<br/><br/><b>Parent Information (If Student):</b><br/><br/>
+		<div class="control-group">
+			<%= f.label :parent_first_name, "First name", :class => "control-label" %>
+			<div class="controls">
+				<%= f.text_field :parent_first_name, :class => "span4" %>
+			</div>
 		</div>
-	</div>
-	<div class="control-group">
-		<%= f.label :parent_last_name, "Last name", :class => "control-label" %>
-		<div class="controls">
-			<%= f.text_field :parent_last_name, :class => "span4" %>
+		<div class="control-group">
+			<%= f.label :parent_last_name, "Last name", :class => "control-label" %>
+			<div class="controls">
+				<%= f.text_field :parent_last_name, :class => "span4" %>
+			</div>
 		</div>
-	</div>
-	<div class="control-group">
-		<%= f.label :parent_cell_phone, "Cellphone", :class => "control-label" %>
-		<div class="controls">
-			<%= f.text_field :parent_cell_phone, :class => "span4" %>
+		<div class="control-group">
+			<%= f.label :parent_cell_phone, "Cellphone", :class => "control-label" %>
+			<div class="controls">
+				<%= f.text_field :parent_cell_phone, :class => "span4" %>
+			</div>
 		</div>
-	</div>
-	<div class="control-group">
-		<%= f.label :parent_email, "Email", :class => "control-label" %>
-		<div class="controls">
-			<%= f.text_field :parent_email, :class => "span4" %>
+		<div class="control-group">
+			<%= f.label :parent_email, "Email", :class => "control-label" %>
+			<div class="controls">
+				<%= f.text_field :parent_email, :class => "span4" %>
+			</div>
 		</div>
-	</div>
-	<div class="control-group">
-		<div class="controls">
-			<label class="checkbox">
-				<%= f.check_box :parent_email_notifications %> Click to receive email notifications
-			</label>
+		<div class="control-group">
+			<div class="controls">
+				<label class="checkbox">
+					<%= f.check_box :parent_email_notifications %> Click to receive email notifications
+				</label>
+			</div>
 		</div>
-	</div>
-	<div class="control-group">
-		<div class="controls">
-			<label class="checkbox">
-				<%= f.check_box :parent_text_notifications %> Click to receive text notifications
-			</label>
+		<div class="control-group">
+			<div class="controls">
+				<label class="checkbox">
+					<%= f.check_box :parent_text_notifications %> Click to receive text notifications
+				</label>
+			</div>
 		</div>
 	</div>
   <div class="actions">
     <%= f.submit :class => 'btn' %>
   </div>
 <% end %>
+<script>
+$(document).ready(function(){
+	$('#user_role').on('change', function(){
+		if($('#user_role option:selected').val() == 'admin' || $('#user_role option:selected').val() == 'teacher'){
+			$('.required_if_student').slideUp();
+		}else{
+			$('.required_if_student').slideDown();
+		}
+	});
+});
+</script>

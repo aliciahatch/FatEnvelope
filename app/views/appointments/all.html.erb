@@ -1,0 +1,50 @@
+<div class="container top-padding">
+	<div class="pull-right">
+		<a href="/users" class="btn">Users</a>
+		<a href="/appointments/all" class="btn disabled">Appointments</a>
+		<a href="/bootcamps" class="btn">Bootcamps</a>
+	</div>
+	<h1>Appointments</h1>
+	<h4>Showing appointments for: <%= @date.strftime("%m/%d/%Y") %></h4>
+	<style>
+		#date {height:30px; margin-top:10px;}
+	</style>
+	<div class="select-date">
+		<input type="text" class='datepicker span2' id="date" onChange="change_date();" placeholder="Select another date">
+		<a id="date_button" class="btn">Change Date</a>
+	</div>
+	<div class="row" style="margin-top:30px;">
+		<div class="span12 well">
+			<% info = false %>
+			<% @teachers.each do |teacher| %>
+				<% appointments = teacher.bootcamp_appointments(@date) %>
+				<% if appointments.count > 0 %>
+					<% info = true %>
+					<h3><%= "#{teacher.first_name} #{teacher.first_name} (#{teacher.email})" %></h3>
+					<table class="table table-striped table-bordered table-condensed">
+						<tr>
+							<th>Hour</th>
+							<th>Student Name</th>
+							<th>Student Email</th>
+						</tr>
+						<% appointments.each do |appointment| %>
+						<tr>
+							<th><%= Appointment.am_pm_hour(appointment.hour) %></th>
+							<th><%= "#{appointment.student.first_name} #{appointment.student.last_name}" %></th>
+							<th><%= "#{appointment.student.email}" %></th>
+						</tr>
+						<% end %>
+					</table>
+				<% end %>
+			<% end %>
+			<% unless info %>
+				<p>There are no appointments to show.</p>
+			<% end %>
+		</div>
+	</div>
+</div>
+<script>
+function change_date(){
+	$('#date_button').attr('href','/appointments/all?date='+$('#date').val());
+}
+</script>

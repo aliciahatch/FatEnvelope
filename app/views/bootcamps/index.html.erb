@@ -1,4 +1,9 @@
 <div class="container top-padding">
+	<div class="pull-right">
+		<a href="/users" class="btn">Users</a>
+		<a href="/appointments/all" class="btn">Appointments</a>
+		<a href="/bootcamps" class="btn disabled">Bootcamps</a>
+	</div>
 <h1>Bootcamps</h1>
 
 <br />
@@ -7,14 +12,12 @@
 	<tr>
 		<th>Bootcamp date</th>
 		<th></th>
-		<th></th>
 	</tr>
 
 	<% @bootcamps.each do |bootcamp| %>
 	<tr>
-		<td><%= bootcamp.bootcamp_date %></td>
-		<td><%= link_to 'Edit', edit_bootcamp_path(bootcamp) %></td>
-		<td><%= link_to 'Destroy', bootcamp, confirm: 'Are you sure?', method: :delete %></td>
+		<td><%= bootcamp.date_formatted %></td>
+		<td><%= link_to raw('<i class="icon-trash"></i>'), bootcamp, confirm: 'Are you sure?', method: :delete %></td>
 	</tr>
 	<% end %>
 </table>

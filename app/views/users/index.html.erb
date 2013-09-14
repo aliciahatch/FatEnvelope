@@ -1,5 +1,10 @@
 <div class="container top-padding">
-<h1>Administrate Users</h1>
+<div class="pull-right">
+	<a href="/users" class="btn disabled">Users</a>
+	<a href="/appointments/all" class="btn">Appointments</a>
+	<a href="/bootcamps" class="btn">Bootcamps</a>
+</div>
+<h1>Users</h1>
 
 <br />
 <br />
@@ -10,6 +15,7 @@
     <th><center>Email</center></th>
     <th><center>City</center></th>
     <th><center>Role(s)</center></th>
+	<th></th>
     <th></th>
     <th></th>
     <th></th>
@@ -23,6 +29,7 @@
     <td><%= user.city %></td>
     <td><center><%= user.get_roles %></center></td>
     <td><center><%= link_to raw('<i class="icon-eye-open"></i>'), user %></center></td>
+<td><center><%= (user.has_role? :student or user.has_role? :teacher) ? (link_to(raw('<i class="icon-calendar"></i>'), "/users/#{user.id}/appointments")) : '' %></center></td>
     <td><center><%= link_to raw('<i class="icon-pencil"></i>'), edit_user_path(user) %></center></td>
     <td><center><%= link_to raw('<i class="icon-trash"></i>'), user, :confirm => 'Are you sure?', :method => :delete %></center></td>
   </tr>
