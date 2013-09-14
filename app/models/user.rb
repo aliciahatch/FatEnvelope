@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   rolify
   
+  EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+  
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :stripetoken, :last4, :num_of_tokens, :name, :firstvisit, :school
 	
@@ -19,6 +21,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :presence => true
   validates :date_of_birth, :current_school, :current_grade, :address, :city, :state, :zip_code, :country, :telephone, :cellphone, :parent_first_name, :parent_last_name, :parent_phone, :parent_cell_phone, :parent_email, :presence => true, :if => :required_by_scenario 
   validates :current_grade, :numericality => true, :allow_blank => true
+  validates :parent_email, :format => {:with => EMAIL_REGEX}, :allow_blank => true
   validates :zip_code, :numericality => { :only_integer => true }, :allow_blank => true
   validates :date_of_birth, :format => { :with => /\d\d\d\d-\d\d-\d\d/, :message => "invalid format, must match: YYYY-MM-DD" }, :allow_blank => true
   validates :terms_of_service, :acceptance => true
