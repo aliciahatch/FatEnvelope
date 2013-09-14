@@ -11,13 +11,13 @@ class User < ActiveRecord::Base
 	
   #attr_accessor :year_in_school, :program, :status, :school
   #attr_accessible :year_in_school, :program, :status, :school
-  attr_accessible :first_name, :last_name, :date_of_birth, :current_school, :current_grade, :parent_first_name, :parent_last_name, :parent_cell_phone, :parent_email, :parent_email_notifications, :parent_text_notifications, :address, :city, :state, :zip_code, :country, :country_code, :telephone
+  attr_accessible :first_name, :last_name, :date_of_birth, :current_school, :current_grade, :cellphone, :parent_first_name, :parent_last_name, :parent_phone, :parent_cell_phone, :parent_email, :parent_email_notifications, :parent_text_notifications, :address, :city, :state, :zip_code, :country, :country_code, :telephone
   
   attr_accessor :terms_of_service, :validation_scenario, :role
   attr_accessible :terms_of_service, :role
   
   validates :first_name, :last_name, :presence => true
-  validates :date_of_birth, :current_school, :current_grade, :address, :city, :state, :zip_code, :country, :country_code, :telephone, :presence => true, :if => :required_by_scenario 
+  validates :date_of_birth, :current_school, :current_grade, :address, :city, :state, :zip_code, :country, :telephone, :cellphone, :parent_first_name, :parent_last_name, :parent_phone, :parent_cell_phone, :parent_email, :presence => true, :if => :required_by_scenario 
   validates :current_grade, :numericality => true, :allow_blank => true
   validates :zip_code, :numericality => { :only_integer => true }, :allow_blank => true
   validates :date_of_birth, :format => { :with => /\d\d\d\d-\d\d-\d\d/, :message => "invalid format, must match: YYYY-MM-DD" }, :allow_blank => true
