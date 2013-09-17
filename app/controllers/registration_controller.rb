@@ -66,6 +66,7 @@ class RegistrationController < ApplicationController
             @registration = Registration.create(:program => Program.get_description(params[:program]), :price => price, :user_id => @user.id)
           else
             @registration = Registration.create(:program => Program.get_description(params[:program]), :price => price, :user_id => @user.id, :bootcamp_date => params[:bootcamp_date])
+            UserMailer.registration_email_student(@user, @registration).deliver
           end
           UserMailer.registration_email(@user, @registration).deliver
           format.json  {render :json => { :status => 'success'}.to_json}
