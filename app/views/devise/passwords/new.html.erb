@@ -5,12 +5,12 @@
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %>
+  <div><%= f.label :email, "Enter your email address and we'll send you and email with instructions for resetting your password." %>
   <%= f.email_field :email %></div>
 
-  <div><%= f.submit "Send me reset password instructions",:class => "btn btn-large btn-primary" %></div>
+  <div><%= f.submit "Reset password",:class => "btn btn-primary" %></div>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+<%# render :partial => "devise/shared/links" %>
 </div>
 </div>
