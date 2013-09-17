@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
   def registration_email(user, registration)
     @user = user
     @registration = registration
-    mail(:to => @user.email, :subject => "Thank you for registering with Fat Envelope Essays!");
+    mail(:to => @user.parent_email, :subject => "Thank you for registering with Fat Envelope Essays!");
   end
   
   def registration_email_student(user, registration)
