@@ -11,6 +11,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   get "pages/essay-system", :to => "pages#essaysystem", :as => "essaysystem"
   get "pages/success-stories", :to => "pages#successstories", :as => "successstories"
   get "pages/program-costs", :to => "pages#programcosts", :as => "programcosts"
+  get "pages/private-tutoring", :to => "pages#tutoring"
   get "pages/faq", :to => "pages#faq", :as => "faq"
   get "pages/about", :to => "pages#about", :as => "about"
   get "pages/bootcamp", :to => "pages#bootcamp", :as => "advisors"

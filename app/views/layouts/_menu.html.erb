@@ -6,16 +6,16 @@
         <%= link_to "Home", '/' %>
       </li>
       <li <% if @page_name == "essay-system" %>class="active" <% end %>>
-        <%= link_to "Essay System", essaysystem_path %>
+        <%= link_to "Overview", essaysystem_path %>
+      </li>
+	  <li <% if @page_name == "private-tutoring" %>class="active" <% end %>>
+        <%= link_to "Private Tutoring", '/pages/private-tutoring' %>
       </li>
       <li <% if @page_name == "programs" %>class="active" <% end %>>
-        <%= link_to "Programs & Pricing", programcosts_path %>
+        <%= link_to "Programs", programcosts_path %>
       </li>
       <li <% if @page_name == "bootcamp" %>class="active" <% end %>>
-        <%= link_to "Bootcamp", advisors_path %>
-      </li>
-      <li <% if @page_name == "faq" %>class="active" <% end %>>
-      <%= link_to 'FAQ', faq_path %>
+        <%= link_to "Bootcamps", advisors_path %>
       </li>
       <li <% if @page_name == "about" %>class="active" <% end %>>
         <%= link_to "About Us", about_path %>
