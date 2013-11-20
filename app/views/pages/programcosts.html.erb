@@ -11,7 +11,7 @@
 		  </div>
           <div class="span4" style="margin-left:0px;">
             <h2>DETERMINE YOUR COMPETITIVE ESSAY HOOK:</h2>
-            <p class="price">$350</p>
+            <p class="price">$199</p>
             
             <p>Includes: </p>
             <p>Determine Your Competitive Essay Hook Program, including student and parent questionnaires</p>
@@ -47,9 +47,11 @@
             
             <p>Fat Envelope writing software: one year unlimited access provides instant detailed critique of any essay.</p>  
 
-        		<%# link_to "Register", { :controller => "registration", :action => "new", :program => 2 }, :class => "btn disabled" %>
+        		<%= link_to "Register", { :controller => "registration", :action => "new", :program => 2 }, :class => "btn" %>
+				<% if false %>
 				<a class="btn disabled">Register</a>
 				<p style="color:#C00;">Sorry, these classes are currently full. We will be adding more classes soon, so please check back.</p>
+				<% end %>
       		</div>
      
         <div class="span4">
@@ -62,9 +64,11 @@
           <p>Fat Envelope Interview Preparation Questions and Interview Training:</p>
           <p>60 min one-on-one interview training session with a Fat Envelope Power Interview coach to practice your interview skills.</p>
   
-		      <%# link_to "Register", { :controller => "registration", :action => "new", :program => 3 }, :class => "btn disabled" %>
+		      <%= link_to "Register", { :controller => "registration", :action => "new", :program => 3 }, :class => "btn" %>
+			  <% if false %>
 			  <a class="btn disabled">Register</a>
 			  <p style="color:#C00;">Sorry, these classes are currently full. We will be adding more classes soon, so please check back.</p>
+			  <% end %>
 	      </div>
       </div>
     </div>

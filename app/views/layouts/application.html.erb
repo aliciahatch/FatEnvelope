@@ -115,11 +115,11 @@
 		      </nav>
 		</div>	
 	<% end %>
-    <div id="main" role="main">
+    <div id="main" role="main" style="min-height:100%;">
       
       
       <% if @current_controller != "marketing" %>
-      	<div class="page_container<% if @page_name == "login" %> login_background<% end %>">
+      	<div class="page_container<% if @page_name == "login" %> login_background<% end %>" style="min-height:100%;">
       <%end%>       
 
               <%= render 'layouts/messages' %>
