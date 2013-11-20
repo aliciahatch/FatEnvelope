@@ -32,7 +32,7 @@ class Program < ActiveRecord::Base
     case program
     when '1'
       # DETERMINE YOUR COMPETITIVE ESSAY
-      @program_price = 350.00
+      @program_price = 199.00
     when '2'
       # COMPLETE ESSAY PACKAGE
       @program_price = 850.00
