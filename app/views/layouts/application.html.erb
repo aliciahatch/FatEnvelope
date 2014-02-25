@@ -60,7 +60,7 @@
       </div>                                    
     </div>
 
-    <header class="navbar">	
+    <header class="navbar" style="margin-bottom:0px;">	
       <div class="background-text">
         <div class="say-hello" style="top:150px;">
           <%= image_tag 'say-hello.png' %>
@@ -115,7 +115,7 @@
 		      </nav>
 		</div>	
 	<% end %>
-    <div id="main" role="main" style="min-height:100%;">
+    <div id="main" role="main" <% if @current_controller != "marketing" %>style="min-height:100%;"<% end %>>
       
       
       <% if @current_controller != "marketing" %>
