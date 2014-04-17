@@ -1,0 +1,5 @@
+/*
+Copyright (c) 2003-2012, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.html or http://ckeditor.com/license
+*/
+CKEDITOR.skins.add("office2003",function(){return{editor:{css:["editor.css"]},dialog:{css:["dialog.css"]},separator:{canGroup:!1},templates:{css:["templates.css"]},margins:[0,14,18,14]}}()),function(){function i(){CKEDITOR.dialog.on("resize",function(i){var e=i.data,t=e.width,s=e.height,d=e.dialog,a=d.parts.contents;if("office2003"==e.skin&&(a.setStyles({width:t+"px",height:s+"px"}),CKEDITOR.env.ie&&!CKEDITOR.env.ie9Compat)){var o=function(){var i=d.parts.dialog.getChild([0,0,0]),e=i.getChild(0),t=e.getSize("width");s+=e.getChild(0).getSize("height")+1;var a=i.getChild(2);a.setSize("width",t),a=i.getChild(7),a.setSize("width",t-28),a=i.getChild(4),a.setSize("height",s),a=i.getChild(5),a.setSize("height",s)};setTimeout(o,100),"rtl"==i.editor.lang.dir&&setTimeout(o,1e3)}})}CKEDITOR.dialog?i():CKEDITOR.on("dialogPluginReady",i)}();

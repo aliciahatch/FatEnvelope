@@ -1,0 +1,5 @@
+/*
+Copyright (c) 2003-2012, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.html or http://ckeditor.com/license
+*/
+!function(){CKEDITOR.dialog.add("pastetext",function(t){return{title:t.lang.pasteText.title,minWidth:CKEDITOR.env.ie&&CKEDITOR.env.quirks?368:350,minHeight:240,onShow:function(){this.setupContent()},onOk:function(){this.commitContent()},contents:[{label:t.lang.common.generalTab,id:"general",elements:[{type:"html",id:"pasteMsg",html:'<div style="white-space:normal;width:340px;">'+t.lang.clipboard.pasteMsg+"</div>"},{type:"textarea",id:"content",className:"cke_pastetext",onLoad:function(){var e=this.getDialog().getContentElement("general","pasteMsg").getElement(),n=this.getElement().getElementsByTag("textarea").getItem(0);n.setAttribute("aria-labelledby",e.$.id),n.setStyle("direction",t.config.contentsLangDirection)},focus:function(){this.getElement().focus()},setup:function(){this.setValue("")},commit:function(){var e=this.getValue();setTimeout(function(){t.fire("paste",{text:e})},0)}}]}]}})}();
